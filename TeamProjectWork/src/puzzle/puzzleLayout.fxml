@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="puzzle.puzzleController">
+   <children>
+      <ImageView fitHeight="630.0" fitWidth="630.0" layoutX="57.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@퍼즐액자.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="hintBtn" layoutX="933.0" layoutY="49.0" mnemonicParsing="false" onAction="#hintLook" prefHeight="37.0" prefWidth="175.0" text="힌트보기" />
+      <Button fx:id="a25" layoutX="1115.0" layoutY="626.0" mnemonicParsing="false" onAction="#puzzlePiece25" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_24.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a13" layoutX="911.0" layoutY="429.0" mnemonicParsing="false" onAction="#puzzlePiece13" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_12.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a08" layoutX="921.0" layoutY="327.0" mnemonicParsing="false" onAction="#puzzlePiece8" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_07.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a05" layoutX="1115.0" layoutY="216.0" mnemonicParsing="false" onAction="#puzzlePiece5" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_03.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a16" layoutX="715.0" layoutY="527.0" mnemonicParsing="false" onAction="#puzzlePiece16" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_15.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a15" layoutX="1115.0" layoutY="427.0" mnemonicParsing="false" onAction="#puzzlePiece15" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_14.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a11" layoutX="708.0" layoutY="406.0" mnemonicParsing="false" onAction="#puzzlePiece11" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_10.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a04" layoutX="1021.0" layoutY="216.0" mnemonicParsing="false" onAction="#puzzlePiece4" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_03.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a06" layoutX="699.0" layoutY="327.0" mnemonicParsing="false" onAction="#puzzlePiece6" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_05.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a20" layoutX="1115.0" layoutY="527.0" mnemonicParsing="false" onAction="#puzzlePiece20" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_19.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a17" layoutX="818.0" layoutY="527.0" mnemonicParsing="false" onAction="#puzzlePiece17" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_16.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a07" layoutX="826.0" layoutY="327.0" mnemonicParsing="false" onAction="#puzzlePiece7" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_06.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a14" layoutX="1014.0" layoutY="426.0" mnemonicParsing="false" onAction="#puzzlePiece14" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_13.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a03" layoutX="911.0" layoutY="216.0" mnemonicParsing="false" onAction="#puzzlePiece3" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_02.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a23" layoutX="933.0" layoutY="626.0" mnemonicParsing="false" onAction="#puzzlePiece23" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_22.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a19" layoutX="1014.0" layoutY="527.0" mnemonicParsing="false" onAction="#puzzlePiece19" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_18.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a18" layoutX="921.0" layoutY="527.0" mnemonicParsing="false" onAction="#puzzlePiece18" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_17.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a24" layoutX="1021.0" layoutY="626.0" mnemonicParsing="false" onAction="#puzzlePiece24" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_23.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a21" layoutX="715.0" layoutY="638.0" mnemonicParsing="false" onAction="#puzzlePiece21" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_20.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a02" layoutX="818.0" layoutY="216.0" mnemonicParsing="false" onAction="#puzzlePiece2" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_01.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a12" layoutX="818.0" layoutY="429.0" mnemonicParsing="false" onAction="#puzzlePiece12" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_11.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a01" layoutX="699.0" layoutY="204.0" mnemonicParsing="false" onAction="#puzzlePiece1" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a22" layoutX="818.0" layoutY="638.0" mnemonicParsing="false" onAction="#puzzlePiece22" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_21.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a09" layoutX="1014.0" layoutY="315.0" mnemonicParsing="false" onAction="#puzzlePiece9" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_08.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <Button fx:id="a10" layoutX="1115.0" layoutY="321.0" mnemonicParsing="false" onAction="#puzzlePiece10" prefHeight="85.0" prefWidth="85.0" style="-fx-background-image: url('/puzzle/KakaoTalk_20211024_160134275_09.jpg'); -fx-background-position: center; -fx-background-size: cover;" />
+      <ImageView fx:id="b25" fitHeight="113.0" fitWidth="113.0" layoutX="542.0" layoutY="641.0" onMouseClicked="#addPuzzle25" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b24" fitHeight="113.0" fitWidth="113.0" layoutX="429.0" layoutY="641.0" onMouseClicked="#addPuzzle24" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b23" fitHeight="113.0" fitWidth="113.0" layoutX="316.0" layoutY="641.0" onMouseClicked="#addPuzzle23" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b22" fitHeight="113.0" fitWidth="113.0" layoutX="204.0" layoutY="641.0" onMouseClicked="#addPuzzle22" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b21" fitHeight="113.0" fitWidth="113.0" layoutX="91.0" layoutY="641.0" onMouseClicked="#addPuzzle21" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b20" fitHeight="113.0" fitWidth="113.0" layoutX="542.0" layoutY="528.0" onMouseClicked="#addPuzzle20" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b19" fitHeight="113.0" fitWidth="113.0" layoutX="429.0" layoutY="528.0" onMouseClicked="#addPuzzle19" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b18" fitHeight="113.0" fitWidth="113.0" layoutX="316.0" layoutY="528.0" onMouseClicked="#addPuzzle18" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b17" fitHeight="113.0" fitWidth="113.0" layoutX="204.0" layoutY="528.0" onMouseClicked="#addPuzzle17" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b16" fitHeight="113.0" fitWidth="113.0" layoutX="91.0" layoutY="528.0" onMouseClicked="#addPuzzle16" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b15" fitHeight="113.0" fitWidth="113.0" layoutX="542.0" layoutY="415.0" onMouseClicked="#addPuzzle15" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b14" fitHeight="113.0" fitWidth="113.0" layoutX="429.0" layoutY="415.0" onMouseClicked="#addPuzzle14" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b13" fitHeight="113.0" fitWidth="113.0" layoutX="316.0" layoutY="415.0" onMouseClicked="#addPuzzle13" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b12" fitHeight="113.0" fitWidth="113.0" layoutX="204.0" layoutY="415.0" onMouseClicked="#addPuzzle12" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b09" fitHeight="113.0" fitWidth="113.0" layoutX="429.0" layoutY="301.0" onMouseClicked="#addPuzzle9" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b08" fitHeight="113.0" fitWidth="113.0" layoutX="316.0" layoutY="301.0" onMouseClicked="#addPuzzle8" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b07" fitHeight="113.0" fitWidth="113.0" layoutX="204.0" layoutY="301.0" onMouseClicked="#addPuzzle7" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b06" fitHeight="113.0" fitWidth="113.0" layoutX="91.0" layoutY="301.0" onMouseClicked="#addPuzzle6" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b05" fitHeight="113.0" fitWidth="113.0" layoutX="542.0" layoutY="190.0" onMouseClicked="#addPuzzle5" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b04" fitHeight="113.0" fitWidth="113.0" layoutX="429.0" layoutY="190.0" onMouseClicked="#addPuzzle4" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b03" fitHeight="113.0" fitWidth="113.0" layoutX="316.0" layoutY="190.0" onMouseClicked="#addPuzzle3" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b02" fitHeight="113.0" fitWidth="113.0" layoutX="204.0" layoutY="190.0" onMouseClicked="#addPuzzle2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b01" fitHeight="113.0" fitWidth="113.0" layoutX="91.0" layoutY="190.0" onMouseClicked="#addPuzzle1" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b10" fitHeight="113.0" fitWidth="113.0" layoutX="542.0" layoutY="301.0" onMouseClicked="#addPuzzle10" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="b11" fitHeight="113.0" fitWidth="113.0" layoutX="91.0" layoutY="415.0" onMouseClicked="#addPuzzle11" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
