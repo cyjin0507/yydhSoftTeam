@@ -20,6 +20,7 @@ public class Main extends Application {
 
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			//--테스트
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
