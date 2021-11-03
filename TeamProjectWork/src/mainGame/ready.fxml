@@ -35,7 +35,7 @@
             <Font size="49.0" />
          </font>
       </Button>
-      <Button fx:id="player1Btn" layoutX="1004.0" layoutY="150.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="111.0" text="준비" visible="false">
+      <Button fx:id="player1Btn" layoutX="1004.0" layoutY="150.0" mnemonicParsing="false" onAction="#ready1" prefHeight="39.0" prefWidth="111.0" text="준비" visible="false">
          <font>
             <Font size="20.0" />
          </font>
