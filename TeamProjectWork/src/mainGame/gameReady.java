@@ -79,6 +79,7 @@ public class gameReady implements Initializable {
 		}
 	}
 
+	//유저1 준비버튼
 	public void ready1() throws UnknownHostException {
 		String role = user1.getSelectionModel().getSelectedItem();
 		if (user1.getSelectionModel().getSelectedItem().equals("탈출자1")) {
@@ -112,7 +113,7 @@ public class gameReady implements Initializable {
 		}
 	}
 	
-	
+    //유저2 준비버튼
 	public void ready2() throws UnknownHostException {
 		String role = user1.getSelectionModel().getSelectedItem();
 		if (user1.getSelectionModel().getSelectedItem().equals("탈출자1")) {
