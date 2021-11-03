@@ -169,17 +169,15 @@ public class gameRequest implements Initializable {
 
 		java.sql.PreparedStatement pstmt = null;
 
-		String sql = "insert into game_ready values(?,?,?,?,?,?,?)";
+		String sql = "insert into game_ready values(?,?,?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, serialNum());
 			pstmt.setString(2, who());
 			pstmt.setString(3, whatUser(serial));
-			pstmt.setString(4, ip);
-			pstmt.setInt(5, 1234);
-			pstmt.setString(6, time());
-			pstmt.setString(7, "waitting");
+			pstmt.setString(4, time());
+			pstmt.setString(5, "waitting");
 
 			pstmt.executeUpdate();
 		} catch (Exception e) {
@@ -404,5 +402,10 @@ public class gameRequest implements Initializable {
 		String serial = serialStr + String.valueOf(serialNum);
 		return serial;
 	}
+	
+	
+	
+	// 게임 준비 화면에 초대코드 보내주기
+	
 
 }
