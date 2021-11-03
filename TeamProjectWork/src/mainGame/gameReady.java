@@ -111,6 +111,41 @@ public class gameReady implements Initializable {
 			}
 		}
 	}
+	
+	
+	public void ready2() throws UnknownHostException {
+		String role = user1.getSelectionModel().getSelectedItem();
+		if (user1.getSelectionModel().getSelectedItem().equals("탈출자1")) {
+			JDBCUtil db = new JDBCUtil();
+			Connection con = db.getConnection();
+			PreparedStatement pstmt = null;
+
+			String sql = "UPDATE `game_info` SET `escape1`=  '" + who() + "' WHERE `user2` = '" + who() + "'";
+
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (user1.getSelectionModel().getSelectedItem().equals("탈출자2")) {
+			JDBCUtil db = new JDBCUtil();
+			Connection con = db.getConnection();
+			PreparedStatement pstmt = null;
+
+			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "' WHERE `user2` = '" + who() + "'";
+
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
 
 	// 일련번호 생성
 	public String serialNum() {
