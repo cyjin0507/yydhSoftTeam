@@ -343,14 +343,13 @@ public class gameRequest implements Initializable {
 		Connection con = db.getConnection();
 		PreparedStatement pstmt = null;
 
-		String sql = "UPDATE `game_ready` SET `state`=  'accept' WHERE `id` = '" + id + "'";
+		String sql = "DELETE FROM game_ready WHERE id = '" + id + "'";
 
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();
-
 		} catch (Exception e) {
-			e.printStackTrace();
+			// TODO: handle exception
 		}
 		
 		
@@ -363,6 +362,14 @@ public class gameRequest implements Initializable {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		try {
+			user2Info();
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 
 	}
 	
@@ -406,6 +413,58 @@ public class gameRequest implements Initializable {
 	
 	
 	// 게임 준비 화면에 초대코드 보내주기
+	public String code() {
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
+
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from game_ready";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String sendUser = rs.getString("sendUser");
+				String code = rs.getString("id");
+				if(sendUser.equals(who())) {
+					return code;
+				}
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	}
+	
+	//수락버튼 눌렀을때 데베 집어넣기
+	public void user2Info() throws UnknownHostException {
+		
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
+
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		
+		int idx = subList.getSelectionModel().getSelectedIndex();
+
+		if (idx >= 0) {
+			String id = detailList2.get(idx).substring(detailList2.get(idx).length() - 7, detailList2.get(idx).length() - 1);
+
+			String sql = "UPDATE `game_info` SET `user2`=  '" + who() + "' WHERE `game_room` = '" + id + "'";
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.executeUpdate();
+	
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+		
+
+	}
 	
 
 }
