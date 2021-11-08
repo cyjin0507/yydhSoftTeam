@@ -173,7 +173,7 @@ public class gameReady extends gameRequest implements Initializable {
 		}
 	}
 
-	// 역할 충돌 방지  (미완서
+	// 역할 충돌 방지 (미완성)
 	public Boolean crushPre(String choiceRole) throws UnknownHostException {
 		JDBCUtil db = new JDBCUtil();
 		java.sql.Connection con = db.getConnection();
@@ -203,7 +203,7 @@ public class gameReady extends gameRequest implements Initializable {
 			// TODO: handle exception
 		}
 
-		return false;
+		return true;
 
 	}
 
