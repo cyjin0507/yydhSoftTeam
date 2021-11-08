@@ -35,7 +35,7 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="303.0" layoutY="527.0" text="NINK NAME">
+      <Label layoutX="303.0" layoutY="527.0" text="NICK NAME">
          <font>
             <Font size="21.0" />
          </font>
