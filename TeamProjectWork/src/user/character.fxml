@@ -4,11 +4,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="user.characterSet">
    <children>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="473.0" layoutY="331.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="63.0" text="선택" />
-      <Button layoutX="374.0" layoutY="331.0" mnemonicParsing="false" text="전으로" />
-      <Button layoutX="580.0" layoutY="331.0" mnemonicParsing="false" text="다음으로" />
+      <ImageView fx:id="character" fitHeight="150.0" fitWidth="200.0" layoutX="400.0" layoutY="150.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="choice" layoutX="473.0" layoutY="331.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="63.0" text="선택" />
+      <Button fx:id="before" layoutX="374.0" layoutY="331.0" mnemonicParsing="false" text="전으로" />
+      <Button fx:id="next" layoutX="580.0" layoutY="331.0" mnemonicParsing="false" text="다음으로" />
    </children>
 </AnchorPane>
