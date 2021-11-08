@@ -54,8 +54,6 @@ public class Main extends Application {
 				}
 			});
 			
-			//dfsldkjflskj
-			
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
