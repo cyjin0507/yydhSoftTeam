@@ -112,7 +112,6 @@ public class userController {
 			java.sql.PreparedStatement pstmt = null;
 
 			String sql = "insert into users values(?,?,?,?,?,?,?)";
-
 			try {
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, joinId.getText());
