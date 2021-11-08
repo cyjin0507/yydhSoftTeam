@@ -1,6 +1,5 @@
 package user;
 
-import java.awt.Button;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -13,6 +12,7 @@ import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import util.JDBCUtil;

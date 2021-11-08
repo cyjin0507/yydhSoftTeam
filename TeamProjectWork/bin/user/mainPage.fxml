@@ -13,27 +13,32 @@
             <Image url="@../userImage/house.png" />
          </image>
       </ImageView>
-      <Button fx:id="gameStart" layoutX="862.0" layoutY="392.0" mnemonicParsing="false" onAction="#gameStart" prefHeight="40.0" prefWidth="280.0" style="-fx-opacity: 0.5;" text="게임 하기">
+      <Button fx:id="gameStart" layoutX="862.0" layoutY="351.0" mnemonicParsing="false" onAction="#gameStart" prefHeight="40.0" prefWidth="280.0" style="-fx-opacity: 0.5;" text="게임 하기">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="862.0" layoutY="671.0" mnemonicParsing="false" onAction="#logout" prefHeight="0.0" prefWidth="280.0" text="로그아웃" style="-fx-opacity: 0.5;">
+      <Button layoutX="862.0" layoutY="671.0" mnemonicParsing="false" onAction="#logout" prefHeight="0.0" prefWidth="280.0" style="-fx-opacity: 0.5;" text="로그아웃">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="862.0" layoutY="450.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="280.0" text="게임 방법" style="-fx-opacity: 0.5;">
+      <Button layoutX="862.0" layoutY="408.0" mnemonicParsing="false" prefHeight="8.0" prefWidth="280.0" style="-fx-opacity: 0.5;" text="게임 방법">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="862.0" layoutY="508.0" mnemonicParsing="false" onAction="#friend" prefHeight="13.0" prefWidth="280.0" text="친구 관리" style="-fx-opacity: 0.5;">
+      <Button layoutX="862.0" layoutY="464.0" mnemonicParsing="false" onAction="#friend" prefHeight="13.0" prefWidth="280.0" style="-fx-opacity: 0.5;" text="친구 관리">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="862.0" layoutY="611.0" mnemonicParsing="false" onAction="#myInfo" prefHeight="14.0" prefWidth="280.0" text="내 정보" style="-fx-opacity: 0.5;">
+      <Button layoutX="862.0" layoutY="611.0" mnemonicParsing="false" onAction="#myInfo" prefHeight="14.0" prefWidth="280.0" style="-fx-opacity: 0.5;" text="내 정보">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="862.0" layoutY="521.0" mnemonicParsing="false" onAction="#character" prefHeight="40.0" prefWidth="280.0" style="-fx-opacity: 0.5;" text="캐릭터 선택">
          <font>
             <Font size="26.0" />
          </font>

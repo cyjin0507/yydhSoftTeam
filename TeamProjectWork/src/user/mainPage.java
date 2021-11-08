@@ -42,12 +42,18 @@ public class mainPage {
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 		primaryStage.setScene(scene);
 	}
+	public void character() throws IOException {
+		Parent par = FXMLLoader.load(getClass().getResource("/user/character.fxml"));
+		Scene scene = new Scene(par);
+		Stage primaryStage = (Stage) gameStart.getScene().getWindow();
+		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+		primaryStage.setScene(scene);
+	}
 
 	public void logout() throws IOException {
 		try {
 			transOffLine();
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
