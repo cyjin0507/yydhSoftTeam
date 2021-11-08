@@ -111,7 +111,7 @@ public class userController {
 
 			java.sql.PreparedStatement pstmt = null;
 
-			String sql = "insert into users values(?,?,?,?,?,?)";
+			String sql = "insert into users values(?,?,?,?,?,?,?)";
 
 			try {
 				pstmt = con.prepareStatement(sql);
@@ -119,8 +119,9 @@ public class userController {
 				pstmt.setString(2, joinPw.getText());
 				pstmt.setString(3, joinName.getText());
 				pstmt.setString(4, joinNick.getText());
-				pstmt.setString(5, serialNum());
-				pstmt.setString(6, "offLine");
+				pstmt.setString(5, "basic");
+				pstmt.setString(6, serialNum());
+				pstmt.setString(7, "offLine");
 				pstmt.executeUpdate();
 
 				Alert alert = new Alert(AlertType.INFORMATION);
