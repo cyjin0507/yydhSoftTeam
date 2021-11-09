@@ -368,5 +368,20 @@ public class FrirendPlusController implements Initializable {
 		}
 	}
 	
+	@FXML
+	private Button goMain;
+
+	public void goMain() {
+		try {
+			Parent par = FXMLLoader.load(getClass().getResource("/user/mainPage.fxml"));
+			Scene scene = new Scene(par);
+			Stage primaryStage = (Stage) goMain.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 }
