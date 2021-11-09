@@ -1,11 +1,10 @@
 /application/
+/gameStart/
 /lib/
 /mainGame/
+/music/
 /puzzle/
+/roomImage/
 /user/
 /userImage/
 /util/
-/gameStart/
-/roomImage/
-/music/
-/mp3/

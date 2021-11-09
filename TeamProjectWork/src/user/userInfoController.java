@@ -102,6 +102,16 @@ public class userInfoController implements Initializable {
 		return null;
 	}
 	
-
+	public void backInfo() {
+		try {
+			Parent par = FXMLLoader.load(getClass().getResource("/user/mainPage.fxml"));
+			Scene scene = new Scene(par);
+			Stage primaryStage = (Stage) userName.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			primaryStage.setScene(scene);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 
 }

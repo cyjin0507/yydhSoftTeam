@@ -53,6 +53,6 @@
             <Font size="33.0" />
          </font>
       </Label>
-      <Button layoutX="1089.0" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="87.0" style="-fx-background-color: fff7ee;" text="새로고침" />
+      <Button layoutX="1089.0" layoutY="14.0" mnemonicParsing="false" onAction="#reset" prefHeight="40.0" prefWidth="87.0" style="-fx-background-color: fff7ee;" text="새로고침" />
    </children>
 </AnchorPane>

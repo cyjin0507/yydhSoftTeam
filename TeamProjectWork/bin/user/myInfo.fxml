@@ -69,5 +69,6 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Button layoutX="46.0" layoutY="719.0" mnemonicParsing="false" onAction="#backInfo" prefHeight="23.0" prefWidth="86.0" text="전화면으로" />
    </children>
 </AnchorPane>

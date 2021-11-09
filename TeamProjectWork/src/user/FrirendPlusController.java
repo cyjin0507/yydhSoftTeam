@@ -47,6 +47,11 @@ public class FrirendPlusController implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
+	public void reset() {
+		listAction();
+		listAction2();
+	}
 
 	// 친구 추가/////////////////////////////////////////////
 
@@ -362,5 +367,6 @@ public class FrirendPlusController implements Initializable {
 			e.printStackTrace();
 		}
 	}
+	
 
 }

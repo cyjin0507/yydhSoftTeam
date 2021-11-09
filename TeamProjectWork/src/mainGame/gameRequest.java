@@ -98,7 +98,7 @@ public class gameRequest implements Initializable {
 				String name = rs.getString("nickname");
 				String serial = rs.getString("serial_number");
 				String login = rs.getString("login");
-				if (login.equals("offLine") && name.equals(userName)) {
+				if (!login.equals("offLine") && name.equals(userName)) {
 					return serial;
 				}
 			}
@@ -465,6 +465,7 @@ public class gameRequest implements Initializable {
 		
 
 	}
+	
 	
 
 }
