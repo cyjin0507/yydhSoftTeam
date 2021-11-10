@@ -37,7 +37,7 @@
          </font>
       </Label>
       <ChoiceBox fx:id="user1" layoutX="666.0" layoutY="250.0" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: white;" />
-      <Button layoutX="936.0" layoutY="670.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="185.0" style="-fx-background-color: white; -fx-border-color: black;" text="시작">
+      <Button fx:id="startBtn" layoutX="936.0" layoutY="670.0" mnemonicParsing="false" onAction="#gameStart" prefHeight="51.0" prefWidth="185.0" style="-fx-background-color: white; -fx-border-color: black;" text="시작">
          <font>
             <Font size="33.0" />
          </font>

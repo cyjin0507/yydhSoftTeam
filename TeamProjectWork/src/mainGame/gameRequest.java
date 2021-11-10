@@ -82,7 +82,7 @@ public class gameRequest implements Initializable {
 		}
 	}
 
-	// 그 유저가 온라인인지, 일련번호 출력
+	// 그 유저가 온라인인지, 일련번호 출력 (오프라인 아닐때로 변경해야 됨 !)
 	public String userNum(String userName) {
 		JDBCUtil db = new JDBCUtil();
 		java.sql.Connection con = db.getConnection();
@@ -98,7 +98,7 @@ public class gameRequest implements Initializable {
 				String name = rs.getString("nickname");
 				String serial = rs.getString("serial_number");
 				String login = rs.getString("login");
-				if (!login.equals("offLine") && name.equals(userName)) {
+				if (login.equals("offLine") && name.equals(userName)) {
 					return serial;
 				}
 			}
