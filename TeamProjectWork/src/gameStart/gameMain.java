@@ -39,14 +39,13 @@ public class gameMain extends server implements Initializable {
 		stage.show();
 		
 		//소켓 서버 입장하기
-		try {
-			enterSocket();
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		
+//		try {
+//			enterSocket();
+//		} catch (UnknownHostException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		System.out.println(getPort());
 
 	}
 	
@@ -112,7 +111,7 @@ public class gameMain extends server implements Initializable {
 	}
 
 	// 누가 로그인 중인지 확인
-	public String who() throws UnknownHostException {
+	public static String who() throws UnknownHostException {
 
 		InetAddress local = InetAddress.getLocalHost();
 		String ip = local.getHostAddress();
@@ -143,8 +142,62 @@ public class gameMain extends server implements Initializable {
 	
 	//게임 포트 번호 가져오기
 	public static int getPort() {
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
+
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			sql = "select * from game_info WHERE `user1` = '" + who() + "' OR `user2` = '" + who() + "'";
+		} catch (UnknownHostException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		int port = 0;
 		
-		return 0;
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				port = rs.getInt("port");
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		return port;
+	}
+	
+	//게임 아이피 번호 가져오기
+	public static String getIp() {
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
+
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			sql = "select * from game_info WHERE `user1` = '" + who() + "' OR `user2` = '" + who() + "'";
+		} catch (UnknownHostException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String ip = "";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				ip = rs.getString("ip");
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		
+		return ip;
 	}
 	
 
@@ -158,7 +211,7 @@ public class gameMain extends server implements Initializable {
 		String code = null;
 		try {
 			// 서버의 소캣번호 입력
-			sck = new Socket("localhost", getPort());
+			sck = new Socket(getIp(), getPort());
 			pw = new PrintWriter(new OutputStreamWriter(sck.getOutputStream()));
 			br = new BufferedReader(new InputStreamReader(sck.getInputStream()));
 			BufferedReader keyboard = new BufferedReader(new InputStreamReader(System.in));

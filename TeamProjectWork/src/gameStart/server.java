@@ -5,20 +5,83 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.net.UnknownHostException;
+import java.sql.ResultSet;
 import java.util.HashMap;
+
+import util.JDBCUtil;
 
 public class server {
 
 	static HashMap<String, Object> hash;
 
+	// 게임 포트 번호 가져오기
+	public static int getPort() {
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
+
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			sql = "select * from game_info WHERE `user1` = '" + who() + "' OR `user2` = '" + who() + "'";
+		} catch (UnknownHostException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		int port = 0;
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				port = rs.getInt("port");
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return port;
+	}
+
+	// 누가 로그인 중인지 확인
+	public static String who() throws UnknownHostException {
+
+		InetAddress local = InetAddress.getLocalHost();
+		String ip = local.getHostAddress();
+
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
+
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from users";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String login = rs.getString("login");
+				String nickname = rs.getString("nickname");
+				if (login.equals(ip)) {
+					return nickname;
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		return null;
+	}
+
 	public static void server() {
 
 		try {
 			// 소켓 번호는 임시로 1525
-			ServerSocket server = new ServerSocket(122);
-			hash = new HashMap<String, Object>();
+			ServerSocket server = new ServerSocket(getPort());
 			// hash맵 키값불러와서 각 방마다 몇명인지 구하기
 
 			while (true) {
