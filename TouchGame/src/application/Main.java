@@ -15,7 +15,7 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/touchGame/touchGameLayout.fxml"));
 			AnchorPane root = (AnchorPane)loader.load();
-			Scene scene = new Scene(root,800,800);
+			Scene scene = new Scene(root,1200,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();

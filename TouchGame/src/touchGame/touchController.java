@@ -43,7 +43,7 @@ public class touchController {
 	public static int btnNumber = 2;
 	public static boolean touchWhether = false;
 	public void randomBtn() {
-		for(int i=0; i<20; i++) {
+		for(int i = 0; i < 20; i++) {
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
@@ -175,7 +175,6 @@ public class touchController {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		btn1.setImage(new Image("/touchGame/빈버튼.png"));
@@ -186,7 +185,6 @@ public class touchController {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		btn2.setImage(new Image("/touchGame/빈버튼.png"));
@@ -197,7 +195,6 @@ public class touchController {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		btn3.setImage(new Image("/touchGame/빈버튼.png"));
@@ -208,7 +205,6 @@ public class touchController {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		btn4.setImage(new Image("/touchGame/빈버튼.png"));
@@ -219,7 +215,6 @@ public class touchController {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		btn5.setImage(new Image("/touchGame/빈버튼.png"));
@@ -230,7 +225,6 @@ public class touchController {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		btn6.setImage(new Image("/touchGame/빈버튼.png"));
@@ -241,7 +235,6 @@ public class touchController {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		btn7.setImage(new Image("/touchGame/빈버튼.png"));
@@ -252,7 +245,6 @@ public class touchController {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		btn8.setImage(new Image("/touchGame/빈버튼.png"));
@@ -263,7 +255,6 @@ public class touchController {
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		btn9.setImage(new Image("/touchGame/빈버튼.png"));

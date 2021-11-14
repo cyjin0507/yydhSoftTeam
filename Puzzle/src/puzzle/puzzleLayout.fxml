@@ -7,6 +7,11 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="puzzle.puzzleController">
    <children>
+      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@backimage.png" />
+         </image>
+      </ImageView>
       <ImageView fitHeight="630.0" fitWidth="630.0" layoutX="57.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@퍼즐액자.jpg" />

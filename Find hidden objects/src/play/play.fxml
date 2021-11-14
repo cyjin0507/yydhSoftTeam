@@ -9,7 +9,12 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="play.Controller">
    <children>
-      <ImageView fitHeight="520.0" fitWidth="750.0" layoutX="238.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../lmage/backimage.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="497.0" fitWidth="756.0" layoutX="238.0" layoutY="143.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../lmage/IMG_1074.jpg" />
          </image>
