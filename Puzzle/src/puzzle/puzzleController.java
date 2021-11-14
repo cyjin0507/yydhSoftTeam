@@ -17,7 +17,7 @@ public class puzzleController {
 
 	@FXML
 	private Button hintBtn;
-	//��Ʈ���Ƚ��
+	//힌트사용횟수
 	public static int hintUseCnt = 0;
 	public void hintLook() {
 		try {
@@ -25,15 +25,15 @@ public class puzzleController {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/puzzle/hintLayout.fxml"));
 				Parent root = (Parent) loader.load();
 				Stage stage = new Stage();
-				stage.setTitle("��Ʈ����");
+				stage.setTitle("힌트보기");
 				stage.setScene(new Scene(root));
 				stage.show();
 				hintUseCnt++;
 			} else if(hintUseCnt > 0) {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("���X");
-				alert.setHeaderText("��Ʈ ���Ƚ�� �ʰ�");
-				alert.setContentText("��Ʈ�� �̹� ����ϼ̽��ϴ�.");
+				alert.setTitle("사용X");
+				alert.setHeaderText("힌트 사용횟수 초과");
+				alert.setContentText("힌트를 이미 사용하셨습니다.");
 				alert.showAndWait();
 			}
 		} catch (Exception e) {
@@ -43,13 +43,13 @@ public class puzzleController {
 	}
 	
 	
-	//���� ���߱�/////////////////////////////////////////////////////////////\
+	//퍼즐 맟추기/////////////////////////////////////////////////////////////\
 	
 	
-	//� ���� �����ߴ��� Ȯ�� (�⺻�� null)
+	//어떤 퍼즐 선택했는지 확인 (기본값 null)
 	public String pChoice = "";
 	
-	//����� ����
+	//흩어진 퍼즐
 	@FXML
 	private Button a01;
 	@FXML
@@ -201,7 +201,7 @@ public class puzzleController {
 		pChoice = "p25";
 	}
 	
-	//���ڼ� ����
+	//액자속 퍼즐
 	@FXML
 	private ImageView b01;
 	@FXML
@@ -258,18 +258,19 @@ public class puzzleController {
 			if(pChoice.equals("p1")) {
 				b01.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275.jpg"));
 				pChoice = "";
+				a01.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -279,18 +280,19 @@ public class puzzleController {
 			if(pChoice.equals("p2")) {
 				b02.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_01.jpg"));
 				pChoice = "";
+				a02.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -300,18 +302,19 @@ public class puzzleController {
 			if(pChoice.equals("p3")) {
 				b03.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_02.jpg"));
 				pChoice = "";
+				a03.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -321,18 +324,19 @@ public class puzzleController {
 			if(pChoice.equals("p4")) {
 				b04.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_03.jpg"));
 				pChoice = "";
+				a04.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -344,16 +348,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -365,16 +369,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -386,16 +390,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -407,16 +411,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -428,16 +432,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -449,16 +453,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -470,16 +474,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -491,16 +495,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -512,16 +516,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -533,16 +537,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -554,16 +558,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -575,16 +579,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -596,16 +600,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -617,16 +621,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -638,16 +642,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -659,16 +663,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -680,16 +684,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -701,16 +705,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -722,16 +726,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -743,16 +747,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
@@ -764,16 +768,16 @@ public class puzzleController {
 				pChoice = "";
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Ʋ��");
-				alert.setHeaderText("�˸´� ������ �ƴմϴ�.");
-				alert.setContentText("�˸´� ������ ���� �� �����ϼ���.");
+				alert.setTitle("틀림");
+				alert.setHeaderText("알맞는 퍼즐이 아닙니다.");
+				alert.setContentText("알맞는 퍼즐을 선택 후 도전하세요.");
 				alert.showAndWait();
 			}
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("����X");
-			alert.setHeaderText("������ ����������");
-			alert.setContentText("������ �������� �ʾҽ��ϴ�.");
+			alert.setTitle("선택X");
+			alert.setHeaderText("퍼즐을 선택히세요");
+			alert.setContentText("퍼즐을 선택하지 않았습니다.");
 			alert.showAndWait();
 		}
 	}
