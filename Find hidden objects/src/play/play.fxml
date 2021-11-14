@@ -39,21 +39,25 @@
       <Button fx:id="CatSum" layoutX="541.0" layoutY="440.0" mnemonicParsing="false" onMouseClicked="#showImage2" prefHeight="23.0" prefWidth="28.0" style="-fx-opacity: 0;" textFill="TRANSPARENT" />
       <Button fx:id="CatTree" layoutX="704.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#showImage" prefHeight="1.0" prefWidth="16.0" style="-fx-opacity: 0;" />
       <Button fx:id="duck" layoutX="333.0" layoutY="310.0" mnemonicParsing="false" onMouseClicked="#showImage3" prefHeight="2.0" prefWidth="16.0" style="-fx-opacity: 0;" />
-      <Label layoutX="514.0" layoutY="47.0" text="숨은그림찾기">
+      <Label layoutX="234.0" layoutY="94.0" text="숨은그림찾기" textFill="#d3af80">
          <font>
             <Font size="33.0" />
          </font>
       </Label>
-      <Label layoutX="48.0" layoutY="372.0" text="숨겨진 그림: 4개">
+      <Label layoutX="823.0" layoutY="651.0" text="숨은 그림을 클릭하세요!" textFill="#d3af80">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="1011.0" layoutY="372.0" text="숨은 그림을 클릭하세요!">
+      <Label layoutX="754.0" layoutY="105.0" text="남은 숨겨진 그림 갯수 : " textFill="#d3af80">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="555.0" layoutY="716.0" mnemonicParsing="false" text="게임으로 돌아기기" />
+      <Label fx:id="label" layoutX="925.0" layoutY="102.0" text="4" textFill="#282828">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

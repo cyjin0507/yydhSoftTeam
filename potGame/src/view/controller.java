@@ -1,11 +1,15 @@
 package view;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -15,6 +19,7 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
+import javafx.stage.Stage;
 
 public class controller {
 	@FXML
@@ -34,6 +39,37 @@ public class controller {
 	int b = 0;
 	int y = 0;
 	int num = 0;
+
+	public void resetMouse(MouseEvent e) {
+		r = 0;
+		b = 0;
+		y = 0;
+		num = 0;
+		pot.setImage(null);
+	}
+	
+	int clickCount = 0;
+	public void hintMouse(MouseEvent e) {
+		if (clickCount == 0) {
+			try {
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/hint.fxml"));
+				Parent root;
+				root = (Parent) loader.load();
+				Stage stage = new Stage();
+				stage.setTitle("힌트");
+				stage.setScene(new Scene(root));
+				stage.show();
+				clickCount++;
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		} else {
+			Alert al = new Alert(AlertType.INFORMATION);
+			al.setTitle("힌트 사용 불가");
+			al.setContentText("힌트를 이미 사용해서 쓸수 없습니다");
+			al.show();
+		}
+	}
 
 	public void reset() {
 		r = 0;
@@ -80,6 +116,7 @@ public class controller {
 	public void redsetOnDragOver() {
 		setOnDragOver(red);
 	}
+
 //파랑기능
 	public void bluesetOnDragDetected(MouseEvent event) {
 
@@ -116,6 +153,7 @@ public class controller {
 	public void yellowsetOnDragOver() {
 		setOnDragOver(yellow);
 	}
+
 //핑크 기능
 	public void pinksetOnDragDetected(MouseEvent event) {
 
@@ -186,6 +224,5 @@ public class controller {
 			}
 		});
 	}
-
 
 }
