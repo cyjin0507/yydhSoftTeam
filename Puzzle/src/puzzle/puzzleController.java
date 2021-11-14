@@ -346,6 +346,7 @@ public class puzzleController {
 			if(pChoice.equals("p5")) {
 				b05.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_04.jpg"));
 				pChoice = "";
+				a05.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -367,6 +368,7 @@ public class puzzleController {
 			if(pChoice.equals("p6")) {
 				b06.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_05.jpg"));
 				pChoice = "";
+				a06.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -388,6 +390,7 @@ public class puzzleController {
 			if(pChoice.equals("p7")) {
 				b07.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_06.jpg"));
 				pChoice = "";
+				a07.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -409,6 +412,7 @@ public class puzzleController {
 			if(pChoice.equals("p8")) {
 				b08.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_07.jpg"));
 				pChoice = "";
+				a08.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -430,6 +434,7 @@ public class puzzleController {
 			if(pChoice.equals("p9")) {
 				b09.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_08.jpg"));
 				pChoice = "";
+				a09.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -451,6 +456,7 @@ public class puzzleController {
 			if(pChoice.equals("p10")) {
 				b10.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_09.jpg"));
 				pChoice = "";
+				a10.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -472,6 +478,7 @@ public class puzzleController {
 			if(pChoice.equals("p11")) {
 				b11.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_10.jpg"));
 				pChoice = "";
+				a11.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -493,6 +500,7 @@ public class puzzleController {
 			if(pChoice.equals("p12")) {
 				b12.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_11.jpg"));
 				pChoice = "";
+				a12.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -514,6 +522,7 @@ public class puzzleController {
 			if(pChoice.equals("p13")) {
 				b13.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_12.jpg"));
 				pChoice = "";
+				a13.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -535,6 +544,7 @@ public class puzzleController {
 			if(pChoice.equals("p14")) {
 				b14.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_13.jpg"));
 				pChoice = "";
+				a14.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -556,6 +566,7 @@ public class puzzleController {
 			if(pChoice.equals("p15")) {
 				b15.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_14.jpg"));
 				pChoice = "";
+				a15.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -577,6 +588,7 @@ public class puzzleController {
 			if(pChoice.equals("p16")) {
 				b16.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_15.jpg"));
 				pChoice = "";
+				a16.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -598,6 +610,7 @@ public class puzzleController {
 			if(pChoice.equals("p17")) {
 				b17.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_16.jpg"));
 				pChoice = "";
+				a17.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -619,6 +632,7 @@ public class puzzleController {
 			if(pChoice.equals("p18")) {
 				b18.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_17.jpg"));
 				pChoice = "";
+				a18.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -640,6 +654,7 @@ public class puzzleController {
 			if(pChoice.equals("p19")) {
 				b19.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_18.jpg"));
 				pChoice = "";
+				a19.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -661,6 +676,7 @@ public class puzzleController {
 			if(pChoice.equals("p20")) {
 				b20.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_19.jpg"));
 				pChoice = "";
+				a20.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -682,6 +698,7 @@ public class puzzleController {
 			if(pChoice.equals("p21")) {
 				b21.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_20.jpg"));
 				pChoice = "";
+				a21.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -703,6 +720,7 @@ public class puzzleController {
 			if(pChoice.equals("p22")) {
 				b22.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_21.jpg"));
 				pChoice = "";
+				a22.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -724,6 +742,7 @@ public class puzzleController {
 			if(pChoice.equals("p23")) {
 				b23.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_22.jpg"));
 				pChoice = "";
+				a23.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -745,6 +764,7 @@ public class puzzleController {
 			if(pChoice.equals("p24")) {
 				b24.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_23.jpg"));
 				pChoice = "";
+				a24.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
@@ -766,6 +786,7 @@ public class puzzleController {
 			if(pChoice.equals("p25")) {
 				b25.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_24.jpg"));
 				pChoice = "";
+				a25.setVisible(false);
 			} else {
 				Alert alert = new Alert(AlertType.WARNING);
 				alert.setTitle("틀림");
