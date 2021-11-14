@@ -11,6 +11,10 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
 public class Maincontroller {
+	
+	MediaPlayer mp;
+	Media m = null;
+
 	@FXML
 	private ImageView iv1;
 	@FXML
@@ -47,6 +51,8 @@ public class Maincontroller {
 		if ((int) iv2.getRotate() == 0 && (int) iv7.getRotate() == 0 && (int) iv8.getRotate() == 0
 				&& (int) iv4.getRotate() == 0 && (int) iv9.getRotate() == 0 && (int) iv14.getRotate() == 0
 				&& (int) iv15.getRotate() == 0 && (int) iv3.getRotate() == 0) {
+			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
+			mp.play();
 			Alert al = new Alert(AlertType.CONFIRMATION);
 			al.setTitle("성공");
 			al.setContentText("성공");

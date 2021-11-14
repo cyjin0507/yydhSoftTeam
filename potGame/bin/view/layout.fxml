@@ -61,7 +61,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
-      <Label layoutX="675.0" layoutY="777.0" text="처음엔 한번만 넣었을시 안들어가는 경우가 있어요 그럴땐 한번더 넣어주세요" textFill="#aba7a7" />
+      <Label layoutX="928.0" layoutY="777.0" text="처음엔 잘안들어가요 두번 넣어주세요!" textFill="#aba7a7" />
       <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="41.0" layoutY="331.0" onMouseClicked="#resetMouse" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../image/reset.png" />

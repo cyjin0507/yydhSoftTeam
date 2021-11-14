@@ -19,9 +19,14 @@ import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.input.TransferMode;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 public class controller {
+	MediaPlayer mp;
+	Media m = null;
+
 	@FXML
 	private ImageView green;
 	@FXML
@@ -135,7 +140,7 @@ public class controller {
 	public void bluesetOnDragOver() {
 		setOnDragOver(blue);
 	}
-
+//노랑 기능
 	public void yellowsetOnDragDetected(MouseEvent event) {
 
 		Dragboard db = yellow.startDragAndDrop(TransferMode.ANY);
@@ -172,7 +177,7 @@ public class controller {
 	public void pinksetOnDragOver() {
 		setOnDragOver(pink);
 	}
-
+//움직이는
 	public void setOnDragOver(ImageView iv) {
 
 		iv.setOnDragOver(new EventHandler<DragEvent>() {
@@ -186,7 +191,7 @@ public class controller {
 		});
 
 	}
-
+//색깔 변형
 	public void setOnDragDone(ImageView iv) {
 
 		iv.setOnDragDone(new EventHandler<DragEvent>() {
@@ -210,10 +215,14 @@ public class controller {
 							alert.setTitle("성공");
 							alert.setContentText("성공");
 							alert.show();
+							mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
+							mp.play();
 						} else {
 							alert.setTitle("실패");
 							alert.setContentText("실패");
 							alert.show();
+							mp = new MediaPlayer(new Media(getClass().getResource("/image/BeepPing.mp3").toString()));
+							mp.play();
 							reset();
 						}
 					}
