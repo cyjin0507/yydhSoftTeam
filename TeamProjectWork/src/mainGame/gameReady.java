@@ -65,18 +65,18 @@ public class gameReady extends gameRequest implements Initializable {
 		user2.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
 
 		// 채팅창 띄우기
-//		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainGame/chat.fxml"));
-//		Parent root = null;
-//		try {
-//			root = (Parent) loader.load();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			System.out.println("채팅 오류");
-//		}
-//		Stage stage = new Stage();
-//		stage.setTitle("상대와 채팅");
-//		stage.setScene(new Scene(root));
-//		stage.show();
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainGame/chat.fxml"));
+		Parent root = null;
+		try {
+			root = (Parent) loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			System.out.println("채팅 오류");
+		}
+		Stage stage = new Stage();
+		stage.setTitle("상대와 채팅");
+		stage.setScene(new Scene(root));
+		stage.show();
 		
 
 

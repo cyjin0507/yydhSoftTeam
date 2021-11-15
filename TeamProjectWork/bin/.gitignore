@@ -1,7 +1,13 @@
+/application/
+/findHiddenObject/
 /gameStart/
-/puzzle/
+/lib/
+/mainGame/
 /music/
 /pipegame/
-/findHiddenObject/
 /potgame/
-/application/
+/puzzle/
+/roomImage/
+/user/
+/userImage/
+/util/
