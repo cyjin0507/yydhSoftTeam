@@ -40,45 +40,45 @@ public class gameMain extends server implements Initializable {
 //		stage.show();
 		
 		//소켓 서버 입장하기
-		try {
-			enterSocket();
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(getPort());
+//		try {
+//			enterSocket();
+//		} catch (UnknownHostException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		System.out.println(getPort());
 
 	}
 	
 	//소켓 서버 입장하기
-	public void enterSocket() throws UnknownHostException {
-		if(userInfo().equals("host")) {
-			new Thread(new Runnable() {
-				public void run() {
-					server();
-				}
-			}).start();
-			
-			new Thread(new Runnable() {
-				public void run() {
-					try {
-						Thread.sleep(1000);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					client();
-				}
-			}).start();
-		} else if(userInfo().equals("client")) {
-			new Thread(new Runnable() {
-				public void run() {
-					client();
-				}
-			}).start();
-		}
-	}
-	
+//	public void enterSocket() throws UnknownHostException {
+//		if(userInfo().equals("host")) {
+//			new Thread(new Runnable() {
+//				public void run() {
+//					server();
+//				}
+//			}).start();
+//			
+//			new Thread(new Runnable() {
+//				public void run() {
+//					try {
+//						Thread.sleep(1000);
+//					} catch (InterruptedException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//					client();
+//				}
+//			}).start();
+//		} else if(userInfo().equals("client")) {
+//			new Thread(new Runnable() {
+//				public void run() {
+//					client();
+//				}
+//			}).start();
+//		}
+//	}
+//	
 	
 
 	// 내가 누구인지 가져오기 (user1, user2)

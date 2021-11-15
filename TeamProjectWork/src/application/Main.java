@@ -73,7 +73,7 @@ public class Main extends Application {
 		PreparedStatement pstmt = null;
 		
 		String sql = "UPDATE `users` SET `login`= 'offLine' WHERE login = '"+ip+"'";
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();

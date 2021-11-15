@@ -16,9 +16,10 @@ import javafx.util.Duration;
 
 public class Cont implements Initializable {
 	@FXML
-	private ImageView imageView;
+	private ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/image/characterAll.png")));
 	@FXML
 	private Rectangle rectangle;
+	Character player = new Character(imageView);
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
