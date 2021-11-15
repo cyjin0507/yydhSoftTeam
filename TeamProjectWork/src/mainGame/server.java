@@ -150,7 +150,6 @@ class ChatThread extends Thread {
 				if (line.split("/")[0].equals("quit")) {
 					System.out.println(code + "님이 시스탬을 종료합니다...");
 					break;
-
 				} else {// 아닐 경우 계속 읽어온 데이터를 클라이언트들에게 전송
 					sendMsg(line);
 				}
