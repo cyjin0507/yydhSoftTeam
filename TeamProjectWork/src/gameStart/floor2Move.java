@@ -10,17 +10,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import puzzle.puzzleController;
 
-public class floor3Move implements Initializable {
-
+public class floor2Move implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -113,20 +108,20 @@ public class floor3Move implements Initializable {
 			}
 		}
 
-//이벤트 발생
-		if ((y == 100) && (x >= 270) && (x <= 320)) {
-			
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/puzzle/puzzleLayout.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-		}
+//이벤트 발생/ 나중에 액자 그림 추가시 재 설정
+//		if ((y == 100) && (x >= 270) && (x <= 320)) {
+//
+//			try {
+//				Parent root;
+//				root = FXMLLoader.load(getClass().getResource("/puzzle/puzzleLayout.fxml"));
+//				Scene scene = new Scene(root);
+//				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+//				primaryStage.setScene(scene);
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//
+//		}
 
 	}
 
@@ -134,71 +129,37 @@ public class floor3Move implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 
-//		책상 충돌 방지
-		if ((y == 270) && (x >= 360) && (x <= 750)) {
-			if ((x == 660) && (y <= 270) && (y >= 170)) {
-				return "leftdown";
-			}
-			if ((x == 470) && (y <= 270) && (y >= 170)) {
-				return "rightdown";
-			}
-			return "down";
-		} else if ((y >= 270) && (y <= 520) && (x == 370)) {
-			return "right";
-		} else if ((y == 520) && (x >= 360) && (x <= 750)) {
-			return "up";
-		} else if ((y >= 270) && (y <= 520) && (x == 760)) {
-			return "left";
-		}
-//		의자 충돌
-		if ((x == 660) && (y <= 270) && (y >= 170)) {
-			return "leftdown";
-		} else if ((x == 470) && (y <= 270) && (y >= 170)) {
-			return "rightdown";
-		} else if ((y == 160) && (x <= 650) && (x >= 470)) {
-			return "down";
-		}
-//식물
-		if ((x == 120) && (y >= 460)) {
-			if (y == 620) {
-				return "leftdown";
-			}
-			return "left";
-		} else if ((y == 460) && (x <= 120)) {
-			if (x == 10) {
-				return "leftdown";
-			}
-			return "down";
-		}
-//옷걸이
-		if ((x == 970) && (y >= 440)) {
-			if (y == 620) {
-				return "rightdown";
-			}
-			return "right";
-		} else if ((y == 440) && (x >= 970)) {
-			if (x == 1090) {
-				return "rightdown";
-			}
-			return "down";
-		}
-//책꽂이
-		if ((x == 370) && (y <= 130) && (y >= 100)) {
-			if (y == 100) {
+//		침대랑 전등이랑 전부다
+		if ((x == 270) && (y <= 185) && (y >= 115)) {
+			if (y == 115) {
 				return "rightup";
 			}
 			return "right";
-		} else if ((x == 740) && (y <= 130) && (y >= 100)) {
-			if (y == 100) {
+		} else if ((y == 195) && (x <= 350) && (x >= 270)) {
+			if (x == 350) {
+				return "rightup";
+			}
+			return "up";
+		} else if ((x == 350) && (y <= 295) && (y >= 195)) {
+			return "right";
+		} else if ((y == 305) && (x >= 360) && (x <= 730)) {
+			return "up";
+		} else if ((x ==740) && (y <= 295) && (y >= 215)) {
+			return "left";
+		} else if((y == 205)&& (x >= 740) && (x <= 870)) {
+			if (x == 740) {
+				return "leftup";
+			}
+			return "up";
+		} else if((x ==880) && (y <= 195) && (y >= 115)) {
+			if (y == 115) {
 				return "leftup";
 			}
 			return "left";
-		} else if ((x >= 380) && (x <= 720) && (y == 140)) {
-			return "up";
 		}
 
 //		전체 배경 안빠져나가게
-		if (y <= 100) {
+		if (y <= 120) {
 			if (x <= 10) {
 				return "leftup";
 			}

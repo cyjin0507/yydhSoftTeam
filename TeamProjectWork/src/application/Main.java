@@ -25,8 +25,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-//			loader.setLocation(getClass().getResource("/user/Login.fxml"));
-			loader.setLocation(getClass().getResource("/gameStart/3floor.fxml"));
+			loader.setLocation(getClass().getResource("/user/Login.fxml"));
+//			loader.setLocation(getClass().getResource("/gameStart/1floor.fxml"));
 			AnchorPane root = (AnchorPane)loader.load();
 			Scene scene = new Scene(root,1200,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
