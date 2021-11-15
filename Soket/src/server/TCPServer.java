@@ -5,9 +5,38 @@ import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class TCPServer {
+public class TCPServer extends TCPClient {
+	
+	public static void main(String[] args) throws IOException {
+		new Thread(new Runnable() {
+			public void run() {
+				try {
+					server();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}).start();
+		
+		new Thread(new Runnable() {
+			public void run() {
+				try {
+					Thread.sleep(1000);
+					client();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}).start();
+		
+	}
 
-    public static void main(String[] args) throws IOException{
+    public static void server() throws IOException{
         TCPServer socketServer = new TCPServer();
         socketServer.run();
     }

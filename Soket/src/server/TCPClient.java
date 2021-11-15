@@ -7,7 +7,7 @@ import java.net.SocketAddress;
 
 public class TCPClient{
 
-    public static void main(String[] args) throws IOException {
+    public static void client() throws IOException {
         TCPClient cm = new TCPClient();
         cm.run();
     }
@@ -33,7 +33,7 @@ public class TCPClient{
     
     public static void send(Socket socket) throws IOException {
         //Person 객체 생성. 인자로 3 넣어줌.
-        Person person = new Person(3);
+        Person person = new Person("rwe");
 
         //생성한 person 객체를 byte array로 변환
         byte[] data = toByteArray(person);
@@ -101,9 +101,9 @@ public class TCPClient{
 }
 
 class Person implements Serializable {
-    int age;
+    String age;
 
-    Person(int age) {
-        this.age= age;
+    Person(String string) {
+        this.age= string;
     }
 }

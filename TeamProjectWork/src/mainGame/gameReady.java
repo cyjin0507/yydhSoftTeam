@@ -1,5 +1,6 @@
 package mainGame;
 
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.URL;
 import java.net.UnknownHostException;
@@ -45,6 +46,20 @@ public class gameReady extends gameRequest implements Initializable {
 
 		user1.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
 		user2.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
+
+		// 채팅창 띄우기
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainGame/chat.fxml"));
+		Parent root = null;
+		try {
+			root = (Parent) loader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Stage stage = new Stage();
+		stage.setTitle("상대와 채팅");
+		stage.setScene(new Scene(root));
+		stage.show();
 
 	}
 
@@ -115,7 +130,8 @@ public class gameReady extends gameRequest implements Initializable {
 		PreparedStatement pstmt = null;
 
 		if (user1.getSelectionModel().getSelectedItem().equals("탈출자1") && crushPre("탈출자1")) {
-			String sql = "UPDATE `game_info` SET `escape1`=  '" + who() + "', `ready1` = 'accept' WHERE `user1` = '" + who() + "'";
+			String sql = "UPDATE `game_info` SET `escape1`=  '" + who() + "', `ready1` = 'accept' WHERE `user1` = '"
+					+ who() + "'";
 			try {
 				pstmt = con.prepareStatement(sql);
 				pstmt.executeUpdate();
@@ -124,7 +140,8 @@ public class gameReady extends gameRequest implements Initializable {
 				e.printStackTrace();
 			}
 		} else if (user1.getSelectionModel().getSelectedItem().equals("탈출자2") && crushPre("탈출자2")) {
-			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready1` = 'accept' WHERE `user1` = '" + who() + "'";
+			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready1` = 'accept' WHERE `user1` = '"
+					+ who() + "'";
 			try {
 				pstmt = con.prepareStatement(sql);
 				pstmt.executeUpdate();
@@ -151,7 +168,8 @@ public class gameReady extends gameRequest implements Initializable {
 		PreparedStatement pstmt = null;
 
 		if (user2.getSelectionModel().getSelectedItem().equals("탈출자1") && crushPre("탈출자1")) {
-			String sql = "UPDATE `game_info` SET `escape1`=  '" + who() + "', `ready2` = 'accept' WHERE `user2` = '" + who() + "'";
+			String sql = "UPDATE `game_info` SET `escape1`=  '" + who() + "', `ready2` = 'accept' WHERE `user2` = '"
+					+ who() + "'";
 			try {
 				pstmt = con.prepareStatement(sql);
 				pstmt.executeUpdate();
@@ -160,7 +178,8 @@ public class gameReady extends gameRequest implements Initializable {
 				e.printStackTrace();
 			}
 		} else if (user2.getSelectionModel().getSelectedItem().equals("탈출자2") && crushPre("탈출자1")) {
-			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready2` = 'accept' WHERE `user2` = '" + who() + "'";
+			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready2` = 'accept' WHERE `user2` = '"
+					+ who() + "'";
 			try {
 				pstmt = con.prepareStatement(sql);
 				pstmt.executeUpdate();
@@ -212,12 +231,13 @@ public class gameReady extends gameRequest implements Initializable {
 		return true;
 
 	}
-	
+
 	@FXML
 	private Button startBtn;
-	//시작 버튼 눌렀을때
+
+	// 시작 버튼 눌렀을때
 	public void gameStart() throws UnknownHostException {
-		
+
 		JDBCUtil db = new JDBCUtil();
 		java.sql.Connection con = db.getConnection();
 
@@ -233,51 +253,48 @@ public class gameReady extends gameRequest implements Initializable {
 				String user2 = rs.getString("user2");
 				String ready1 = rs.getString("ready1");
 				String ready2 = rs.getString("ready2");
-				
-				//모두가 준비가 된 상태
-				if(ready1.equals("accept") && ready2.equals("accept")) {
-					
+
+				// 모두가 준비가 된 상태
+				if (ready1.equals("accept") && ready2.equals("accept")) {
+
 					Parent par = FXMLLoader.load(getClass().getResource("/gameStart/3floor.fxml"));
 					Scene scene = new Scene(par);
 					Stage primaryStage = (Stage) startBtn.getScene().getWindow();
 					scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 					primaryStage.setScene(scene);
-					
-				} else if(user1.equals(who()) && ready1.equals("accept") && ready2.equals("waitting")) {
+
+				} else if (user1.equals(who()) && ready1.equals("accept") && ready2.equals("waitting")) {
 					Alert alert = new Alert(AlertType.WARNING);
 					alert.setTitle("게임 시작 불가");
 					alert.setHeaderText("상대방 준비 X");
 					alert.setContentText("상대방이 준비할때 까지 기다리세요.");
 					alert.showAndWait();
-				}else if(user1.equals(who()) && ready1.equals("waitting")) {
+				} else if (user1.equals(who()) && ready1.equals("waitting")) {
 					Alert alert = new Alert(AlertType.WARNING);
 					alert.setTitle("게임 시작 불가");
 					alert.setHeaderText("준비버튼을 클릭하세요");
 					alert.setContentText("준비버튼을 눌러야 게임을 시작할 수 있습니다.");
 					alert.showAndWait();
-				} else if(user2.equals(who()) && ready2.equals("accept") && ready1.equals("waitting")) {
+				} else if (user2.equals(who()) && ready2.equals("accept") && ready1.equals("waitting")) {
 					Alert alert = new Alert(AlertType.WARNING);
 					alert.setTitle("게임 시작 불가");
 					alert.setHeaderText("상대방 준비 X");
 					alert.setContentText("상대방이 준비할때 까지 기다리세요.");
 					alert.showAndWait();
-				}else if(user2.equals(who()) && ready2.equals("waitting")) {
+				} else if (user2.equals(who()) && ready2.equals("waitting")) {
 					Alert alert = new Alert(AlertType.WARNING);
 					alert.setTitle("게임 시작 불가");
 					alert.setHeaderText("준비버튼을 클릭하세요");
 					alert.setContentText("준비버튼을 눌러야 게임을 시작할 수 있습니다.");
 					alert.showAndWait();
 				}
-				
 
-				
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 	}
-	
 
 	// 일련번호 생성
 	public String serialNum() {
@@ -318,12 +335,12 @@ public class gameReady extends gameRequest implements Initializable {
 
 		return null;
 	}
-	
-	//랜덤 포트 번호 생성
+
+	// 랜덤 포트 번호 생성
 	public int randPort() {
-		
-		int port = (int)(Math.random() * 9999 +1000);
-		
+
+		int port = (int) (Math.random() * 9999 + 1000);
+
 		return port;
 	}
 

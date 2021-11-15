@@ -1,4 +1,4 @@
-package gameStart;
+package mainGame;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 import mainGame.server;
 import util.JDBCUtil;
 
-public class gameMain extends server implements Initializable {
+public class chat extends server implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -44,7 +44,7 @@ public class gameMain extends server implements Initializable {
 			enterSocket();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("socket");
 		}
 		System.out.println(getPort());
 
@@ -52,6 +52,7 @@ public class gameMain extends server implements Initializable {
 	
 	//소켓 서버 입장하기
 	public void enterSocket() throws UnknownHostException {
+		System.out.println(userInfo());
 		if(userInfo().equals("host")) {
 			new Thread(new Runnable() {
 				public void run() {
@@ -65,7 +66,7 @@ public class gameMain extends server implements Initializable {
 						Thread.sleep(1000);
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+						System.out.println("ddddd");
 					}
 					client();
 				}
@@ -140,7 +141,7 @@ public class gameMain extends server implements Initializable {
 
 		return null;
 	}
-	
+
 	//게임 포트 번호 가져오기
 	public static int getPort() {
 		JDBCUtil db = new JDBCUtil();
