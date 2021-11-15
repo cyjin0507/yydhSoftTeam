@@ -17,6 +17,36 @@ import util.JDBCUtil;
 public class server {
 
 	static HashMap<String, Object> hash;
+	
+	public static void server() {
+		System.out.println(getPort());
+		try {
+			// 소켓 번호는 임시로 1525
+			ServerSocket server = new ServerSocket(getPort());
+			// hash맵 키값불러와서 각 방마다 몇명인지 구하기
+
+			while (true) {
+				System.out.println("=======================");
+				try {
+					System.out.println("현재 서버에   " + hash.size() + "명...");		
+				} catch (Exception e) {
+					// TODO: handle exception
+					System.out.println("아아아앙1");
+				}
+				
+				// hash맵 개수 구하기
+
+				System.out.println("접속을 기다리는중...");
+				Socket sck = server.accept();
+				// 클라이언트가 새로들어올때마다 chatThr스레드 한개 실행 각각은 독립적으로 실행
+				ChatThread chatThr = new ChatThread(sck, hash);
+				chatThr.start();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 
 	// 게임 포트 번호 가져오기
 	public static int getPort() {
@@ -77,28 +107,7 @@ public class server {
 		return null;
 	}
 
-	public static void server() {
-
-		try {
-			// 소켓 번호는 임시로 1525
-			ServerSocket server = new ServerSocket(getPort());
-			// hash맵 키값불러와서 각 방마다 몇명인지 구하기
-
-			while (true) {
-				System.out.println("=======================");
-				System.out.println("현재 서버에   " + hash.size() + "명...");
-				// hash맵 개수 구하기
-
-				System.out.println("접속을 기다리는중...");
-				Socket sck = server.accept();
-				// 클라이언트가 새로들어올때마다 chatThr스레드 한개 실행 각각은 독립적으로 실행
-				ChatThread chatThr = new ChatThread(sck, hash);
-				chatThr.start();
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
+	
 }
 
 class ChatThread extends Thread {
@@ -122,6 +131,7 @@ class ChatThread extends Thread {
 			pw.flush();
 			System.out.println("코드보내기");
 			code = br.readLine();
+			
 			System.out.println("====" + code + "님과 성공적으로 연결====");
 			// 직렬화 후 해쉬맵에 저장
 			synchronized (hash) {
@@ -129,7 +139,7 @@ class ChatThread extends Thread {
 			}
 			initFlag = true;
 		} catch (IOException e) {
-			e.printStackTrace();
+			System.out.println("왜 안됨!!!!");
 		}
 	}
 

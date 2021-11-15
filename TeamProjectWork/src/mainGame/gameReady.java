@@ -54,12 +54,14 @@ public class gameReady extends gameRequest implements Initializable {
 			root = (Parent) loader.load();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("채팅 오류");
 		}
 		Stage stage = new Stage();
 		stage.setTitle("상대와 채팅");
 		stage.setScene(new Scene(root));
 		stage.show();
+		
+
 
 	}
 

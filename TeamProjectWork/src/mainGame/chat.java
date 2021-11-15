@@ -25,19 +25,7 @@ public class chat extends server implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-		// 채팅창 띄우기
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/gameStart/chat.fxml"));
-		Parent root = null;
-		try {
-			root = (Parent) loader.load();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Stage stage = new Stage();
-		stage.setTitle("상대와 채팅");
-		stage.setScene(new Scene(root));
-		stage.show();
+		
 		
 		//소켓 서버 입장하기
 		try {
@@ -46,13 +34,12 @@ public class chat extends server implements Initializable {
 			// TODO Auto-generated catch block
 			System.out.println("socket");
 		}
-		System.out.println(getPort());
+		
 
 	}
 	
 	//소켓 서버 입장하기
 	public void enterSocket() throws UnknownHostException {
-		System.out.println(userInfo());
 		if(userInfo().equals("host")) {
 			new Thread(new Runnable() {
 				public void run() {

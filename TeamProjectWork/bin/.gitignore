@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-/gameStart/
-/util/
-/mainGame/
-/application/
-/music/
-/puzzle/
-/user/
-=======
 /application/
 /gameStart/
 /lib/
@@ -17,4 +8,3 @@
 /user/
 /userImage/
 /util/
->>>>>>> 1f4a627cad73dfa7b4476a62f42b402d5300e61c
