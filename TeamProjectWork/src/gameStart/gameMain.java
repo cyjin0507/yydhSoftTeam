@@ -12,10 +12,16 @@ import java.net.UnknownHostException;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
 
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import mainGame.server;
 import util.JDBCUtil;
@@ -38,8 +44,8 @@ public class gameMain extends server implements Initializable {
 //		stage.setTitle("상대와 채팅");
 //		stage.setScene(new Scene(root));
 //		stage.show();
-		
-		//소켓 서버 입장하기
+
+		// 소켓 서버 입장하기
 //		try {
 //			enterSocket();
 //		} catch (UnknownHostException e) {
@@ -47,10 +53,11 @@ public class gameMain extends server implements Initializable {
 //			e.printStackTrace();
 //		}
 //		System.out.println(getPort());
+		
 
 	}
-	
-	//소켓 서버 입장하기
+
+	// 소켓 서버 입장하기
 //	public void enterSocket() throws UnknownHostException {
 //		if(userInfo().equals("host")) {
 //			new Thread(new Runnable() {
@@ -79,7 +86,6 @@ public class gameMain extends server implements Initializable {
 //		}
 //	}
 //	
-	
 
 	// 내가 누구인지 가져오기 (user1, user2)
 	public String userInfo() throws UnknownHostException {
@@ -89,24 +95,24 @@ public class gameMain extends server implements Initializable {
 		java.sql.PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String sql = "select * from game_info WHERE `user1` = '" + who() + "' OR `user2` = '" + who() + "'";
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				String user1 = rs.getString("user1");
 				String user2 = rs.getString("user2");
-				
-				if(user1.equals(who())) {
+
+				if (user1.equals(who())) {
 					return "host";
-				} else if(user1.equals(who())) {
+				} else if (user1.equals(who())) {
 					return "client";
 				}
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		return null;
 
 	}
@@ -140,8 +146,8 @@ public class gameMain extends server implements Initializable {
 
 		return null;
 	}
-	
-	//게임 포트 번호 가져오기
+
+	// 게임 포트 번호 가져오기
 	public static int getPort() {
 		JDBCUtil db = new JDBCUtil();
 		java.sql.Connection con = db.getConnection();
@@ -156,22 +162,21 @@ public class gameMain extends server implements Initializable {
 			e1.printStackTrace();
 		}
 		int port = 0;
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				port = rs.getInt("port");
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
-		
+
 		return port;
 	}
-	
-	//게임 아이피 번호 가져오기
+
+	// 게임 아이피 번호 가져오기
 	public static String getIp() {
 		JDBCUtil db = new JDBCUtil();
 		java.sql.Connection con = db.getConnection();
@@ -186,21 +191,19 @@ public class gameMain extends server implements Initializable {
 			e1.printStackTrace();
 		}
 		String ip = "";
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				ip = rs.getString("ip");
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
-		
+
 		return ip;
 	}
-	
 
 	/////// 소켓 클라이언트 부분
 	public static void client() {
@@ -256,6 +259,8 @@ public class gameMain extends server implements Initializable {
 			}
 		}
 	}
+
+
 }
 
 class InputThread extends Thread {

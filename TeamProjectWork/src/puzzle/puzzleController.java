@@ -10,14 +10,17 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 
 public class puzzleController {
-
+	MediaPlayer mp;
+	Media m = null;
 	@FXML
-	private Button hintBtn;
-	//ÈùÆ®»ç¿ëÈ½¼ö
+	public Button hintBtn;
+	//íŒíŠ¸ì‚¬ìš©íšŸìˆ˜
 	public static int hintUseCnt = 0;
 	public void hintLook() {
 		try {
@@ -25,15 +28,15 @@ public class puzzleController {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/puzzle/hintLayout.fxml"));
 				Parent root = (Parent) loader.load();
 				Stage stage = new Stage();
-				stage.setTitle("ÈùÆ®º¸±â");
+				stage.setTitle("íŒíŠ¸ë³´ê¸°");
 				stage.setScene(new Scene(root));
 				stage.show();
 				hintUseCnt++;
 			} else if(hintUseCnt > 0) {
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("»ç¿ëX");
-				alert.setHeaderText("ÈùÆ® »ç¿ëÈ½¼ö ÃÊ°ú");
-				alert.setContentText("ÈùÆ®¸¦ ÀÌ¹Ì »ç¿ëÇÏ¼Ì½À´Ï´Ù.");
+				alert.setTitle("ì‚¬ìš©X");
+				alert.setHeaderText("íŒíŠ¸ ì‚¬ìš©íšŸìˆ˜ ì´ˆê³¼");
+				alert.setContentText("íŒíŠ¸ë¥¼ ì´ë¯¸ ì‚¬ìš©í•˜ì…¨ìŠµë‹ˆë‹¤.");
 				alert.showAndWait();
 			}
 		} catch (Exception e) {
@@ -43,13 +46,13 @@ public class puzzleController {
 	}
 	
 	
-	//ÆÛÁñ ¬Ãß±â/////////////////////////////////////////////////////////////\
+	//í¼ì¦ ë§Ÿì¶”ê¸°/////////////////////////////////////////////////////////////\
 	
 	
-	//¾î¶² ÆÛÁñ ¼±ÅÃÇß´ÂÁö È®ÀÎ (±âº»°ª null)
+	//ì–´ë–¤ í¼ì¦ ì„ íƒí–ˆëŠ”ì§€ í™•ì¸ (ê¸°ë³¸ê°’ null)
 	public String pChoice = "";
 	
-	//Èğ¾îÁø ÆÛÁñ
+	//í©ì–´ì§„ í¼ì¦
 	@FXML
 	private Button a01;
 	@FXML
@@ -201,7 +204,7 @@ public class puzzleController {
 		pChoice = "p25";
 	}
 	
-	//¾×ÀÚ¼Ó ÆÛÁñ
+	//ì•¡ìì† í¼ì¦
 	@FXML
 	private ImageView b01;
 	@FXML
@@ -253,23 +256,41 @@ public class puzzleController {
 	@FXML
 	private ImageView b25;
 	
+	int count = 0;
 	public void addPuzzle1() {
 		if(pChoice != "") {
 			if(pChoice.equals("p1")) {
-				b01.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b01.setImage(new Image("/puzzle/piece.jpg"));
 				pChoice = "";
+				a01.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -277,20 +298,37 @@ public class puzzleController {
 	public void addPuzzle2() {
 		if(pChoice != "") {
 			if(pChoice.equals("p2")) {
-				b02.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_01.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b02.setImage(new Image("/puzzle/piece01.jpg"));
 				pChoice = "";
+				a02.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -298,20 +336,37 @@ public class puzzleController {
 	public void addPuzzle3() {
 		if(pChoice != "") {
 			if(pChoice.equals("p3")) {
-				b03.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_02.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b03.setImage(new Image("/puzzle/piece02.jpg"));
 				pChoice = "";
+				a03.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -319,20 +374,37 @@ public class puzzleController {
 	public void addPuzzle4() {
 		if(pChoice != "") {
 			if(pChoice.equals("p4")) {
-				b04.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_03.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b04.setImage(new Image("/puzzle/piece03.jpg"));
 				pChoice = "";
+				a04.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -340,20 +412,37 @@ public class puzzleController {
 	public void addPuzzle5() {
 		if(pChoice != "") {
 			if(pChoice.equals("p5")) {
-				b05.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_04.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b05.setImage(new Image("/puzzle/piece04.jpg"));
 				pChoice = "";
+				a05.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -361,20 +450,37 @@ public class puzzleController {
 	public void addPuzzle6() {
 		if(pChoice != "") {
 			if(pChoice.equals("p6")) {
-				b06.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_05.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b06.setImage(new Image("/puzzle/piece05.jpg"));
 				pChoice = "";
+				a06.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -382,20 +488,37 @@ public class puzzleController {
 	public void addPuzzle7() {
 		if(pChoice != "") {
 			if(pChoice.equals("p7")) {
-				b07.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_06.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b07.setImage(new Image("/puzzle/piece06.jpg"));
 				pChoice = "";
+				a07.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -403,20 +526,37 @@ public class puzzleController {
 	public void addPuzzle8() {
 		if(pChoice != "") {
 			if(pChoice.equals("p8")) {
-				b08.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_07.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b08.setImage(new Image("/puzzle/piece07.jpg"));
 				pChoice = "";
+				a08.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -424,20 +564,37 @@ public class puzzleController {
 	public void addPuzzle9() {
 		if(pChoice != "") {
 			if(pChoice.equals("p9")) {
-				b09.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_08.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b09.setImage(new Image("/puzzle/piece08.jpg"));
 				pChoice = "";
+				a09.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -445,20 +602,37 @@ public class puzzleController {
 	public void addPuzzle10() {
 		if(pChoice != "") {
 			if(pChoice.equals("p10")) {
-				b10.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_09.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b10.setImage(new Image("/puzzle/piece09.jpg"));
 				pChoice = "";
+				a10.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -466,20 +640,37 @@ public class puzzleController {
 	public void addPuzzle11() {
 		if(pChoice != "") {
 			if(pChoice.equals("p11")) {
-				b11.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_10.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b11.setImage(new Image("/puzzle/piece10.jpg"));
 				pChoice = "";
+				a11.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -487,20 +678,37 @@ public class puzzleController {
 	public void addPuzzle12() {
 		if(pChoice != "") {
 			if(pChoice.equals("p12")) {
-				b12.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_11.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b12.setImage(new Image("/puzzle/piece11.jpg"));
 				pChoice = "";
+				a12.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -508,20 +716,37 @@ public class puzzleController {
 	public void addPuzzle13() {
 		if(pChoice != "") {
 			if(pChoice.equals("p13")) {
-				b13.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_12.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b13.setImage(new Image("/puzzle/piece12.jpg"));
 				pChoice = "";
+				a13.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -529,20 +754,37 @@ public class puzzleController {
 	public void addPuzzle14() {
 		if(pChoice != "") {
 			if(pChoice.equals("p14")) {
-				b14.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_13.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b14.setImage(new Image("/puzzle/piece13.jpg"));
 				pChoice = "";
+				a14.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -550,20 +792,37 @@ public class puzzleController {
 	public void addPuzzle15() {
 		if(pChoice != "") {
 			if(pChoice.equals("p15")) {
-				b15.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_14.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b15.setImage(new Image("/puzzle/piece14.jpg"));
 				pChoice = "";
+				a15.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -571,20 +830,37 @@ public class puzzleController {
 	public void addPuzzle16() {
 		if(pChoice != "") {
 			if(pChoice.equals("p16")) {
-				b16.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_15.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b16.setImage(new Image("/puzzle/piece15.jpg"));
 				pChoice = "";
+				a16.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -592,20 +868,37 @@ public class puzzleController {
 	public void addPuzzle17() {
 		if(pChoice != "") {
 			if(pChoice.equals("p17")) {
-				b17.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_16.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b17.setImage(new Image("/puzzle/piece16.jpg"));
 				pChoice = "";
+				a17.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -613,20 +906,37 @@ public class puzzleController {
 	public void addPuzzle18() {
 		if(pChoice != "") {
 			if(pChoice.equals("p18")) {
-				b18.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_17.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b18.setImage(new Image("/puzzle/piece17.jpg"));
 				pChoice = "";
+				a18.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -634,20 +944,37 @@ public class puzzleController {
 	public void addPuzzle19() {
 		if(pChoice != "") {
 			if(pChoice.equals("p19")) {
-				b19.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_18.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b19.setImage(new Image("/puzzle/piece18.jpg"));
 				pChoice = "";
+				a19.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -655,20 +982,37 @@ public class puzzleController {
 	public void addPuzzle20() {
 		if(pChoice != "") {
 			if(pChoice.equals("p20")) {
-				b20.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_19.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b20.setImage(new Image("/puzzle/piece19.jpg"));
 				pChoice = "";
+				a20.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -676,20 +1020,37 @@ public class puzzleController {
 	public void addPuzzle21() {
 		if(pChoice != "") {
 			if(pChoice.equals("p21")) {
-				b21.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_20.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b21.setImage(new Image("/puzzle/piece20.jpg"));
 				pChoice = "";
+				a21.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -697,20 +1058,37 @@ public class puzzleController {
 	public void addPuzzle22() {
 		if(pChoice != "") {
 			if(pChoice.equals("p22")) {
-				b22.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_21.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b22.setImage(new Image("/puzzle/piece21.jpg"));
 				pChoice = "";
+				a22.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -718,20 +1096,37 @@ public class puzzleController {
 	public void addPuzzle23() {
 		if(pChoice != "") {
 			if(pChoice.equals("p23")) {
-				b23.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_22.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b23.setImage(new Image("/puzzle/piece22.jpg"));
 				pChoice = "";
+				a23.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -739,20 +1134,37 @@ public class puzzleController {
 	public void addPuzzle24() {
 		if(pChoice != "") {
 			if(pChoice.equals("p24")) {
-				b24.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_23.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b24.setImage(new Image("/puzzle/piece23.jpg"));
 				pChoice = "";
+				a24.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
@@ -760,20 +1172,37 @@ public class puzzleController {
 	public void addPuzzle25() {
 		if(pChoice != "") {
 			if(pChoice.equals("p25")) {
-				b25.setImage(new Image("/puzzle/KakaoTalk_20211024_160134275_24.jpg"));
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
+				mp.play();
+				b25.setImage(new Image("/puzzle/piece24.jpg"));
 				pChoice = "";
+				a25.setVisible(false);
+				count++;
+				if(count ==25) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+					mp.play();
+					Alert alert = new Alert(AlertType.INFORMATION);
+					alert.setTitle("ì„±ê³µ");
+					alert.setHeaderText("ì„±ê³µ");
+					alert.setContentText("ì„±ê³µì…ë‹ˆë‹¤");
+					alert.showAndWait();
+				}
 			} else {
+				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+				mp.play();
 				Alert alert = new Alert(AlertType.WARNING);
-				alert.setTitle("Æ²¸²");
-				alert.setHeaderText("¾Ë¸Â´Â ÆÛÁñÀÌ ¾Æ´Õ´Ï´Ù.");
-				alert.setContentText("¾Ë¸Â´Â ÆÛÁñÀ» ¼±ÅÃ ÈÄ µµÀüÇÏ¼¼¿ä.");
+				alert.setTitle("í‹€ë¦¼");
+				alert.setHeaderText("ì•Œë§ëŠ” í¼ì¦ì´ ì•„ë‹™ë‹ˆë‹¤.");
+				alert.setContentText("ì•Œë§ëŠ” í¼ì¦ì„ ì„ íƒ í›„ ë„ì „í•˜ì„¸ìš”.");
 				alert.showAndWait();
 			}
 		} else {
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
+			mp.play();
 			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("¼±ÅÃX");
-			alert.setHeaderText("ÆÛÁñÀ» ¼±ÅÃÈ÷¼¼¿ä");
-			alert.setContentText("ÆÛÁñÀ» ¼±ÅÃÇÏÁö ¾Ê¾Ò½À´Ï´Ù.");
+			alert.setTitle("ì„ íƒX");
+			alert.setHeaderText("í¼ì¦ì„ ì„ íƒíˆì„¸ìš”");
+			alert.setContentText("í¼ì¦ì„ ì„ íƒí•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.");
 			alert.showAndWait();
 		}
 	}
