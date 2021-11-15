@@ -41,13 +41,21 @@ public class Controller {
 	private Label label;
 
 	int num = 4;
+	int count1 = 0;
+	int count2 = 0;
+	int count3 = 0;
+	int count4 = 0;
 
 	@FXML
 	void showImage(MouseEvent event) {
+		count1++;
 		mp = new MediaPlayer(new Media(getClass().getResource("/image/clickBtn.mp3").toString()));
 		mp.play();
 		Cattree.setVisible(true);
-		num--;
+		if (count1 == 1) {
+			num--;
+		}
+
 		label.setText(Integer.toString(num));
 		if (num == 0) {
 			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
@@ -61,10 +69,13 @@ public class Controller {
 
 	@FXML
 	void showImage2(MouseEvent event) {
+		count2++;
 		mp = new MediaPlayer(new Media(getClass().getResource("/image/clickBtn.mp3").toString()));
 		mp.play();
 		Catsum.setVisible(true);
-		num--;
+		if (count2 == 1) {
+			num--;
+		}
 		label.setText(Integer.toString(num));
 		if (num == 0) {
 			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
@@ -78,10 +89,13 @@ public class Controller {
 
 	@FXML
 	void showImage3(MouseEvent event) {
+		count3++;
 		mp = new MediaPlayer(new Media(getClass().getResource("/image/clickBtn.mp3").toString()));
 		mp.play();
 		Duck.setVisible(true);
-		num--;
+		if (count3 == 1) {
+			num--;
+		}
 		label.setText(Integer.toString(num));
 		if (num == 0) {
 			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
@@ -95,10 +109,13 @@ public class Controller {
 
 	@FXML
 	void showImage4(MouseEvent event) {
+		count4++;
 		mp = new MediaPlayer(new Media(getClass().getResource("/image/clickBtn.mp3").toString()));
 		mp.play();
 		Mouse.setVisible(true);
-		num--;
+		if (count4 == 1) {
+			num--;
+		}
 		label.setText(Integer.toString(num));
 		if (num == 0) {
 			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));

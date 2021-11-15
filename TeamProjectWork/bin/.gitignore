@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /gameStart/
 /util/
 /mainGame/
@@ -5,3 +6,15 @@
 /music/
 /puzzle/
 /user/
+=======
+/application/
+/gameStart/
+/lib/
+/mainGame/
+/music/
+/puzzle/
+/roomImage/
+/user/
+/userImage/
+/util/
+>>>>>>> 1f4a627cad73dfa7b4476a62f42b402d5300e61c
