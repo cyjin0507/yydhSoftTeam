@@ -19,6 +19,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import util.JDBCUtil;
@@ -32,6 +33,10 @@ public class gameReady extends gameRequest implements Initializable {
 	private ChoiceBox<String> user1;
 	@FXML
 	private ChoiceBox<String> user2;
+	@FXML
+	private Label user1_name;
+	@FXML
+	private Label user2_name;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -39,27 +44,39 @@ public class gameReady extends gameRequest implements Initializable {
 		System.out.println(rq.player);
 		if (rq.player) {
 			player1Btn.setVisible(true);
+			try {
+				user1_name.setText(who());
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				System.out.println("유저이름 오류");
+			}
 			makeTable();
 		} else {
 			player2Btn.setVisible(true);
+			try {
+				user1_name.setText(who());
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				System.out.println("유저이름 오류");
+			}
 		}
 
 		user1.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
 		user2.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
 
 		// 채팅창 띄우기
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainGame/chat.fxml"));
-		Parent root = null;
-		try {
-			root = (Parent) loader.load();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println("채팅 오류");
-		}
-		Stage stage = new Stage();
-		stage.setTitle("상대와 채팅");
-		stage.setScene(new Scene(root));
-		stage.show();
+//		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainGame/chat.fxml"));
+//		Parent root = null;
+//		try {
+//			root = (Parent) loader.load();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			System.out.println("채팅 오류");
+//		}
+//		Stage stage = new Stage();
+//		stage.setTitle("상대와 채팅");
+//		stage.setScene(new Scene(root));
+//		stage.show();
 		
 
 
@@ -122,6 +139,11 @@ public class gameReady extends gameRequest implements Initializable {
 			// TODO: handle exception
 		}
 	}
+	
+	@FXML
+	private Label ready1;
+	@FXML
+	private Label ready2;	
 
 	// 유저1 준비버튼
 	public void ready1() throws UnknownHostException {
@@ -141,6 +163,8 @@ public class gameReady extends gameRequest implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			ready1.setText("준비완료");
 		} else if (user1.getSelectionModel().getSelectedItem().equals("탈출자2") && crushPre("탈출자2")) {
 			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready1` = 'accept' WHERE `user1` = '"
 					+ who() + "'";
@@ -151,6 +175,7 @@ public class gameReady extends gameRequest implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			ready1.setText("준비완료");
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("오류");
@@ -179,6 +204,7 @@ public class gameReady extends gameRequest implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			ready2.setText("준비완료");
 		} else if (user2.getSelectionModel().getSelectedItem().equals("탈출자2") && crushPre("탈출자1")) {
 			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready2` = 'accept' WHERE `user2` = '"
 					+ who() + "'";
@@ -189,6 +215,7 @@ public class gameReady extends gameRequest implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			ready2.setText("준비완료");
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("오류");
