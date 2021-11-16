@@ -35,7 +35,8 @@ public class chat extends server implements Initializable {
 			enterSocket();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
+			System.out.println("enterSocket 오류");
 		}
 	}
 
@@ -217,7 +218,7 @@ public class chat extends server implements Initializable {
 
 				if (user1.equals(who())) {
 					return "host";
-				} else if (user1.equals(who())) {
+				} else if (user2.equals(who())) {
 					return "client";
 				}
 			}
