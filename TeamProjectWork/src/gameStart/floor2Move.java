@@ -109,19 +109,21 @@ public class floor2Move implements Initializable {
 		}
 
 //이벤트 발생/ 나중에 액자 그림 추가시 재 설정
-//		if ((y == 100) && (x >= 270) && (x <= 320)) {
-//
-//			try {
-//				Parent root;
-//				root = FXMLLoader.load(getClass().getResource("/puzzle/puzzleLayout.fxml"));
-//				Scene scene = new Scene(root);
-//				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//				primaryStage.setScene(scene);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//
-//		}
+		System.out.println("x"+x);
+		System.out.println("y"+y);
+		if ((y == 115) && (x <= 270) && (x >= 220)) {
+
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/findHiddenObject/play.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
 
 	}
 

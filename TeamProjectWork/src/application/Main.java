@@ -26,7 +26,7 @@ public class Main extends Application {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 //			loader.setLocation(getClass().getResource("/user/Login.fxml"));
-			loader.setLocation(getClass().getResource("/gameStart/1floor.fxml"));
+			loader.setLocation(getClass().getResource("/gameStart/2floor.fxml"));
 			AnchorPane root = (AnchorPane)loader.load();
 			Scene scene = new Scene(root,1200,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

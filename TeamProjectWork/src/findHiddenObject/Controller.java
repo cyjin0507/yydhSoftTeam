@@ -49,7 +49,7 @@ public class Controller {
 	@FXML
 	void showImage(MouseEvent event) {
 		count1++;
-		mp = new MediaPlayer(new Media(getClass().getResource("/image/clickBtn.mp3").toString()));
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
 		mp.play();
 		Cattree.setVisible(true);
 		if (count1 == 1) {
@@ -58,7 +58,7 @@ public class Controller {
 
 		label.setText(Integer.toString(num));
 		if (num == 0) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 			mp.play();
 			Alert al = new Alert(AlertType.INFORMATION);
 			al.setTitle("성공");
@@ -70,7 +70,7 @@ public class Controller {
 	@FXML
 	void showImage2(MouseEvent event) {
 		count2++;
-		mp = new MediaPlayer(new Media(getClass().getResource("/image/clickBtn.mp3").toString()));
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
 		mp.play();
 		Catsum.setVisible(true);
 		if (count2 == 1) {
@@ -78,7 +78,7 @@ public class Controller {
 		}
 		label.setText(Integer.toString(num));
 		if (num == 0) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 			mp.play();
 			Alert al = new Alert(AlertType.INFORMATION);
 			al.setTitle("성공");
@@ -90,7 +90,7 @@ public class Controller {
 	@FXML
 	void showImage3(MouseEvent event) {
 		count3++;
-		mp = new MediaPlayer(new Media(getClass().getResource("/image/clickBtn.mp3").toString()));
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
 		mp.play();
 		Duck.setVisible(true);
 		if (count3 == 1) {
@@ -98,7 +98,7 @@ public class Controller {
 		}
 		label.setText(Integer.toString(num));
 		if (num == 0) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 			mp.play();
 			Alert al = new Alert(AlertType.INFORMATION);
 			al.setTitle("성공");
@@ -110,7 +110,7 @@ public class Controller {
 	@FXML
 	void showImage4(MouseEvent event) {
 		count4++;
-		mp = new MediaPlayer(new Media(getClass().getResource("/image/clickBtn.mp3").toString()));
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
 		mp.play();
 		Mouse.setVisible(true);
 		if (count4 == 1) {
@@ -118,7 +118,7 @@ public class Controller {
 		}
 		label.setText(Integer.toString(num));
 		if (num == 0) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 			mp.play();
 			Alert al = new Alert(AlertType.INFORMATION);
 			al.setTitle("성공");

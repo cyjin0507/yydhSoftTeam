@@ -123,8 +123,7 @@ public class floor1Move implements Initializable {
 	public String setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println("x는" + x);
-		System.out.println("y는" + y);
+
 
 		// 싱크대
 		if ((y == 220) && (x <= 155) && (x >= 5)) {
@@ -139,7 +138,7 @@ public class floor1Move implements Initializable {
 			return "left";
 		}
 //		테이블
-		if ((y == 300) && (x <= 685) && (x >= 735)) {
+		if ((y == 300) && (x >= 685) && (x <= 735)) {
 			if (x == 735) {
 				return "rightdown";
 			}
