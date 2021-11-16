@@ -57,7 +57,7 @@ public class controller {
 	public void hintMouse(MouseEvent e) {
 		if (clickCount == 0) {
 			try {
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/hint.fxml"));
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/potgame/hint.fxml"));
 				Parent root;
 				root = (Parent) loader.load();
 				Stage stage = new Stage();
@@ -201,7 +201,7 @@ public class controller {
 
 				if (db.hasImage()) {
 					num++;
-					pot.setImage(new Image("/image/" + iv.getId() + "pot.png"));
+					pot.setImage(new Image("/potgame/" + iv.getId() + "pot.png"));
 					if (iv.equals(blue)) {
 						b++;
 					} else if (iv.equals(red)) {
@@ -211,17 +211,17 @@ public class controller {
 					}
 					if (num >= 4) {
 						if (r == 2 && b == 1 && y == 1) {
-							pot.setImage(new Image("/image/success2.png"));
+							pot.setImage(new Image("/potgame/success2.png"));
 							alert.setTitle("성공");
 							alert.setContentText("성공");
 							alert.show();
-							mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
+							mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 							mp.play();
 						} else {
 							alert.setTitle("실패");
 							alert.setContentText("실패");
 							alert.show();
-							mp = new MediaPlayer(new Media(getClass().getResource("/image/BeepPing.mp3").toString()));
+							mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
 							mp.play();
 							reset();
 						}

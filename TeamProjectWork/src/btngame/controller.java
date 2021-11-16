@@ -1,12 +1,20 @@
-package view;
+package btngame;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 
 public class controller implements Initializable {
 	MediaPlayer mp;
@@ -16,6 +24,8 @@ public class controller implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 	}
+	@FXML
+	private Button btn;
 
 	String num;
 	String sum = "0";
@@ -130,22 +140,28 @@ public class controller implements Initializable {
 
 	public void sum() {
 
-		mp = new MediaPlayer(new Media(getClass().getResource("/resourses/clickBtn.mp3").toString()));
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/clickBtn.mp3").toString()));
 		mp.play();
 		i++;
 
 		sum += num;
-		System.out.println(sum);
 		if (sum.equals("03462891016")) {
 //			mp = new MediaPlayer(new Media(getClass().getResource("/resourses/success1.mp3").toString()));
-			mp = new MediaPlayer(new Media(getClass().getResource("/resourses/success2.mp3").toString()));
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/success2.mp3").toString()));
 
 			mp.play();
-			// 여기에 방넘어가는거 넣기
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/gameStart/2floor.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) btn.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			reset();
-//미안......내가 생각해도 날먹이다...
 		} else if (i >= 8 && !sum.equals("03462891016")) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/resourses/BeepPing.mp3").toString()));
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
 
 			mp.play();
 			reset();

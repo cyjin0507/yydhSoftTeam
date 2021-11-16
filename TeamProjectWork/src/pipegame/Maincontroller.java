@@ -1,14 +1,20 @@
 package pipegame;
 
+import java.io.IOException;
+
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 
 public class Maincontroller {
 	
@@ -51,12 +57,21 @@ public class Maincontroller {
 		if ((int) iv2.getRotate() == 0 && (int) iv7.getRotate() == 0 && (int) iv8.getRotate() == 0
 				&& (int) iv4.getRotate() == 0 && (int) iv9.getRotate() == 0 && (int) iv14.getRotate() == 0
 				&& (int) iv15.getRotate() == 0 && (int) iv3.getRotate() == 0) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/image/success1.mp3").toString()));
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 			mp.play();
 			Alert al = new Alert(AlertType.CONFIRMATION);
 			al.setTitle("성공");
 			al.setContentText("성공");
 			al.show();
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/gameStart/3floor.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) iv15.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -194,5 +209,7 @@ public class Maincontroller {
 
 		getRotate();
 	}
+	
+	
 
 }
