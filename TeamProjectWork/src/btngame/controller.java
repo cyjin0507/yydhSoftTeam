@@ -1,4 +1,4 @@
-package view;
+package btngame;
 
 import java.net.URL;
 import java.util.ArrayList;

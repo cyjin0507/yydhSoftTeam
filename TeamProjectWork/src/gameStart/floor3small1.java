@@ -1,16 +1,21 @@
 package gameStart;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.stage.Stage;
 
-public class floor3small1 implements Initializable{
+public class floor3small1 implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -104,19 +109,18 @@ public class floor3small1 implements Initializable{
 		}
 
 //이벤트 발생/ 나중에 그림에 퍼즐 추가시 재 설정
-//		if ((y == 100) && (x >= 270) && (x <= 320)) {
-//
-//			try {
-//				Parent root;
-//				root = FXMLLoader.load(getClass().getResource("/puzzle/puzzleLayout.fxml"));
-//				Scene scene = new Scene(root);
-//				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//				primaryStage.setScene(scene);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//
-//		}
+		if ((y == 100) && (x <= 100) && (x >= 40)) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/pipegame/layout.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+		}
 
 	}
 
@@ -124,50 +128,40 @@ public class floor3small1 implements Initializable{
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 
-
-		// 싱크대
-		if ((y == 220) && (x <= 155) && (x >= 5)) {
-			if (x == 5) {
-				return "leftdown";
+//세면대
+		if ((x == 220) && (y >= 100) && (y <= 120)) {
+			if (y >= 100) {
+				return "rightup";
 			}
-			return "down";
-		} else if ((x == 155) && (y <= 620) && (y >= 230)) {
-			if (y == 620) {
-				return "leftdown";
-			}
-			return "left";
-		}
-//		테이블
-		if ((y == 300) && (x >= 685) && (x <= 735)) {
-			if (x == 735) {
-				return "rightdown";
-			}
-			return "down";
-		} else if ((x == 735) && (y <= 300) && (y >= 230)) {
 			return "right";
-		} else if ((y == 230) && (x >= 745) && (x <= 935)) {
-			return "down";
-		} else if ((x == 945) && (y >= 240) && (y <= 290)) {
-			return "left";
-		} else if ((y == 300) && (x >= 945) && (x <= 1015)) {
-			if (x == 945) {
-				return "leftdown";
-			}
-			return "down";
-		} else if ((x == 1025) && (y >= 310) && (y <= 570)) {
-			return "left";
-		} else if ((y == 580) && (x <= 1015) && (x >= 675)) {
+		} else if ((y == 130) && (x >= 230) && (x <= 330)) {
 			return "up";
-		} else if ((x == 665) && (y >= 310) && (y <= 570)) {
+		} else if((x == 340) && (y >= 100) && (y <= 120)) {
+			if (y == 100) {
+				return "leftup";
+			}
+			return "left";
+		}
+//
+		if((x ==600) &&(y >= 100)&&(y <= 160)) {
+			if (y == 100) {
+				return "leftup";
+			}
+			return "left";
+		} else if ((x <= 590)&&(y ==170)&&( x >= 440)) {
+			return "up";
+		} else if ((x ==430)&&(y >= 100)&&(y <= 160)) {
+			if (y == 100) {
+				return "rightup";
+			}
 			return "right";
 		}
-
 //		전체 배경 안빠져나가게
-		if (y <= 110) {
+		if (y <= 100) {
 			if (x <= 10) {
 				return "leftup";
 			}
-			if (x >= 1090) {
+			if (x >= 600) {
 				return "rightup";
 			}
 			return "up";
@@ -175,13 +169,13 @@ public class floor3small1 implements Initializable{
 			if (x <= 10) {
 				return "leftdown";
 			}
-			if (x >= 1090) {
+			if (x >= 600) {
 				return "rightdown";
 			}
 			return "down";
 		} else if (x <= 10) {
 			return "left";
-		} else if (x >= 1090) {
+		} else if (x >= 600) {
 			return "right";
 		}
 		return "";
