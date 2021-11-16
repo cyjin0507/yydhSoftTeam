@@ -1,14 +1,20 @@
 package pipegame;
 
+import java.io.IOException;
+
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.Stage;
 
 public class Maincontroller {
 	
@@ -57,6 +63,15 @@ public class Maincontroller {
 			al.setTitle("성공");
 			al.setContentText("성공");
 			al.show();
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/gameStart/3floor.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) iv15.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
@@ -194,5 +209,7 @@ public class Maincontroller {
 
 		getRotate();
 	}
+	
+	
 
 }

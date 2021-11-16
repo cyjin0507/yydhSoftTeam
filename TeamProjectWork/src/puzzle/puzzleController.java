@@ -256,6 +256,25 @@ public class puzzleController {
 	@FXML
 	private ImageView b25;
 	
+	
+	public void success() {
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+		mp.play();
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("성공");
+		alert.setHeaderText("성공");
+		alert.setContentText("성공입니다");
+		alert.showAndWait();
+		try {
+			Parent root;
+			root = FXMLLoader.load(getClass().getResource("/gameStart/3floor-small2.fxml"));
+			Scene scene = new Scene(root);
+			Stage primaryStage = (Stage) b25.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	int count = 0;
 	public void addPuzzle1() {
 		if(pChoice != "") {
@@ -267,13 +286,7 @@ public class puzzleController {
 				a01.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -305,13 +318,7 @@ public class puzzleController {
 				a02.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -343,13 +350,7 @@ public class puzzleController {
 				a03.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -381,13 +382,7 @@ public class puzzleController {
 				a04.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -419,13 +414,7 @@ public class puzzleController {
 				a05.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -457,13 +446,7 @@ public class puzzleController {
 				a06.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -495,13 +478,7 @@ public class puzzleController {
 				a07.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -533,13 +510,7 @@ public class puzzleController {
 				a08.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -571,13 +542,7 @@ public class puzzleController {
 				a09.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -609,13 +574,7 @@ public class puzzleController {
 				a10.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -647,13 +606,7 @@ public class puzzleController {
 				a11.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -685,13 +638,7 @@ public class puzzleController {
 				a12.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -723,13 +670,7 @@ public class puzzleController {
 				a13.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -761,13 +702,7 @@ public class puzzleController {
 				a14.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -799,13 +734,7 @@ public class puzzleController {
 				a15.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -837,13 +766,7 @@ public class puzzleController {
 				a16.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -875,13 +798,7 @@ public class puzzleController {
 				a17.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -913,13 +830,7 @@ public class puzzleController {
 				a18.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -951,13 +862,7 @@ public class puzzleController {
 				a19.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -989,13 +894,7 @@ public class puzzleController {
 				a20.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -1027,13 +926,7 @@ public class puzzleController {
 				a21.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -1065,13 +958,7 @@ public class puzzleController {
 				a22.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -1103,13 +990,7 @@ public class puzzleController {
 				a23.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -1141,13 +1022,7 @@ public class puzzleController {
 				a24.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
@@ -1179,13 +1054,7 @@ public class puzzleController {
 				a25.setVisible(false);
 				count++;
 				if(count ==25) {
-					mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-					mp.play();
-					Alert alert = new Alert(AlertType.INFORMATION);
-					alert.setTitle("성공");
-					alert.setHeaderText("성공");
-					alert.setContentText("성공입니다");
-					alert.showAndWait();
+					success();
 				}
 			} else {
 				mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));

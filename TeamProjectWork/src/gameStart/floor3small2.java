@@ -152,7 +152,7 @@ public class floor3small2 implements Initializable {
 			return "up";
 		}
 
-//		전체 배경 안빠져나가게
+//전체 배경 안빠져나가게
 		if (y <= 130) {
 			if (x <= 10) {
 				return "leftup";
@@ -177,4 +177,5 @@ public class floor3small2 implements Initializable {
 		return "";
 
 	}
+	
 }

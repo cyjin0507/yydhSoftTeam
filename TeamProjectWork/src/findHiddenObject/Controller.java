@@ -1,5 +1,6 @@
 package findHiddenObject;
 
+import java.io.IOException;
 import java.net.URL;
 
 import javafx.fxml.FXML;
@@ -58,12 +59,7 @@ public class Controller {
 
 		label.setText(Integer.toString(num));
 		if (num == 0) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-			mp.play();
-			Alert al = new Alert(AlertType.INFORMATION);
-			al.setTitle("성공");
-			al.setContentText("성공");
-			al.show();
+			success();
 		}
 	}
 
@@ -78,12 +74,7 @@ public class Controller {
 		}
 		label.setText(Integer.toString(num));
 		if (num == 0) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-			mp.play();
-			Alert al = new Alert(AlertType.INFORMATION);
-			al.setTitle("성공");
-			al.setContentText("성공");
-			al.show();
+			success();
 		}
 	}
 
@@ -98,12 +89,7 @@ public class Controller {
 		}
 		label.setText(Integer.toString(num));
 		if (num == 0) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-			mp.play();
-			Alert al = new Alert(AlertType.INFORMATION);
-			al.setTitle("성공");
-			al.setContentText("성공");
-			al.show();
+			success();
 		}
 	}
 
@@ -118,12 +104,25 @@ public class Controller {
 		}
 		label.setText(Integer.toString(num));
 		if (num == 0) {
-			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
-			mp.play();
-			Alert al = new Alert(AlertType.INFORMATION);
-			al.setTitle("성공");
-			al.setContentText("성공");
-			al.show();
+			success();
 		}
+	}
+	public void success(){
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
+		mp.play();
+		Alert al = new Alert(AlertType.INFORMATION);
+		al.setTitle("성공");
+		al.setContentText("성공");
+		al.show();
+		try {
+			Parent root;
+			root = FXMLLoader.load(getClass().getResource("/gameStart/1floor.fxml"));
+			Scene scene = new Scene(root);
+			Stage primaryStage = (Stage) label.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 }
