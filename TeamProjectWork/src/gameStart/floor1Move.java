@@ -10,7 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-public class floor1Move implements Initializable{
+public class floor1Move implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -123,9 +123,45 @@ public class floor1Move implements Initializable{
 	public String setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println("x는"+x);
-		System.out.println("y는"+y);
+		System.out.println("x는" + x);
+		System.out.println("y는" + y);
 
+		// 싱크대
+		if ((y == 220) && (x <= 155) && (x >= 5)) {
+			if (x == 5) {
+				return "leftdown";
+			}
+			return "down";
+		} else if ((x == 155) && (y <= 620) && (y >= 230)) {
+			if (y == 620) {
+				return "leftdown";
+			}
+			return "left";
+		}
+
+		if ((y == 300) && (x <= 685) && (x >= 735)) {
+			if (x == 735) {
+				return "rightdown";
+			}
+			return "down";
+		} else if ((x == 735) && (y <= 300) && (y >= 230)) {
+			return "right";
+		} else if ((y == 230) && (x >= 745) && (x <= 935)) {
+			return "down";
+		} else if ((x == 945) && (y >= 240) && (y <= 290)) {
+			return "left";
+		} else if ((y == 300) && (x >= 945) && (x <= 1015)) {
+			if (x == 945) {
+				return "leftdown";
+			}
+			return "down";
+		} else if ((x == 1025) && (y >= 310) && (y <= 570)) {
+			return "left";
+		} else if ((y == 580) && (x <= 1015) && (x >= 675)) {
+			return "up";
+		} else if ((x == 665) && (y >= 310) && (y <= 570)) {
+			return "right";
+		}
 
 //		전체 배경 안빠져나가게
 		if (y <= 110) {
