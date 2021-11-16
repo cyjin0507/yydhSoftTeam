@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Maincontroller">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/background.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv1" fitHeight="150.0" fitWidth="150.0" layoutX="159.0" layoutY="95.0" onMouseClicked="#iv1Action" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/1.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv3" fitHeight="150.0" fitWidth="150.0" layoutX="476.0" layoutY="95.0" onMouseClicked="#iv3Action" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/3.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv2" fitHeight="150.0" fitWidth="150.0" layoutX="317.0" layoutY="95.0" onMouseClicked="#iv2Action" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@../image/2.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv6" fitHeight="150.0" fitWidth="150.0" layoutX="159.0" layoutY="252.0" onMouseClicked="#iv6Action" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/6.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv8" fitHeight="150.0" fitWidth="150.0" layoutX="476.0" layoutY="251.0" onMouseClicked="#iv8Action" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../image/8.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv7" fitHeight="150.0" fitWidth="150.0" layoutX="317.0" layoutY="251.0" onMouseClicked="#iv7Action" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@../image/7.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv11" fitHeight="150.0" fitWidth="150.0" layoutX="159.0" layoutY="406.0" onMouseClicked="#iv11Action" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/11.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv13" fitHeight="150.0" fitWidth="150.0" layoutX="476.0" layoutY="406.0" onMouseClicked="#iv13Action" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/13.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv12" fitHeight="150.0" fitWidth="150.0" layoutX="317.0" layoutY="406.0" onMouseClicked="#iv12Action" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/12.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv10" fitHeight="150.0" fitWidth="150.0" layoutX="800.0" layoutY="250.0" onMouseClicked="#iv10Action" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/10.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv9" fitHeight="150.0" fitWidth="150.0" layoutX="636.0" layoutY="250.0" onMouseClicked="#iv9Action" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../image/9.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv5" fitHeight="150.0" fitWidth="150.0" layoutX="800.0" layoutY="95.0" onMouseClicked="#iv5Action" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/5.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv4" fitHeight="150.0" fitWidth="150.0" layoutX="636.0" layoutY="95.0" onMouseClicked="#iv4Action" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+         <image>
+            <Image url="@../image/4.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv15" fitHeight="150.0" fitWidth="150.0" layoutX="800.0" layoutY="406.0" onMouseClicked="#iv15Action" pickOnBounds="true" preserveRatio="true" rotate="270.0">
+         <image>
+            <Image url="@../image/15.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="iv14" fitHeight="150.0" fitWidth="150.0" layoutX="636.0" layoutY="406.0" onMouseClicked="#iv14Action" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+         <image>
+            <Image url="@../image/14.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

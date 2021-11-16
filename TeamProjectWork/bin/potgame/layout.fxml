@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.controller">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/potback.png" />
+         </image></ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="104.0" layoutY="170.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="green" fitHeight="150.0" fitWidth="200.0" layoutX="118.0" layoutY="562.0" onDragDetected="#greensetOnDragDetected" onDragDone="#greensetOnDragDone" onDragOver="#greensetOnDragOver" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/green.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="red" fitHeight="150.0" fitWidth="200.0" layoutX="328.0" layoutY="572.0" onDragDetected="#redsetOnDragDetected" onDragDone="#redsetOnDragDone" onDragOver="#redsetOnDragOver" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/red.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+      <ImageView fitHeight="400.0" fitWidth="500.0" layoutX="314.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/pot.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="blue" fitHeight="150.0" fitWidth="200.0" layoutX="554.0" layoutY="572.0" onDragDetected="#bluesetOnDragDetected" onDragDone="#bluesetOnDragDone" onDragOver="#bluesetOnDragOver" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/blue.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="yellow" fitHeight="150.0" fitWidth="200.0" layoutX="769.0" layoutY="562.0" onDragDetected="#yellowsetOnDragDetected" onDragDone="#yellowsetOnDragDone" onDragOver="#yellowsetOnDragOver" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/yellow.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="pink" fitHeight="150.0" fitWidth="200.0" layoutX="982.0" layoutY="562.0" onDragDetected="#pinksetOnDragDetected" onDragDone="#pinksetOnDragDone" onDragOver="#pinksetOnDragOver" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/pink.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="pot" fitHeight="400.0" fitWidth="600.0" layoutX="297.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+      <Label layoutX="928.0" layoutY="777.0" text="처음엔 잘안들어가요 두번 넣어주세요!" textFill="#aba7a7" />
+      <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="41.0" layoutY="331.0" onMouseClicked="#resetMouse" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/reset.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="250.0" layoutX="882.0" layoutY="350.0" onMouseClicked="#hintMouse" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/hint.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
