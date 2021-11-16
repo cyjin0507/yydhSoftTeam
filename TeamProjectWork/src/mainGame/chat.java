@@ -43,6 +43,7 @@ public class chat extends server implements Initializable {
 
 	// 소켓 서버 입장하기
 	public void enterSocket() throws UnknownHostException {
+		System.out.println(userInfo());
 		if(userInfo().equals("host")) {
 			System.out.println("host");
 			new Thread(new Runnable() {
