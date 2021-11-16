@@ -138,7 +138,7 @@ public class floor1Move implements Initializable {
 			}
 			return "left";
 		}
-
+//		테이블
 		if ((y == 300) && (x <= 685) && (x >= 735)) {
 			if (x == 735) {
 				return "rightdown";
