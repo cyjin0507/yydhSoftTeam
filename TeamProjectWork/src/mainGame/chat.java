@@ -119,9 +119,9 @@ public class chat extends server implements Initializable {
 				if (length == -1)
 					throw new IOException();
 				String message = new String(buffer, 0, length, "UTF-8");
-				
-				if(message.equals(who() + "  :  a\n")) {
-					System.out.println("ㄴ앟 ㅓㅇ라 하.ㅎ ㅜㅇ류ㅓㅇㄶ;");
+
+				if(message.equals("a")) {
+					System.out.println("이렇게 하는거다");
 				} else {
 					Platform.runLater(() -> {
 						textArea.appendText(message);
@@ -174,6 +174,11 @@ public class chat extends server implements Initializable {
 		}
 		input.setText("");
 		input.requestFocus();
+	}
+	
+	public void test() {
+		
+		send("a");
 	}
 
 	public void inputAction() {
