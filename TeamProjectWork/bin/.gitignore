@@ -1,8 +1,16 @@
-/mainGame/
 /application/
 /btngame/
 /findHiddenObject/
 /gameStart/
+/lib/
+/mainGame/
+<<<<<<< HEAD
+/application/
+/btngame/
+/findHiddenObject/
+/gameStart/
+=======
+>>>>>>> 2d0c838a89787e249ed72807e17970b271db19f6
 /music/
 /pipegame/
 /potgame/
