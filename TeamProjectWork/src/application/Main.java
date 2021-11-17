@@ -21,6 +21,7 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
+	public boolean close = false;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -44,6 +45,7 @@ public class Main extends Application {
 					Optional<ButtonType> result = alert.showAndWait();
 					if (result.get() == ButtonType.OK) {
 						System.out.println("종료");
+						close = true;
 						try {
 							transOffLine();
 						} catch (UnknownHostException e) {

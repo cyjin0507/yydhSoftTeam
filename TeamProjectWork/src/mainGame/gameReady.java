@@ -11,6 +11,7 @@ import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -41,6 +42,8 @@ public class gameReady extends gameRequest implements Initializable {
 	private Label user1_name;
 	@FXML
 	private Label user2_name;
+	@FXML
+	private Label user2_choice;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -48,6 +51,7 @@ public class gameReady extends gameRequest implements Initializable {
 		System.out.println(rq.player);
 		if (rq.player) {
 			player1Btn.setVisible(true);
+			user1.setVisible(true);
 			try {
 				user1_name.setText(who());
 			} catch (UnknownHostException e) {
@@ -57,6 +61,7 @@ public class gameReady extends gameRequest implements Initializable {
 			makeTable();
 		} else {
 			player2Btn.setVisible(true);
+			user2_choice.setVisible(true);
 			try {
 				user1_name.setText(who());
 			} catch (UnknownHostException e) {
@@ -66,8 +71,13 @@ public class gameReady extends gameRequest implements Initializable {
 		}
 
 		user1.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
-		user2.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
+//		user2.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
 
+		if (user1.equals("탈출자1")) {
+			user2_choice.setText("탈출자2");
+		} else if (user1.equals("탈출자2")) {
+			user2_choice.setText("탈출자1");
+		}
 		// 채팅창 띄우기
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainGame/chat.fxml"));
 		Parent root = null;
@@ -85,8 +95,11 @@ public class gameReady extends gameRequest implements Initializable {
 		stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
 			@Override
 			public void handle(WindowEvent evt) {
-
-				evt.consume();
+				if (new Main().close) {
+					stage.close();
+				} else {
+					evt.consume();
+				}
 
 			}
 		});
