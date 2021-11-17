@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -16,9 +17,8 @@ public class Cont implements Initializable {
 	private ImageView imageView;
 	@FXML
 	private Rectangle rectangle;
-//	@FXML
-//	private ImageView imageView = new ImageView(new Image(getClass().getResourceAsStream("/image/characterAll.png")));
-//	Character player = new Character(imageView);
+	@FXML
+	Character player = new Character(imageView);
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -36,7 +36,7 @@ public class Cont implements Initializable {
 		});
 
 	}
-	
+
 	public void pressed(KeyEvent event, String moveStop) {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
@@ -99,13 +99,22 @@ public class Cont implements Initializable {
 			}
 		} else {
 			if (keyCode.equals(KeyCode.RIGHT)) {
+				player.animation.play();
+				player.animation.setOffsetY(146);
 				imageView.setX(x + 10);
 			} else if (keyCode.equals(KeyCode.LEFT)) {
+				player.animation.play();
+				player.animation.setOffsetY(146);
 				imageView.setX(x - 10);
 			} else if (keyCode.equals(KeyCode.UP)) {
+				player.animation.play();
+				player.animation.setOffsetY(75);
 				imageView.setY(y - 10);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
+				player.animation.play();
+				player.animation.setOffsetY(5);
 				imageView.setY(y + 10);
+
 			}
 		}
 
