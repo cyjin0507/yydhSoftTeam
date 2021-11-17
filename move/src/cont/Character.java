@@ -12,7 +12,7 @@ public class Character extends Pane {
 	ImageView imageView;
 	int count = 3;
 	int columns = 3;
-	int offsetX = 0;
+	int offsetX = 76;
 	int offsetY = 0;
 	int width = 75;
 	int height = 115;
