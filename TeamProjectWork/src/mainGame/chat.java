@@ -144,12 +144,7 @@ public class chat extends server implements Initializable {
 		thread.start();
 	}
 
-//실제로 프로그램을 동작시키는 메소드
-	@FXML
-	private TextField userName;
-	@FXML
-	private TextField IPText;
-	@FXML
+
 	private TextField portText;
 
 	@FXML
@@ -162,13 +157,23 @@ public class chat extends server implements Initializable {
 	private Button connectionButton;
 
 	public void sendButtonAction() {
-		send(userName.getText() + ":" + input.getText() + "\n");
+		try {
+			send(who() + "  :  " + input.getText() + "\n");
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		input.setText("");
 		input.requestFocus();
 	}
 
 	public void inputAction() {
-		send(userName.getText() + ":" + input.getText() + "\n");
+		try {
+			send(who() + "  :  " + input.getText() + "\n");
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		input.setText("");
 		input.requestFocus();
 	}
