@@ -31,23 +31,7 @@ public class chat extends server implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-//		new Thread(new Runnable() {
-//			public void run() {
-//				try {
-//					Thread.sleep(1000);
-//					try {
-//						enterSocket();
-//					} catch (UnknownHostException e) {
-//						// TODO Auto-generated catch block
-//						e.printStackTrace();
-//					}
-//				} catch (InterruptedException e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//				
-//			}
-//		}).start();
+
 		try {
 			enterSocket();
 		} catch (UnknownHostException e) {
@@ -134,7 +118,12 @@ public class chat extends server implements Initializable {
 					throw new IOException();
 				String message = new String(buffer, 0, length, "UTF-8");
 				Platform.runLater(() -> {
-					textArea.appendText(message);
+					try {
+						textArea.appendText("보낸사람" + who() + " : " + message);
+					} catch (UnknownHostException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				});
 			} catch (Exception e) {
 				stopClient();
