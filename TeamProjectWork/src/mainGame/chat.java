@@ -118,12 +118,7 @@ public class chat extends server implements Initializable {
 					throw new IOException();
 				String message = new String(buffer, 0, length, "UTF-8");
 				Platform.runLater(() -> {
-					try {
-						textArea.appendText("보낸사람" + who() + " : " + message);
-					} catch (UnknownHostException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+					textArea.appendText(message);
 				});
 			} catch (Exception e) {
 				stopClient();
