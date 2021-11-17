@@ -7,10 +7,12 @@ import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Optional;
 import java.util.Random;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,10 +20,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import util.JDBCUtil;
 
 public class gameReady extends gameRequest implements Initializable {
@@ -77,8 +81,15 @@ public class gameReady extends gameRequest implements Initializable {
 		stage.setTitle("상대와 채팅");
 		stage.setScene(new Scene(root));
 		stage.show();
-		
 
+		stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			@Override
+			public void handle(WindowEvent evt) {
+
+				evt.consume();
+
+			}
+		});
 
 	}
 
@@ -139,8 +150,8 @@ public class gameReady extends gameRequest implements Initializable {
 			// TODO: handle exception
 		}
 	}
-	
-	//누구에게 보냈는지 확인
+
+	// 누구에게 보냈는지 확인
 	public String whastuser() {
 		JDBCUtil db = new JDBCUtil();
 		java.sql.Connection con = db.getConnection();
@@ -155,23 +166,21 @@ public class gameReady extends gameRequest implements Initializable {
 			while (rs.next()) {
 				String sendUser = rs.getString("sendUser");
 				String receiveUser = rs.getString("receiveUser");
-				if(sendUser.equals(who())) {
+				if (sendUser.equals(who())) {
 					return receiveUser;
 				}
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		return null;
 	}
-	
-	
-	
+
 	@FXML
 	private Label ready1;
 	@FXML
-	private Label ready2;	
+	private Label ready2;
 
 	// 유저1 준비버튼
 	public void ready1() throws UnknownHostException {
@@ -191,7 +200,7 @@ public class gameReady extends gameRequest implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 			ready1.setText("준비완료");
 		} else if (user1.getSelectionModel().getSelectedItem().equals("탈출자2") && crushPre("탈출자2")) {
 			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready1` = 'accept' WHERE `user1` = '"
