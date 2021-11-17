@@ -207,7 +207,7 @@ public class chat extends server implements Initializable {
 
 		java.sql.PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from game_info WHERE `user1` = '" + who() + "' OR `user2` = '" + who() + "'";
+		String sql = "select * from game_info";
 
 		try {
 			pstmt = con.prepareStatement(sql);
