@@ -125,7 +125,7 @@ public class gameReady extends gameRequest implements Initializable {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, serialNum());
 			pstmt.setString(2, who());
-			pstmt.setString(3, "");
+			pstmt.setString(3, whastuser());
 			pstmt.setString(4, "");
 			pstmt.setString(5, "");
 			pstmt.setString(6, ip);
@@ -139,6 +139,34 @@ public class gameReady extends gameRequest implements Initializable {
 			// TODO: handle exception
 		}
 	}
+	
+	//누구에게 보냈는지 확인
+	public String whastuser() {
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
+
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from game_ready";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String sendUser = rs.getString("sendUser");
+				String receiveUser = rs.getString("receiveUser");
+				if(sendUser.equals(who())) {
+					return receiveUser;
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return null;
+	}
+	
+	
 	
 	@FXML
 	private Label ready1;

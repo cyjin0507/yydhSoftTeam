@@ -31,12 +31,28 @@ public class chat extends server implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+//		new Thread(new Runnable() {
+//			public void run() {
+//				try {
+//					Thread.sleep(1000);
+//					try {
+//						enterSocket();
+//					} catch (UnknownHostException e) {
+//						// TODO Auto-generated catch block
+//						e.printStackTrace();
+//					}
+//				} catch (InterruptedException e) {
+//					// TODO Auto-generated catch block
+//					e.printStackTrace();
+//				}
+//				
+//			}
+//		}).start();
 		try {
 			enterSocket();
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
-//			e.printStackTrace();
-			System.out.println("enterSocket 오류");
+			e.printStackTrace();
 		}
 	}
 
@@ -44,9 +60,8 @@ public class chat extends server implements Initializable {
 
 	// 소켓 서버 입장하기
 	public void enterSocket() throws UnknownHostException {
-		System.out.println(userInfo());
+		System.out.println("유저정보" + userInfo());
 		if(userInfo().equals("host")) {
-			System.out.println("host");
 			new Thread(new Runnable() {
 				public void run() {
 					server();
@@ -64,8 +79,7 @@ public class chat extends server implements Initializable {
 					startClient(getIp(), getPort());
 				}
 			}).start();
-		} else if(userInfo().equals("client")) {
-			System.out.println("client");
+		} else {
 			new Thread(new Runnable() {
 				public void run() {
 					startClient(getIp(), getPort());
@@ -215,6 +229,8 @@ public class chat extends server implements Initializable {
 			while (rs.next()) {
 				String user1 = rs.getString("user1");
 				String user2 = rs.getString("user2");
+				
+				System.out.println("test : " + user1 + "   " + user2);
 
 				if (user1.equals(who())) {
 					return "host";
