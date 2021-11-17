@@ -19,9 +19,11 @@ import javafx.geometry.Insets;
 import javafx.stage.Stage;
 import util.JDBCUtil;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -117,9 +119,16 @@ public class chat extends server implements Initializable {
 				if (length == -1)
 					throw new IOException();
 				String message = new String(buffer, 0, length, "UTF-8");
-				Platform.runLater(() -> {
-					textArea.appendText(message);
-				});
+				
+				if(message.equals(who() + "  :  a\n")) {
+					System.out.println("ㄴ앟 ㅓㅇ라 하.ㅎ ㅜㅇ류ㅓㅇㄶ;");
+				} else {
+					Platform.runLater(() -> {
+						textArea.appendText(message);
+					});	
+				}
+				
+				
 			} catch (Exception e) {
 				stopClient();
 				break;
