@@ -23,15 +23,16 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import mainGame.chat;
 import mainGame.server;
 import util.JDBCUtil;
 
-public class gameMain extends server implements Initializable {
+public class gameMain extends chat implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-
+		
 
 	}
-}
+}	
