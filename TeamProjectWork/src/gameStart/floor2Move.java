@@ -110,19 +110,7 @@ public class floor2Move implements Initializable {
 
 //이벤트 발생/ 나중에 액자 그림 추가시 재 설정
 
-		if ((y == 115) && (x <= 270) && (x >= 220)) {
-
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/findHiddenObject/play.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}
+		
 
 	}
 
@@ -130,58 +118,6 @@ public class floor2Move implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 
-//		침대랑 전등이랑 전부다
-		if ((x == 270) && (y <= 185) && (y >= 115)) {
-			if (y == 115) {
-				return "rightup";
-			}
-			return "right";
-		} else if ((y == 195) && (x <= 350) && (x >= 270)) {
-			if (x == 350) {
-				return "rightup";
-			}
-			return "up";
-		} else if ((x == 350) && (y <= 295) && (y >= 195)) {
-			return "right";
-		} else if ((y == 305) && (x >= 360) && (x <= 730)) {
-			return "up";
-		} else if ((x ==740) && (y <= 295) && (y >= 215)) {
-			return "left";
-		} else if((y == 205)&& (x >= 740) && (x <= 870)) {
-			if (x == 740) {
-				return "leftup";
-			}
-			return "up";
-		} else if((x ==880) && (y <= 195) && (y >= 115)) {
-			if (y == 115) {
-				return "leftup";
-			}
-			return "left";
-		}
-
-//		전체 배경 안빠져나가게
-		if (y <= 120) {
-			if (x <= 10) {
-				return "leftup";
-			}
-			if (x >= 1090) {
-				return "rightup";
-			}
-			return "up";
-		} else if (y >= 620) {
-			if (x <= 10) {
-				return "leftdown";
-			}
-			if (x >= 1090) {
-				return "rightdown";
-			}
-			return "down";
-		} else if (x <= 10) {
-			return "left";
-		} else if (x >= 1090) {
-			return "right";
-		}
-		return "";
 
 	}
 }
