@@ -121,7 +121,10 @@ public class chat extends server implements Initializable {
 				String message = new String(buffer, 0, length, "UTF-8");
 
 				if(message.equals("a")) {
-					System.out.println("이렇게 하는거다");
+					
+					Platform.runLater(() -> {
+						System.out.println("이렇게 하는거다");
+					});	
 				} else {
 					Platform.runLater(() -> {
 						textArea.appendText(message);
