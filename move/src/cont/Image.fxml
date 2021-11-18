@@ -8,14 +8,13 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cont.Cont">
    <children>
-      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" stroke="BLACK" strokeType="INSIDE" width="150.0" x="500.0" y="25.0" />
       <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="100.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="550.0" y="325.0">
-         <image>
-            <Image url="@../image/characterAll.png" />
-         </image>
          <viewport>
-            <Rectangle2D height="115.0" minX="76.0" width="75.0" />
+            <Rectangle2D />
          </viewport>
-      </ImageView>
+         <image>
+            <Image url="@../image/all.png" />
+         </image></ImageView>
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="100.0" stroke="BLACK" strokeType="INSIDE" width="150.0" x="500.0" y="25.0" />
    </children>
 </AnchorPane>

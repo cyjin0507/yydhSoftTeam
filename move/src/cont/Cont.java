@@ -1,8 +1,8 @@
 package cont;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
-
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,17 +11,18 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 
 public class Cont implements Initializable {
 	@FXML
 	private ImageView imageView;
 	@FXML
 	private Rectangle rectangle;
-	@FXML
-	Character player = new Character(imageView);
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		sprite();
 		imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
@@ -31,90 +32,83 @@ public class Cont implements Initializable {
 		imageView.setOnKeyReleased(new EventHandler<KeyEvent>() {
 			@Override
 			public void handle(KeyEvent event) {
-//				Released(event);
+				animation.stop();
 			}
 		});
-
 	}
+
+	SpriteAnimation animation;
 
 	public void pressed(KeyEvent event, String moveStop) {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
 		KeyCode keyCode = event.getCode();
 		if (moveStop.equals("up")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				imageView.setX(x + 10);
+				right(x);
 			} else if (keyCode.equals(KeyCode.LEFT)) {
-				imageView.setX(x - 10);
+				left(x);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				imageView.setY(y + 10);
+				down(y);
 			}
 		} else if (moveStop.equals("down")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				imageView.setX(x + 10);
+				right(x);
 			} else if (keyCode.equals(KeyCode.LEFT)) {
-				imageView.setX(x - 10);
+				left(x);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				imageView.setY(y - 10);
+				up(y);
 			}
 		} else if (moveStop.equals("left")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				imageView.setX(x + 10);
+				right(x);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				imageView.setY(y - 10);
+				up(y);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				imageView.setY(y + 10);
+				down(y);
 			}
 		} else if (moveStop.equals("right")) {
 			if (keyCode.equals(KeyCode.LEFT)) {
-				imageView.setX(x - 10);
+				left(x);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				imageView.setY(y - 10);
+				up(y);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				imageView.setY(y + 10);
+				down(y);
 			}
 		} else if (moveStop.equals("leftup")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				imageView.setX(x + 10);
+				right(x);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				imageView.setY(y + 10);
+				down(y);
 			}
 		} else if (moveStop.equals("rightup")) {
 			if (keyCode.equals(KeyCode.LEFT)) {
-				imageView.setX(x - 10);
+				left(x);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				imageView.setY(y + 10);
+				down(y);
 			}
 		} else if (moveStop.equals("leftdown")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				imageView.setX(x + 10);
+				right(x);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				imageView.setY(y - 10);
+				up(y);
 			}
 		} else if (moveStop.equals("rightdown")) {
 			if (keyCode.equals(KeyCode.LEFT)) {
-				imageView.setX(x - 10);
+				left(x);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				imageView.setY(y - 10);
+				up(y);
 			}
 		} else {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				player.animation.play();
-				player.animation.setOffsetY(146);
-				imageView.setX(x + 10);
+				right(x);
 			} else if (keyCode.equals(KeyCode.LEFT)) {
-				player.animation.play();
-				player.animation.setOffsetY(146);
-				imageView.setX(x - 10);
+				left(x);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				player.animation.play();
-				player.animation.setOffsetY(75);
-				imageView.setY(y - 10);
+				up(y);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				player.animation.play();
-				player.animation.setOffsetY(5);
-				imageView.setY(y + 10);
-
+				down(y);
 			}
 		}
 
@@ -123,6 +117,38 @@ public class Cont implements Initializable {
 				&& ((y <= (int) rectangle.getY() + 10) && (y >= (int) rectangle.getY() - 10))) {
 			System.out.println("이벤트 발생!");
 		}
+	}
+
+	public void up(int y) {
+		
+		animation.play();
+		animation.setOffsetY(450);
+		imageView.setY(y - 10);
+	}
+
+	public void down(int y) {
+	
+		animation.play();
+		animation.setOffsetY(0);
+		imageView.setY(y + 10);
+	}
+
+	public void left(int x) {
+
+		animation.play();
+		animation.setOffsetY(150);
+		imageView.setX(x - 10);
+	}
+
+	public void right(int x) {
+		animation.play();
+		animation.setOffsetY(300);
+		imageView.setX(x + 10);
+	}
+
+	public void sprite() {
+		imageView.setImage(new Image("/image/all.png"));
+		animation = new SpriteAnimation(imageView, Duration.millis(500), 3, 4, 0, 0, 100, 150);
 	}
 
 	public String setStopPoint() {
@@ -153,13 +179,21 @@ public class Cont implements Initializable {
 		return "";
 
 	}
-//혹시몰라서 남겨둔 키 땠을때 이벤트
-//	public void Released(KeyEvent event) {
-//		KeyCode keyCode = event.getCode();
-//		if (keyCode.equals(KeyCode.RIGHT)) {
-//		} else if (keyCode.equals(KeyCode.LEFT)) {
-//		} else if (keyCode.equals(KeyCode.UP)) {
-//		} else if (keyCode.equals(KeyCode.DOWN)) {
-//		}
-//	}
+
+	public void Released(KeyEvent event) {
+		KeyCode keyCode = event.getCode();
+		if (keyCode.equals(KeyCode.RIGHT)) {
+			animation.stop();
+			animation.setOffsetX(100);
+		} else if (keyCode.equals(KeyCode.LEFT)) {
+			animation.stop();
+			animation.setOffsetX(100);
+		} else if (keyCode.equals(KeyCode.UP)) {
+			animation.stop();
+			animation.setOffsetX(100);
+		} else if (keyCode.equals(KeyCode.DOWN)) {
+			animation.stop();
+			animation.setOffsetX(100);
+		}
+	}
 }
