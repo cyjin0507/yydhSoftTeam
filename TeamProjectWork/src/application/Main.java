@@ -21,11 +21,14 @@ import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
+	public boolean close = false;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/user/Login.fxml"));
+//			loader.setLocation(getClass().getResource("/gameStart/mainHoll.fxml"));
+//			loader.setLocation(getClass().getResource("/gameStart/1floor.fxml"));
 			AnchorPane root = (AnchorPane)loader.load();
 			Scene scene = new Scene(root,1200,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -42,6 +45,7 @@ public class Main extends Application {
 					Optional<ButtonType> result = alert.showAndWait();
 					if (result.get() == ButtonType.OK) {
 						System.out.println("종료");
+						close = true;
 						try {
 							transOffLine();
 						} catch (UnknownHostException e) {
@@ -73,7 +77,7 @@ public class Main extends Application {
 		PreparedStatement pstmt = null;
 		
 		String sql = "UPDATE `users` SET `login`= 'offLine' WHERE login = '"+ip+"'";
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();

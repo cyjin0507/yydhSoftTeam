@@ -15,13 +15,12 @@
             <Image url="@../userImage/readyback.png" />
          </image>
       </ImageView>
-      <ChoiceBox fx:id="user2" layoutX="666.0" layoutY="353.0" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: white;" />
-      <Label layoutX="340.0" layoutY="237.0" text="Label" textFill="#575757">
+      <Label fx:id="user1_name" layoutX="340.0" layoutY="237.0" text="Label" textFill="#575757">
          <font>
             <Font size="43.0" />
          </font>
       </Label>
-      <Label layoutX="340.0" layoutY="347.0" text="Label" textFill="#575757">
+      <Label fx:id="user2_name" layoutX="340.0" layoutY="347.0" text="Label" textFill="#575757">
          <font>
             <Font size="43.0" />
          </font>
@@ -36,7 +35,7 @@
             <Font size="43.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="user1" layoutX="666.0" layoutY="250.0" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: white;" />
+      <ChoiceBox fx:id="user1" layoutX="666.0" layoutY="250.0" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: white;" visible="false" />
       <Button fx:id="startBtn" layoutX="936.0" layoutY="670.0" mnemonicParsing="false" onAction="#gameStart" prefHeight="51.0" prefWidth="185.0" style="-fx-background-color: white; -fx-border-color: black;" text="시작">
          <font>
             <Font size="33.0" />
@@ -57,7 +56,7 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="298.0" layoutY="699.0" text="wait" textFill="WHITE">
+      <Label fx:id="ready1" layoutX="298.0" layoutY="699.0" text="wait" textFill="WHITE">
          <font>
             <Font size="55.0" />
          </font>
@@ -67,11 +66,16 @@
             <Font size="27.0" />
          </font>
       </Label>
-      <Label layoutX="600.0" layoutY="699.0" text="wait" textFill="WHITE">
+      <Label fx:id="ready2" layoutX="600.0" layoutY="699.0" text="wait" textFill="WHITE">
          <font>
             <Font size="55.0" />
          </font>
       </Label>
       <Button layoutX="1081.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black;" text="새로고침" />
+      <Label fx:id="user2_choice" layoutX="702.0" layoutY="344.0" text="Label" visible="false">
+         <font>
+            <Font size="49.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
