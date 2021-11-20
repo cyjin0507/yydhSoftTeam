@@ -61,6 +61,6 @@ public class MainHoll extends chat implements Initializable {
 	
 	public void sprite() {
 		user1.setImage(new Image("/roomImage/all.png"));
-		animation = new SpriteAnimation(user1, Duration.millis(500), 3, 4, 0, 0, 100, 150);
+		animation = new SpriteAnimation(user1, Duration.millis(250), 3, 4, 0, 0, 100, 150);
 	}
 }

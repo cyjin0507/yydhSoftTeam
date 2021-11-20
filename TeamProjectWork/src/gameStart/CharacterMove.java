@@ -86,6 +86,7 @@ public class CharacterMove implements Initializable {
 		}
 
 	}
+
 // 모션 스땁
 	public void stop() {
 		imageView.setOnKeyReleased(new EventHandler<KeyEvent>() {
@@ -109,6 +110,8 @@ public class CharacterMove implements Initializable {
 				left(x);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
 				down(y);
+			} else {
+				animation.stop();
 			}
 		} else if (moveStop.equals("down")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
@@ -117,6 +120,8 @@ public class CharacterMove implements Initializable {
 				left(x);
 			} else if (keyCode.equals(KeyCode.UP)) {
 				up(y);
+			} else {
+				animation.stop();
 			}
 		} else if (moveStop.equals("left")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
@@ -125,6 +130,8 @@ public class CharacterMove implements Initializable {
 				up(y);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
 				down(y);
+			} else {
+				animation.stop();
 			}
 		} else if (moveStop.equals("right")) {
 			if (keyCode.equals(KeyCode.LEFT)) {
@@ -133,30 +140,40 @@ public class CharacterMove implements Initializable {
 				up(y);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
 				down(y);
+			} else {
+				animation.stop();
 			}
 		} else if (moveStop.equals("leftup")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
 				right(x);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
 				down(y);
+			} else {
+				animation.stop();
 			}
 		} else if (moveStop.equals("rightup")) {
 			if (keyCode.equals(KeyCode.LEFT)) {
 				left(x);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
 				down(y);
+			} else {
+				animation.stop();
 			}
 		} else if (moveStop.equals("leftdown")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
 				right(x);
 			} else if (keyCode.equals(KeyCode.UP)) {
 				up(y);
+			} else {
+				animation.stop();
 			}
 		} else if (moveStop.equals("rightdown")) {
 			if (keyCode.equals(KeyCode.LEFT)) {
 				left(x);
 			} else if (keyCode.equals(KeyCode.UP)) {
 				up(y);
+			} else {
+				animation.stop();
 			}
 		} else {
 			if (keyCode.equals(KeyCode.RIGHT)) {
@@ -182,14 +199,12 @@ public class CharacterMove implements Initializable {
 	}
 
 	public void down(int y) {
-
 		animation.play();
 		animation.setOffsetY(0);
 		imageView.setY(y + 10);
 	}
 
 	public void left(int x) {
-
 		animation.play();
 		animation.setOffsetY(150);
 		imageView.setX(x - 10);
@@ -222,7 +237,7 @@ public class CharacterMove implements Initializable {
 //캐릭터 모션
 	public void sprite() {
 		imageView.setImage(new Image("/roomImage/all.png"));
-		animation = new SpriteAnimation(imageView, Duration.millis(500), 3, 4, 0, 0, 100, 150);
+		animation = new SpriteAnimation(imageView, Duration.millis(250), 3, 4, 0, 0, 100, 150);
 	}
 
 //기본 틀
@@ -307,10 +322,9 @@ public class CharacterMove implements Initializable {
 				return "rightup";
 			}
 			return "up";
+		} else {
+			return smallframe(x, y);
 		}
-
-		smallframe(x, y);
-		return "";
 
 	}
 
@@ -364,10 +378,9 @@ public class CharacterMove implements Initializable {
 				return "rightup";
 			}
 			return "right";
+		} else {
+			return smallframe(x, y);
 		}
-		smallframe(x, y);
-		return "";
-
 	}
 
 	// 3층 쪽방 1이벤트
@@ -453,10 +466,9 @@ public class CharacterMove implements Initializable {
 			return "left";
 		} else if ((x >= 380) && (x <= 720) && (y == 140)) {
 			return "up";
+		} else {
+			return frame(x, y);
 		}
-		frame(x, y);
-		return "";
-
 	}
 
 	// 3층 이벤트
@@ -509,10 +521,9 @@ public class CharacterMove implements Initializable {
 				return "leftup";
 			}
 			return "left";
+		} else {
+			return frame(x, y);
 		}
-		frame(x, y);
-		return "";
-
 	}
 
 	// 2층 이벤트
@@ -573,9 +584,9 @@ public class CharacterMove implements Initializable {
 			return "up";
 		} else if ((x == 665) && (y >= 310) && (y <= 570)) {
 			return "right";
+		} else {
+			return frame(x, y);
 		}
-		frame(x, y);
-		return "";
 	}
 
 	// 1층 이벤트
@@ -610,9 +621,9 @@ public class CharacterMove implements Initializable {
 			return "right";
 		} else if ((y == 490) && (x >= 330) && (x <= 800)) {
 			return "up";
+		} else {
+			return frame(x, y);
 		}
-		frame(x, y);
-		return "";
 	}
 
 //B1 이벤트
