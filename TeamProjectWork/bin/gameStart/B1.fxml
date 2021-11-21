@@ -15,5 +15,7 @@
             <Image url="@../roomImage/캐릭터.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="287.0" fitWidth="488.0" layoutX="369.0" layoutY="325.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="428.0" layoutX="400.0" layoutY="357.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
