@@ -42,8 +42,6 @@ public class gameReady extends gameRequest implements Initializable {
 	private Label user1_name;
 	@FXML
 	private Label user2_name;
-	@FXML
-	private Label user2_choice;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -61,7 +59,7 @@ public class gameReady extends gameRequest implements Initializable {
 			makeTable();
 		} else {
 			player2Btn.setVisible(true);
-			user2_choice.setVisible(true);
+			user2.setVisible(true);
 			try {
 				user1_name.setText(who());
 			} catch (UnknownHostException e) {
@@ -71,13 +69,8 @@ public class gameReady extends gameRequest implements Initializable {
 		}
 
 		user1.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
-//		user2.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
+		user2.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
 
-		if (user1.equals("탈출자1")) {
-			user2_choice.setText("탈출자2");
-		} else if (user1.equals("탈출자2")) {
-			user2_choice.setText("탈출자1");
-		}
 		// 채팅창 띄우기
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainGame/chat.fxml"));
 		Parent root = null;
