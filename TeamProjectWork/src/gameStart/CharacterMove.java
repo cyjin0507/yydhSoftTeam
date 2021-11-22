@@ -513,7 +513,9 @@ public class CharacterMove implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 		if ((y == 100) && (x >= 270) && (x <= 320)) {
-
+			if (keyCode.equals(KeyCode.RIGHT)) {
+				right(x);
+			}
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/puzzle/puzzleLayout.fxml"));
