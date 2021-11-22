@@ -365,19 +365,28 @@ public class CharacterMove implements Initializable {
 
 	// 3층 쪽방 2이벤트
 	public void floor3_small2event() {
+
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 
+		if ((y == 130) && (x >= 260) && (x <= 370)) {
+			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					KeyCode keyCode = event.getCode();
+					if (keyCode.equals(KeyCode.SPACE)) {
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
 		}
 	}
 
@@ -385,6 +394,7 @@ public class CharacterMove implements Initializable {
 	public String floor3_small1setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		System.out.println(x + "," + y);
 
 		// 세면대
 		if ((x == 220) && (y >= 100) && (y <= 120)) {
@@ -420,27 +430,37 @@ public class CharacterMove implements Initializable {
 
 	// 3층 쪽방 1이벤트
 	public void floor3_small1event() {
+
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		if ((y == 100) && (x <= 100) && (x >= 40)) {
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/pipegame/layout.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 
+		if ((y == 120) && (x <= 100) && (x >= 40)) {
+			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					KeyCode keyCode = event.getCode();
+					if (keyCode.equals(KeyCode.SPACE)) {
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/pipegame/layout.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
 		}
+
 	}
 
 	// 3층 멈추는거
 	public String floor3setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x + "," + y);
+		
 //		책상 충돌 방지
 		if ((y == 270) && (x >= 360) && (x <= 750)) {
 			if ((x == 660) && (y <= 270) && (y >= 170)) {
@@ -511,8 +531,7 @@ public class CharacterMove implements Initializable {
 	public void floor3event() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		
-		
+
 		if ((y == 110) && (x >= 270) && (x <= 320)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
@@ -539,6 +558,7 @@ public class CharacterMove implements Initializable {
 	public String floor2setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
 //		침대랑 전등이랑 전부다
 		if ((x == 270) && (y <= 185) && (y >= 115)) {
 			if (y == 115) {
@@ -573,19 +593,28 @@ public class CharacterMove implements Initializable {
 
 	// 2층 이벤트
 	public void floor2event() {
+
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		if ((y == 115) && (x <= 270) && (x >= 220)) {
 
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/findHiddenObject/play.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+		if ((y == 125) && (x <= 270) && (x >= 220)) {
+			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					KeyCode keyCode = event.getCode();
+					if (keyCode.equals(KeyCode.SPACE)) {
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/findHiddenObject/play.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
 
 		}
 	}
@@ -594,6 +623,7 @@ public class CharacterMove implements Initializable {
 	public String floor1setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
 		// 싱크대
 		if ((y == 220) && (x <= 155) && (x >= 5)) {
 			if (x == 5) {
@@ -636,27 +666,37 @@ public class CharacterMove implements Initializable {
 
 	// 1층 이벤트
 	public void floor1event() {
+
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		if ((x == 155) && (y >= 420) && (x <= 520)) {
 
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/touchGame/touchGameLayout.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
+		if ((x == 165) && (y >= 420) && (y <= 520)) {
+			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					KeyCode keyCode = event.getCode();
+					if (keyCode.equals(KeyCode.SPACE)) {
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/touchGame/touchGameLayout.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
 		}
+
 	}
 
 //B1 멈추는거
 	public String B1setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
 
 		if ((y == 210) && (x >= 330) && (x <= 800)) {
 			return "down";
@@ -673,18 +713,28 @@ public class CharacterMove implements Initializable {
 
 //B1 이벤트
 	public void B1event() {
+
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
 		if ((y == 490) && (x >= 330) && (x <= 800)) {
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/potgame/layout.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					KeyCode keyCode = event.getCode();
+					if (keyCode.equals(KeyCode.SPACE)) {
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/potgame/layout.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
 		}
 	}
 
