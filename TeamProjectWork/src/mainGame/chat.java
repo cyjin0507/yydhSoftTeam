@@ -40,6 +40,7 @@ public class chat extends server implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		connectionButtonAction();
 	}
 
 	Socket socket;
@@ -165,9 +166,6 @@ public class chat extends server implements Initializable {
 	private TextField input;
 	@FXML
 	private Button sendButton;
-	@FXML
-	private Button connectionButton;
-
 	public void sendButtonAction() {
 		try {
 			send(who() + "  :  " + input.getText() + "\n");
@@ -177,11 +175,6 @@ public class chat extends server implements Initializable {
 		}
 		input.setText("");
 		input.requestFocus();
-	}
-	
-	public void test() {
-		
-		send("a");
 	}
 
 	public void inputAction() {
@@ -195,27 +188,16 @@ public class chat extends server implements Initializable {
 		input.requestFocus();
 	}
 
+	//stopClient() (접속종료)
 	public void connectionButtonAction() {
-		if (connectionButton.getText().equals("접속하기")) {
+		startClient(getIp(), getPort());
+		Platform.runLater(() -> {
+			textArea.appendText("채팅방 접속 \n");
 
-			startClient(getIp(), getPort());
-			Platform.runLater(() -> {
-				textArea.appendText("채팅방 접속 \n");
-
-			});
-			connectionButton.setText("종료하기");
-			input.setDisable(false);
-			sendButton.setDisable(false);
-			input.requestFocus();
-		} else {
-			stopClient();
-			Platform.runLater(() -> {
-				textArea.appendText("채팅방 퇴장 \n");
-
-			});
-			connectionButton.setText("접속하기");
-			input.setDisable(true);
-		}
+		});
+		input.setDisable(false);
+		sendButton.setDisable(false);
+		input.requestFocus();
 	}
 	
 	
