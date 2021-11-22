@@ -31,7 +31,7 @@ public class CharacterMove implements Initializable {
 		sprite();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x+"," + y);
+		System.out.println(x + "," + y);
 		if (image.equals("floor1")) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
@@ -320,14 +320,15 @@ public class CharacterMove implements Initializable {
 	public String dinnerhallsetStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x+"," + y);
+		System.out.println(x + "," + y);
 		return frame(x, y);
 
 	}
+
 	public String librarysetStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x+"," + y);
+		System.out.println(x + "," + y);
 		return frame(x, y);
 
 	}
@@ -512,19 +513,25 @@ public class CharacterMove implements Initializable {
 	public void floor3event() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		
 		if ((y == 100) && (x >= 270) && (x <= 320)) {
-			if (keyCode.equals(KeyCode.RIGHT)) {
-				right(x);
-			}
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/puzzle/puzzleLayout.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					KeyCode keyCode = event.getCode();
+					if (keyCode.equals(KeyCode.SPACE)) {
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/puzzle/puzzleLayout.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			});
 
 		}
 	}
