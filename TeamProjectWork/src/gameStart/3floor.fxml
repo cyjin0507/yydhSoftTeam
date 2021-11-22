@@ -15,5 +15,34 @@
             <Image url="@../roomImage/캐릭터.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="209.0" fitWidth="347.0" layoutX="438.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/3층책상.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="132.0" fitWidth="167.0" layoutX="522.0" layoutY="290.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/3층의자.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="202.0" fitWidth="332.0" layoutX="442.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/3층책장.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="126.0" fitWidth="134.0" layoutX="276.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/3층액자.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="202.0" fitWidth="127.0" layoutX="61.0" layoutY="561.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/3층화분.png" />
+         </image></ImageView>
+      <ImageView fitHeight="227.0" fitWidth="128.0" layoutX="1025.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/3층행거.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
