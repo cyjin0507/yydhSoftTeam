@@ -28,15 +28,15 @@ public class kitchen implements Initializable {
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, floor1setStopPoint(), imageView);
-				floor1event();
+				move.pressed(event,setStopPoint(), imageView);
+				event();
 			}
 		});
 		move.stop(imageView);
 	}
 
 	// 1층 멈추는거
-	public String floor1setStopPoint() {
+	public String setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 		CharacterMove move = new CharacterMove();
@@ -81,10 +81,22 @@ public class kitchen implements Initializable {
 	}
 
 	// 1층 이벤트
-	public void floor1event() {
+	public void event() {
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		
+		if((y ==110) &&( x >= 685)&& (x <= 765)) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor1room/dinnerhall.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
 		if ((x == 165) && (y >= 420) && (y <= 520)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -92,15 +104,15 @@ public class kitchen implements Initializable {
 				public void handle(KeyEvent event) {
 					KeyCode keyCode = event.getCode();
 					if (keyCode.equals(KeyCode.SPACE)) {
-						try {
-							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/touchGame/touchGameLayout.fxml"));
-							Scene scene = new Scene(root);
-							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-							primaryStage.setScene(scene);
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+//						try {
+//							Parent root;
+//							root = FXMLLoader.load(getClass().getResource("/touchGame/touchGameLayout.fxml"));
+//							Scene scene = new Scene(root);
+//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+//							primaryStage.setScene(scene);
+//						} catch (IOException e) {
+//							e.printStackTrace();
+//						}
 					}
 				}
 			});

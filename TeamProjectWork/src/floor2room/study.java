@@ -30,16 +30,14 @@ public class study implements Initializable {
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, floor3setStopPoint() ,imageView);
-				floor3event();
+				move.pressed(event, setStopPoint(), imageView);
+				event();
 			}
 		});
 		move.stop(imageView);
 	}
 
-
-	// 3층 멈추는거
-	public String floor3setStopPoint() {
+	public String setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 		CharacterMove move = new CharacterMove();
@@ -110,10 +108,21 @@ public class study implements Initializable {
 		}
 	}
 
-	// 3층 이벤트
-	public void floor3event() {
+	public void event() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
+		if ((y == 110) && (x >= 920) && (x <= 980)) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
 		if ((y == 110) && (x >= 270) && (x <= 320)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {

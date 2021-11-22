@@ -4,13 +4,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameStart.study">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floor2room.study">
    <children>
       <ImageView fitHeight="907.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../roomImage/study.jpg" />
          </image></ImageView>
-      <ImageView id="floor3" fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="950.0" y="140.0">
+      <ImageView fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="950.0" y="140.0">
          <image>
             <Image url="@../roomImage/캐릭터.png" />
          </image>

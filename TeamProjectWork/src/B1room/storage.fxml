@@ -10,7 +10,7 @@
          <image>
             <Image url="@../roomImage/storage.jpg" />
          </image></ImageView>
-      <ImageView id="floor3_2" fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" layoutX="250.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" x="300.0" y="600.0">
+      <ImageView fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" layoutX="250.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" x="300.0" y="600.0">
          <image>
             <Image url="@../roomImage/캐릭터.png" />
          </image>

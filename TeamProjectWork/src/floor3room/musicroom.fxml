@@ -11,7 +11,7 @@
             <Image url="@../roomImage/room.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" layoutX="-400.0" layoutY="-88.0" pickOnBounds="true" preserveRatio="true" x="950.0" y="140.0">
+      <ImageView fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="550.0" y="70.0">
          <image>
             <Image url="@../roomImage/캐릭터.png" />
          </image>

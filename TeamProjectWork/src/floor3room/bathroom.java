@@ -28,78 +28,88 @@ public class bathroom implements Initializable {
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, floor3_small1setStopPoint(), imageView);
-				floor3_small1event();
+				move.pressed(event, setStopPoint(), imageView);
+				event();
 			}
 		});
 		move.stop(imageView);
 
 	}
-	// 3층 쪽방 1 멈추는거
-		public String floor3_small1setStopPoint() {
-			CharacterMove move = new CharacterMove();
-			int x = (int) imageView.getX();
-			int y = (int) imageView.getY();
-			System.out.println(x + "," + y);
 
-			// 세면대
-			if ((x == 220) && (y >= 100) && (y <= 120)) {
-				if (y >= 100) {
-					return "rightup";
-				}
-				return "right";
-			} else if ((y == 130) && (x >= 230) && (x <= 330)) {
-				return "up";
-			} else if ((x == 340) && (y >= 100) && (y <= 120)) {
-				if (y == 100) {
-					return "leftup";
-				}
-				return "left";
+	public String setStopPoint() {
+		CharacterMove move = new CharacterMove();
+		int x = (int) imageView.getX();
+		int y = (int) imageView.getY();
+
+		// 세면대
+		if ((x == 220) && (y >= 100) && (y <= 120)) {
+			if (y >= 100) {
+				return "rightup";
 			}
-			// 변기
-			if ((x == 600) && (y >= 100) && (y <= 160)) {
-				if (y == 100) {
-					return "leftup";
-				}
-				return "left";
-			} else if ((x <= 590) && (y == 170) && (x >= 440)) {
-				return "up";
-			} else if ((x == 430) && (y >= 100) && (y <= 160)) {
-				if (y == 100) {
-					return "rightup";
-				}
-				return "right";
-			} else {
-				return move.smallframe(x, y);
+			return "right";
+		} else if ((y == 130) && (x >= 230) && (x <= 330)) {
+			return "up";
+		} else if ((x == 340) && (y >= 100) && (y <= 120)) {
+			if (y == 100) {
+				return "leftup";
+			}
+			return "left";
+		}
+		// 변기
+		if ((x == 600) && (y >= 100) && (y <= 160)) {
+			if (y == 100) {
+				return "leftup";
+			}
+			return "left";
+		} else if ((x <= 590) && (y == 170) && (x >= 440)) {
+			return "up";
+		} else if ((x == 430) && (y >= 100) && (y <= 160)) {
+			if (y == 100) {
+				return "rightup";
+			}
+			return "right";
+		} else {
+			return move.smallframe(x, y);
+		}
+	}
+
+	public void event() {
+
+		int x = (int) imageView.getX();
+		int y = (int) imageView.getY();
+		
+		if((y ==620)&&(x >= 470)&&(x <=620)) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor3room/powderroom.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 
-		// 3층 쪽방 1이벤트
-		public void floor3_small1event() {
-
-			int x = (int) imageView.getX();
-			int y = (int) imageView.getY();
-
-			if ((y == 120) && (x <= 100) && (x >= 40)) {
-				imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-					@Override
-					public void handle(KeyEvent event) {
-						KeyCode keyCode = event.getCode();
-						if (keyCode.equals(KeyCode.SPACE)) {
-							try {
-								Parent root;
-								root = FXMLLoader.load(getClass().getResource("/pipegame/layout.fxml"));
-								Scene scene = new Scene(root);
-								Stage primaryStage = (Stage) imageView.getScene().getWindow();
-								primaryStage.setScene(scene);
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-						}
+		if ((y == 120) && (x <= 100) && (x >= 40)) {
+			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					KeyCode keyCode = event.getCode();
+					if (keyCode.equals(KeyCode.SPACE)) {
+//						try {
+//							Parent root;
+//							root = FXMLLoader.load(getClass().getResource("/pipegame/layout.fxml"));
+//							Scene scene = new Scene(root);
+//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+//							primaryStage.setScene(scene);
+//						} catch (IOException e) {
+//							e.printStackTrace();
+//						}
 					}
-				});
-			}
-
+				}
+			});
 		}
+
+	}
 
 }

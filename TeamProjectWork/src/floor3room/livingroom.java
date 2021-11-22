@@ -16,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class livingroom implements Initializable{
+public class livingroom implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -28,69 +28,55 @@ public class livingroom implements Initializable{
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, floor3_small2setStopPoint(), imageView);
-				floor3_small2event();
+				move.pressed(event, setStopPoint(), imageView);
+				event();
 			}
 		});
 		move.stop(imageView);
 
 	}
 
-	// 3층 쪽방 2 멈추는거
-	public String floor3_small2setStopPoint() {
+	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		// 책장
-		if ((y == 180) && (x >= 10) && (x <= 130)) {
-			if (x == 10) {
-				return "leftup";
-			}
-			return "up";
-		} else if ((x == 140) && (y <= 170) && (y >= 130)) {
-			if (y == 130) {
-				return "leftup";
-			}
-			return "left";
-		}
-		// 빗자루
-		if ((x == 530) && (y >= 130) && (y <= 150)) {
-			if (y == 130) {
-				return "rightup";
-			}
-			return "right";
-		} else if ((y == 160) && (x >= 540) && (x <= 600)) {
-			if (x == 600) {
-				return "rightup";
-			}
-			return "up";
-		} else {
-			return move.smallframe(x, y);
-		}
+		return move.nframe(x, y);
 
 	}
 
-	// 3층 쪽방 2이벤트
-	public void floor3_small2event() {
+	public void event() {
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 
+		if ((y == 60) && (x >= 530) && (x <= 570)) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor3room/floor3hallway.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		// 스페이스 바 이벤트
 		if ((y == 130) && (x >= 260) && (x <= 370)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
 				public void handle(KeyEvent event) {
 					KeyCode keyCode = event.getCode();
 					if (keyCode.equals(KeyCode.SPACE)) {
-						try {
-							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-							Scene scene = new Scene(root);
-							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-							primaryStage.setScene(scene);
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
+//						try {
+//							Parent root;
+//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
+//							Scene scene = new Scene(root);
+//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+//							primaryStage.setScene(scene);
+//						} catch (IOException e) {
+//							e.printStackTrace();
+//						}
 					}
 				}
 			});

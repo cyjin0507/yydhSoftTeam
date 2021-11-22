@@ -16,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class bedroom implements Initializable{
+public class bedroom implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -28,17 +28,18 @@ public class bedroom implements Initializable{
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, floor2setStopPoint(), imageView);
-				floor2event();
+				move.pressed(event, setStopPoint(), imageView);
+				event();
 			}
 		});
 
 		move.stop(imageView);
 	}
-	// 2층 멈추는거
-	public String floor2setStopPoint() {
+
+	public String setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
 		CharacterMove move = new CharacterMove();
 
 //		침대랑 전등이랑 전부다
@@ -73,11 +74,33 @@ public class bedroom implements Initializable{
 		}
 	}
 
-	// 2층 이벤트
-	public void floor2event() {
+	public void event() {
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
+		if ((y == 105) && (x >= 920) && (x <= 980)) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		if ((y == 105) && (x >= 100) && (x <= 170)) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor2room/powderroom.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 
 		if ((y == 125) && (x <= 270) && (x >= 220)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {

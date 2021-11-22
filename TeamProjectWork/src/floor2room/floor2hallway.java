@@ -1,4 +1,4 @@
-package B1room;
+package floor2room;
 
 import java.io.IOException;
 import java.net.URL;
@@ -16,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class storage implements Initializable {
+public class floor2hallway implements Initializable{
 	@FXML
 	private ImageView imageView;
 
@@ -40,33 +40,7 @@ public class storage implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-
-		// 책장
-		if ((y == 180) && (x >= 10) && (x <= 130)) {
-			if (x == 10) {
-				return "leftup";
-			}
-			return "up";
-		} else if ((x == 140) && (y <= 170) && (y >= 130)) {
-			if (y == 130) {
-				return "leftup";
-			}
-			return "left";
-		}
-		// 빗자루
-		if ((x == 530) && (y >= 130) && (y <= 150)) {
-			if (y == 130) {
-				return "rightup";
-			}
-			return "right";
-		} else if ((y == 160) && (x >= 540) && (x <= 600)) {
-			if (x == 600) {
-				return "rightup";
-			}
-			return "up";
-		} else {
-			return move.smallframe(x, y);
-		}
+		return move.nframe(x, y);
 
 	}
 
@@ -74,11 +48,10 @@ public class storage implements Initializable {
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		
-		if((y == 620) &&(x >= 270) &&(x <= 360))  {
+		if ((x ==-10) && (y >= 60) && (y <= 640)) {
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway2.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
@@ -86,7 +59,18 @@ public class storage implements Initializable {
 				e.printStackTrace();
 			}
 		}
-
+		if((y == 640)&&(x >= 460)&&(x <= 620)) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor2room/drawingroom.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		//스페이스 바 이벤트
 		if ((y == 130) && (x >= 260) && (x <= 370)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
@@ -107,5 +91,4 @@ public class storage implements Initializable {
 			});
 		}
 	}
-
 }

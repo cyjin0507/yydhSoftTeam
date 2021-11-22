@@ -39,92 +39,92 @@ public class CharacterMove implements Initializable {
 	}
 
 //눌렀을때 움직이는거
-	public void pressed(KeyEvent event, String moveStop , ImageView imageView) {
+	public void pressed(KeyEvent event, String moveStop, ImageView imageView) {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 
 		KeyCode keyCode = event.getCode();
 		if (moveStop.equals("up")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				right(x ,imageView);
+				right(x, imageView);
 			} else if (keyCode.equals(KeyCode.LEFT)) {
-				left(x,imageView);
+				left(x, imageView);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				down(y,imageView);
+				down(y, imageView);
 			} else {
 				animation.stop();
 			}
 		} else if (moveStop.equals("down")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				right(x,imageView);
+				right(x, imageView);
 			} else if (keyCode.equals(KeyCode.LEFT)) {
-				left(x,imageView);
+				left(x, imageView);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				up(y,imageView);
+				up(y, imageView);
 			} else {
 				animation.stop();
 			}
 		} else if (moveStop.equals("left")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				right(x,imageView);
+				right(x, imageView);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				up(y,imageView);
+				up(y, imageView);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				down(y,imageView);
+				down(y, imageView);
 			} else {
 				animation.stop();
 			}
 		} else if (moveStop.equals("right")) {
 			if (keyCode.equals(KeyCode.LEFT)) {
-				left(x,imageView);
+				left(x, imageView);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				up(y,imageView);
+				up(y, imageView);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				down(y,imageView);
+				down(y, imageView);
 			} else {
 				animation.stop();
 			}
 		} else if (moveStop.equals("leftup")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				right(x,imageView);
+				right(x, imageView);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				down(y,imageView);
+				down(y, imageView);
 			} else {
 				animation.stop();
 			}
 		} else if (moveStop.equals("rightup")) {
 			if (keyCode.equals(KeyCode.LEFT)) {
-				left(x,imageView);
+				left(x, imageView);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				down(y,imageView);
+				down(y, imageView);
 			} else {
 				animation.stop();
 			}
 		} else if (moveStop.equals("leftdown")) {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				right(x,imageView);
+				right(x, imageView);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				up(y,imageView);
+				up(y, imageView);
 			} else {
 				animation.stop();
 			}
 		} else if (moveStop.equals("rightdown")) {
 			if (keyCode.equals(KeyCode.LEFT)) {
-				left(x,imageView);
+				left(x, imageView);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				up(y,imageView);
+				up(y, imageView);
 			} else {
 				animation.stop();
 			}
 		} else {
 			if (keyCode.equals(KeyCode.RIGHT)) {
-				right(x,imageView);
+				right(x, imageView);
 			} else if (keyCode.equals(KeyCode.LEFT)) {
-				left(x,imageView);
+				left(x, imageView);
 			} else if (keyCode.equals(KeyCode.UP)) {
-				up(y,imageView);
+				up(y, imageView);
 			} else if (keyCode.equals(KeyCode.DOWN)) {
-				down(y,imageView);
+				down(y, imageView);
 			}
 		}
 	}
@@ -132,26 +132,26 @@ public class CharacterMove implements Initializable {
 	public SpriteAnimation animation;
 
 //위 아래 왼쪽 오른쪽
-	public void up(int y ,ImageView imageView) {
+	public void up(int y, ImageView imageView) {
 
 		animation.play();
 		animation.setOffsetY(450);
 		imageView.setY(y - 10);
 	}
 
-	public void down(int y ,ImageView imageView) {
+	public void down(int y, ImageView imageView) {
 		animation.play();
 		animation.setOffsetY(0);
 		imageView.setY(y + 10);
 	}
 
-	public void left(int x ,ImageView imageView) {
+	public void left(int x, ImageView imageView) {
 		animation.play();
 		animation.setOffsetY(150);
 		imageView.setX(x - 10);
 	}
 
-	public void right(int x ,ImageView imageView) {
+	public void right(int x, ImageView imageView) {
 		animation.play();
 		animation.setOffsetY(300);
 		imageView.setX(x + 10);
@@ -188,54 +188,55 @@ public class CharacterMove implements Initializable {
 		}
 		return "";
 	}
-	//기본 틀이 없는 경우
-		public String nframe(int x, int y) {
-			if (y <= 60) {
-				if (x <=-10) {
-					return "leftup";
-				}
-				if (x >=1110) {
-					return "rightup";
-				}
-				return "up";
-			} else if (y >= 640) {
-				if (x <= -10) {
-					return "leftdown";
-				}
-				if (x >= 1110) {
-					return "rightdown";
-				}
-				return "down";
-			} else if (x <= -10) {
-				return "left";
-			} else if (x >= 1110) {
-				return "right";
+
+	// 기본 틀이 없는 경우
+	public String nframe(int x, int y) {
+		if (y <= 60) {
+			if (x <= -10) {
+				return "leftup";
 			}
-			return "";
+			if (x >= 1110) {
+				return "rightup";
+			}
+			return "up";
+		} else if (y >= 640) {
+			if (x <= -10) {
+				return "leftdown";
+			}
+			if (x >= 1110) {
+				return "rightdown";
+			}
+			return "down";
+		} else if (x <= -10) {
+			return "left";
+		} else if (x >= 1110) {
+			return "right";
 		}
+		return "";
+	}
 
 	// 쪽방 틀
 	public String smallframe(int x, int y) {
 //		전체 배경 안빠져나가게
 		if (y <= 120) {
-			if (x <= 10) {
+			if (x <= 260) {
 				return "leftup";
 			}
-			if (x >= 600) {
+			if (x >= 840) {
 				return "rightup";
 			}
 			return "up";
 		} else if (y >= 620) {
-			if (x <= 10) {
+			if (x <= 260) {
 				return "leftdown";
 			}
-			if (x >= 600) {
+			if (x >= 840) {
 				return "rightdown";
 			}
 			return "down";
-		} else if (x <= 10) {
+		} else if (x <= 260) {
 			return "left";
-		} else if (x >= 600) {
+		} else if (x >= 840) {
 			return "right";
 		}
 		return "";
