@@ -422,5 +422,9 @@ public class gameReady extends gameRequest implements Initializable {
 
 		return port;
 	}
+	
+	public void reset() {
+		
+	}
 
 }

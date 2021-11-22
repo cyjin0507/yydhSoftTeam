@@ -15,5 +15,20 @@
             <Image url="@../roomImage/캐릭터.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="335.0" fitWidth="381.0" layoutX="401.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/2층침대.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="232.0" fitWidth="125.0" layoutX="321.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/2층전등.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="193.0" fitWidth="147.0" layoutX="763.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/2층곰돌이.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
