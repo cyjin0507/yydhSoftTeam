@@ -22,16 +22,16 @@ public class kitchen implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		CharacterMove move = new CharacterMove();
-		move.sprite();
+		move.sprite(imageView);
 		imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, floor1setStopPoint());
+				move.pressed(event, floor1setStopPoint(), imageView);
 				floor1event();
 			}
 		});
-		move.stop();
+		move.stop(imageView);
 	}
 
 	// 1층 멈추는거

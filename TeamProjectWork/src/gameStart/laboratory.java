@@ -22,16 +22,16 @@ public class laboratory implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		CharacterMove move = new CharacterMove();
-		move.sprite();
+		move.sprite(imageView);
 		imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, B1setStopPoint());
+				move.pressed(event, B1setStopPoint(), imageView);
 				B1event();
 			}
 		});
-		move.stop();
+		move.stop(imageView);
 
 	}
 

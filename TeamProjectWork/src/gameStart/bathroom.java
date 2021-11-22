@@ -22,16 +22,16 @@ public class bathroom implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		CharacterMove move = new CharacterMove();
-		move.sprite();
+		move.sprite(imageView);
 		imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, floor3_small1setStopPoint());
+				move.pressed(event, floor3_small1setStopPoint(), imageView);
 				floor3_small1event();
 			}
 		});
-		move.stop();
+		move.stop(imageView);
 
 	}
 	// 3층 쪽방 1 멈추는거

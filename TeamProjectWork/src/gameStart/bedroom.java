@@ -22,17 +22,17 @@ public class bedroom implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		CharacterMove move = new CharacterMove();
-		move.sprite();
+		move.sprite(imageView);
 		imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, floor2setStopPoint());
+				move.pressed(event, floor2setStopPoint(), imageView);
 				floor2event();
 			}
 		});
 
-		move.stop();
+		move.stop(imageView);
 	}
 	// 2층 멈추는거
 	public String floor2setStopPoint() {
