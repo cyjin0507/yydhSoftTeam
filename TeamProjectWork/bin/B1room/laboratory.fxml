@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="B1room.laboratory">
+   <children>
+      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../roomImage/laboratory.jpg" />
+         </image></ImageView>
+      <ImageView id="B1" fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="950.0" y="130.0">
+         <image>
+            <Image url="@../roomImage/캐릭터.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="287.0" fitWidth="488.0" layoutX="369.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/지하책상.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="428.0" layoutX="399.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/지하실험도구.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="287.0" fitWidth="505.0" layoutX="368.0" layoutY="328.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/지하책상.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="151.0" fitWidth="452.0" layoutX="398.0" layoutY="363.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../가구사진/지하실험도구.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

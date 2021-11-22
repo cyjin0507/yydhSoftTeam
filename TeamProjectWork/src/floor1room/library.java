@@ -53,7 +53,7 @@ public class library implements Initializable{
 		if ((y == 60) && (x >= 530) && (x <= 570)) {
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor1room/mainhall.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);

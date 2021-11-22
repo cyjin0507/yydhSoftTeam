@@ -52,7 +52,7 @@ public class stair implements Initializable{
 		if ((x == 260) && (y >=60) && (y <= 90)) {
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor1room/mainhall.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
@@ -63,7 +63,7 @@ public class stair implements Initializable{
 		if ((x ==840) && (y >= 60) && (y <= 90)) {
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor1room/mainhall.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);

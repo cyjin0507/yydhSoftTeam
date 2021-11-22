@@ -1,26 +1,21 @@
-package floor1room;
+package gameStart;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import gameStart.CharacterMove;
-import gameStart.SpriteAnimation;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-import mainGame.chat;
 
-public class mainhall extends chat implements Initializable {
+public class MainHoll implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -44,7 +39,6 @@ public class mainhall extends chat implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x +" , "+ y);
 		return move.nframe(x, y);
 
 	}
@@ -53,10 +47,11 @@ public class mainhall extends chat implements Initializable {
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		if ((x == 1110) && (y >= 60) && (y <= 320)) {
+
+		if ((y == 60) && (x >= 490) && (x <= 610)) {
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway2.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
@@ -64,7 +59,7 @@ public class mainhall extends chat implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		if ((y == 640) && (x >= 70) && (x <= 200)) {
+		if ((x == 30) && (y >= 90) && (y <= 140)) {
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor1room/library.fxml"));
@@ -75,10 +70,10 @@ public class mainhall extends chat implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		if ((y == 310) && (x >= 810) && (x <= 940)) {
+		if ((x == 1070) && (y >= 90) && (y <= 140)) {
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/B1room/laboratory.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor1room/dinnerhall.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
@@ -86,7 +81,7 @@ public class mainhall extends chat implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		//스페이스 바 이벤트
+		// 스페이스 바 이벤트
 		if ((y == 130) && (x >= 260) && (x <= 370)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
