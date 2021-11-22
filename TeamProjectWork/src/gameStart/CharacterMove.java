@@ -29,9 +29,6 @@ public class CharacterMove implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		String image = imageView.getId();
 		sprite();
-		int x = (int) imageView.getX();
-		int y = (int) imageView.getY();
-		System.out.println(x + "," + y);
 		if (image.equals("floor1")) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
@@ -443,6 +440,7 @@ public class CharacterMove implements Initializable {
 	public String floor3setStopPoint() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		System.out.println(x + "," + y);
 //		책상 충돌 방지
 		if ((y == 270) && (x >= 360) && (x <= 750)) {
 			if ((x == 660) && (y <= 270) && (y >= 170)) {
@@ -514,7 +512,8 @@ public class CharacterMove implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 		
-		if ((y == 100) && (x >= 270) && (x <= 320)) {
+		
+		if ((y == 110) && (x >= 270) && (x <= 320)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
 				public void handle(KeyEvent event) {
