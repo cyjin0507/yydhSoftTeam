@@ -157,31 +157,13 @@ public class CharacterMove implements Initializable {
 		imageView.setX(x + 10);
 	}
 
-	// 키보드 땠을때
-	public void Released(KeyEvent event) {
-		KeyCode keyCode = event.getCode();
-		if (keyCode.equals(KeyCode.RIGHT)) {
-			animation.stop();
-			animation.setOffsetX(100);
-		} else if (keyCode.equals(KeyCode.LEFT)) {
-			animation.stop();
-			animation.setOffsetX(100);
-		} else if (keyCode.equals(KeyCode.UP)) {
-			animation.stop();
-			animation.setOffsetX(100);
-		} else if (keyCode.equals(KeyCode.DOWN)) {
-			animation.stop();
-			animation.setOffsetX(100);
-		}
-	}
-
 //캐릭터 모션
 	public void sprite(ImageView imageView) {
 		imageView.setImage(new Image("/roomImage/all.png"));
 		animation = new SpriteAnimation(imageView, Duration.millis(250), 3, 4, 0, 0, 100, 150);
 	}
 
-//기본 틀
+//기본 틀이 있는 경우
 	public String frame(int x, int y) {
 		if (y <= 110) {
 			if (x <= 10) {
@@ -206,6 +188,31 @@ public class CharacterMove implements Initializable {
 		}
 		return "";
 	}
+	//기본 틀이 없는 경우
+		public String nframe(int x, int y) {
+			if (y <= 60) {
+				if (x <=-10) {
+					return "leftup";
+				}
+				if (x >=1110) {
+					return "rightup";
+				}
+				return "up";
+			} else if (y >= 640) {
+				if (x <= -10) {
+					return "leftdown";
+				}
+				if (x >= 1110) {
+					return "rightdown";
+				}
+				return "down";
+			} else if (x <= -10) {
+				return "left";
+			} else if (x >= 1110) {
+				return "right";
+			}
+			return "";
+		}
 
 	// 쪽방 틀
 	public String smallframe(int x, int y) {

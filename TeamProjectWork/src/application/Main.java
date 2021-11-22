@@ -28,7 +28,8 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader();
 //			loader.setLocation(getClass().getResource("/user/Login.fxml"));
 //			loader.setLocation(getClass().getResource("/gameStart/mainHoll.fxml"));
-			loader.setLocation(getClass().getResource("/gameStart/study.fxml"));
+//			loader.setLocation(getClass().getResource("/floor2room/study.fxml"));
+			loader.setLocation(getClass().getResource("/B1room/B1hallway1.fxml"));
 			AnchorPane root = (AnchorPane)loader.load();
 			Scene scene = new Scene(root,1200,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

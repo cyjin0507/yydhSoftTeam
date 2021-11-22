@@ -1,9 +1,10 @@
-package gameStart;
+package B1room;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,20 +28,19 @@ public class laboratory implements Initializable {
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, B1setStopPoint(), imageView);
-				B1event();
+				move.pressed(event, setStopPoint(), imageView);
+				event();
 			}
 		});
 		move.stop(imageView);
 
 	}
 
-	//B1 멈추는거
-		public String B1setStopPoint() {
+		public String setStopPoint() {
 			CharacterMove move = new CharacterMove();
 			int x = (int) imageView.getX();
 			int y = (int) imageView.getY();
-
+			System.out.println(x +" , "+ y);
 
 			if ((y == 210) && (x >= 330) && (x <= 800)) {
 				return "down";
@@ -55,11 +55,21 @@ public class laboratory implements Initializable {
 			}
 		}
 
-	//B1 이벤트
-		public void B1event() {
+		public void event() {
 
 			int x = (int) imageView.getX();
 			int y = (int) imageView.getY();
+			if((y == 110)&&(x >= 910)&&( x <=990)) {
+				try {
+					Parent root;
+					root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway1.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) imageView.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 
 			if ((y == 490) && (x >= 330) && (x <= 800)) {
 				imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {

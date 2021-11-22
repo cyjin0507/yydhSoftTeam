@@ -1,9 +1,10 @@
-package gameStart;
+package floor3room;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class kitchen implements Initializable {
+public class stair implements Initializable{
 	@FXML
 	private ImageView imageView;
 
@@ -27,65 +28,55 @@ public class kitchen implements Initializable {
 
 			@Override
 			public void handle(KeyEvent event) {
-				move.pressed(event, floor1setStopPoint(), imageView);
-				floor1event();
+				move.pressed(event, floor3_small2setStopPoint(), imageView);
+				floor3_small2event();
 			}
 		});
 		move.stop(imageView);
+
 	}
 
-	// 1층 멈추는거
-	public String floor1setStopPoint() {
-		int x = (int) imageView.getX();
-		int y = (int) imageView.getY();
+	// 3층 쪽방 2 멈추는거
+	public String floor3_small2setStopPoint() {
 		CharacterMove move = new CharacterMove();
-		// 싱크대
-		if ((y == 220) && (x <= 155) && (x >= 5)) {
-			if (x == 5) {
-				return "leftdown";
+		int x = (int) imageView.getX();
+		int y = (int) imageView.getY();
+		// 책장
+		if ((y == 180) && (x >= 10) && (x <= 130)) {
+			if (x == 10) {
+				return "leftup";
 			}
-			return "down";
-		} else if ((x == 155) && (y <= 620) && (y >= 230)) {
-			if (y == 620) {
-				return "leftdown";
-			}
-			return "left";
-		}
-//				테이블
-		if ((y == 300) && (x >= 685) && (x <= 735)) {
-			if (x == 735) {
-				return "rightdown";
-			}
-			return "down";
-		} else if ((x == 735) && (y <= 300) && (y >= 230)) {
-			return "right";
-		} else if ((y == 230) && (x >= 745) && (x <= 935)) {
-			return "down";
-		} else if ((x == 945) && (y >= 240) && (y <= 290)) {
-			return "left";
-		} else if ((y == 300) && (x >= 945) && (x <= 1015)) {
-			if (x == 945) {
-				return "leftdown";
-			}
-			return "down";
-		} else if ((x == 1025) && (y >= 310) && (y <= 570)) {
-			return "left";
-		} else if ((y == 580) && (x <= 1015) && (x >= 675)) {
 			return "up";
-		} else if ((x == 665) && (y >= 310) && (y <= 570)) {
-			return "right";
-		} else {
-			return move.frame(x, y);
+		} else if ((x == 140) && (y <= 170) && (y >= 130)) {
+			if (y == 130) {
+				return "leftup";
+			}
+			return "left";
 		}
+		// 빗자루
+		if ((x == 530) && (y >= 130) && (y <= 150)) {
+			if (y == 130) {
+				return "rightup";
+			}
+			return "right";
+		} else if ((y == 160) && (x >= 540) && (x <= 600)) {
+			if (x == 600) {
+				return "rightup";
+			}
+			return "up";
+		} else {
+			return move.smallframe(x, y);
+		}
+
 	}
 
-	// 1층 이벤트
-	public void floor1event() {
+	// 3층 쪽방 2이벤트
+	public void floor3_small2event() {
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 
-		if ((x == 165) && (y >= 420) && (y <= 520)) {
+		if ((y == 130) && (x >= 260) && (x <= 370)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
 				public void handle(KeyEvent event) {
@@ -93,7 +84,7 @@ public class kitchen implements Initializable {
 					if (keyCode.equals(KeyCode.SPACE)) {
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/touchGame/touchGameLayout.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -104,7 +95,5 @@ public class kitchen implements Initializable {
 				}
 			});
 		}
-
 	}
-
 }

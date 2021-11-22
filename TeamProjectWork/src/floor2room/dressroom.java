@@ -1,9 +1,10 @@
-package gameStart;
+package floor2room;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class storage implements Initializable {
+public class dressroom implements Initializable{
 	@FXML
 	private ImageView imageView;
 
@@ -95,5 +96,4 @@ public class storage implements Initializable {
 			});
 		}
 	}
-
 }
