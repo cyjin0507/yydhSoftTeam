@@ -31,7 +31,7 @@ public class study implements Initializable {
 				floor3event();
 			}
 		});
-
+		move.stop();
 	}
 	// 3층 멈추는거
 		public String floor3setStopPoint() {
