@@ -2,12 +2,10 @@
 /btngame/
 /findHiddenObject/
 /gameStart/
-/potgame/
-/puzzle/
-/roomImage/
-/touchGame/
-/user/
-/userImage/
-/util/
 /mainGame/
 /pipegame/
+/potgame/
+/puzzle/
+/touchGame/
+/user/
+/util/

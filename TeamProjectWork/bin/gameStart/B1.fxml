@@ -15,13 +15,5 @@
             <Image url="@../roomImage/캐릭터.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="287.0" fitWidth="488.0" layoutX="368.0" layoutY="327.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../furniture_image/dfa97817cab0d3d7.png" />
-         </image></ImageView>
-      <ImageView fitHeight="150.0" fitWidth="428.0" layoutX="400.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../furniture_image/bddf49b682bd41e2.png" />
-         </image></ImageView>
    </children>
 </AnchorPane>
