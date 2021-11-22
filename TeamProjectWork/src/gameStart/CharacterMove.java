@@ -29,6 +29,9 @@ public class CharacterMove implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		String image = imageView.getId();
 		sprite();
+		int x = (int) imageView.getX();
+		int y = (int) imageView.getY();
+		System.out.println(x+"," + y);
 		if (image.equals("floor1")) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
@@ -79,6 +82,24 @@ public class CharacterMove implements Initializable {
 				@Override
 				public void handle(KeyEvent event) {
 					pressed(event, B1setStopPoint());
+					B1event();
+				}
+			});
+			stop();
+		} else if (image.equals("library")) {
+			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					pressed(event, librarysetStopPoint());
+					B1event();
+				}
+			});
+			stop();
+		} else if (image.equals("dinnerhall")) {
+			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
+				@Override
+				public void handle(KeyEvent event) {
+					pressed(event, dinnerhallsetStopPoint());
 					B1event();
 				}
 			});
@@ -295,6 +316,22 @@ public class CharacterMove implements Initializable {
 	}
 
 //====================================================
+	// 3층 쪽방 2 멈추는거
+	public String dinnerhallsetStopPoint() {
+		int x = (int) imageView.getX();
+		int y = (int) imageView.getY();
+		System.out.println(x+"," + y);
+		return frame(x, y);
+
+	}
+	public String librarysetStopPoint() {
+		int x = (int) imageView.getX();
+		int y = (int) imageView.getY();
+		System.out.println(x+"," + y);
+		return frame(x, y);
+
+	}
+
 	// 3층 쪽방 2 멈추는거
 	public String floor3_small2setStopPoint() {
 		int x = (int) imageView.getX();

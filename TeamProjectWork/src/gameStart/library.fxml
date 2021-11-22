@@ -12,7 +12,7 @@
             <Image url="@../roomImage/library.png" />
          </image>
       </ImageView>
-      <ImageView id="floor3" fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="550.0" y="40.0">
+      <ImageView id="library" fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="550.0" y="40.0">
          <image>
             <Image url="@../roomImage/캐릭터.png" />
          </image>
