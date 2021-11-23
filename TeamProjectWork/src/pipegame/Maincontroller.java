@@ -2,6 +2,8 @@ package pipegame;
 
 import java.io.IOException;
 
+import B1room.B1hallway1;
+import floor2room.bedroom;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -59,13 +61,10 @@ public class Maincontroller {
 				&& (int) iv15.getRotate() == 0 && (int) iv3.getRotate() == 0) {
 			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 			mp.play();
-			Alert al = new Alert(AlertType.CONFIRMATION);
-			al.setTitle("성공");
-			al.setContentText("성공");
-			al.show();
+			new B1hallway1().success = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/gameStart/3floor.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway1.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) iv15.getScene().getWindow();
 				primaryStage.setScene(scene);

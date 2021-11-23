@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -30,6 +32,25 @@ public class bedroom implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event, setStopPoint(), imageView);
 				event();
+				KeyCode keyCode = event.getCode();
+				if (keyCode.equals(KeyCode.SPACE)) {
+					int x = (int) imageView.getX();
+					int y = (int) imageView.getY();
+					if ((y == 105) && (x <= 270) && (x >= 220)) {
+						getX = x;
+						getY = y;
+						findObject = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/findHiddenObject/play.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
 			}
 		});
 		move.stop(imageView);
@@ -43,10 +64,17 @@ public class bedroom implements Initializable {
 			imageView.setY(getY);
 			powderroom = false;
 		}
+		if (findObject) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			findObject = false;
+		}
 	}
 
 	static boolean stair = false;
 	static boolean powderroom = false;
+	static boolean findObject = false;
+	public static boolean success = false;
 
 	public static int getX;
 	public static int getY;
@@ -109,39 +137,26 @@ public class bedroom implements Initializable {
 			}
 		}
 		if ((y == 105) && (x >= 100) && (x <= 170)) {
-			getX = x;
-			getY = y;
-			powderroom = true;
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor2room/powderroom.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-
-		if ((y == 125) && (x <= 270) && (x >= 220)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-						try {
-							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/findHiddenObject/play.fxml"));
-							Scene scene = new Scene(root);
-							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-							primaryStage.setScene(scene);
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-					}
+			if (success) {
+				getX = x;
+				getY = y;
+				powderroom = true;
+				try {
+					Parent root;
+					root = FXMLLoader.load(getClass().getResource("/floor2room/powderroom.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) imageView.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-			});
-
+			} else {
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("잠김");
+				alert.setHeaderText("");
+				alert.setContentText("문이 잠겨있다");
+				alert.showAndWait();
+			}
 		}
 	}
 

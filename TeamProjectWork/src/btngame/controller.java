@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import B1room.B1hallway2;
+import B1room.prison;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -150,9 +152,10 @@ public class controller implements Initializable {
 			mp = new MediaPlayer(new Media(getClass().getResource("/music/success2.mp3").toString()));
 
 			mp.play();
+			new prison().success = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/gameStart/2floor.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) btn.getScene().getWindow();
 				primaryStage.setScene(scene);

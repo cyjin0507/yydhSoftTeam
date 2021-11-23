@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -30,6 +32,27 @@ public class B1hallway1 implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event, setStopPoint(), imageView);
 				event();
+
+				KeyCode keyCode = event.getCode();
+				if (keyCode.equals(KeyCode.SPACE)) {
+					int x = (int) imageView.getX();
+					int y = (int) imageView.getY();
+					// 스페이스 바 이벤트
+					if ((y == 60) && (x >= 50) && (x <= 240)) {
+						getX = x;
+						getY = y;
+						pipe = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/pipegame/layout.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
 			}
 		});
 		move.stop(imageView);
@@ -43,11 +66,19 @@ public class B1hallway1 implements Initializable {
 			imageView.setY(new B1hallway2().getY);
 			B1hallway2 = false;
 		}
+		if (pipe) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			pipe = false;
+		}
 	}
 
 	static boolean laboratory = false;
 	static boolean B1hallway2 = false;
+	static boolean pipe = false;
 	
+	public static boolean success = false;
+
 	public static int getX;
 	public static int getY;
 
@@ -90,39 +121,27 @@ public class B1hallway1 implements Initializable {
 			}
 		}
 		if ((y == 310) && (x >= 810) && (x <= 940)) {
-			getX = x;
-			getY = y;
-			laboratory = true;
-			try {
-
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/B1room/laboratory.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
+			if(success) {
+				getX = x;
+				getY = y;
+				laboratory = true;
+				try {
+					Parent root;
+					root = FXMLLoader.load(getClass().getResource("/B1room/laboratory.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) imageView.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} else {
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("잠김");
+				alert.setHeaderText("");
+				alert.setContentText("문이 잠겨있다");
+				alert.showAndWait();
 			}
 		}
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
-		}
+
 	}
 }

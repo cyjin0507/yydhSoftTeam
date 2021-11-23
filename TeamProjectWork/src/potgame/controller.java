@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import B1room.B1hallway1;
+import B1room.B1hallway2;
+import B1room.dataroom;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -212,15 +215,21 @@ public class controller {
 					if (num >= 4) {
 						if (r == 2 && b == 1 && y == 1) {
 							pot.setImage(new Image("/potgame/success2.png"));
-							alert.setTitle("성공");
-							alert.setContentText("성공");
-							alert.show();
 							mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 							mp.play();
-						} else {
-							alert.setTitle("실패");
-							alert.setContentText("실패");
+							new B1hallway2().success = true;
+							alert.setContentText("어딘가 문이 열리는 소리가 들렸다");
 							alert.show();
+							try {
+								Parent root;
+								root = FXMLLoader.load(getClass().getResource("/B1room/laboratory.fxml"));
+								Scene scene = new Scene(root);
+								Stage primaryStage = (Stage) pot.getScene().getWindow();
+								primaryStage.setScene(scene);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						} else {
 							mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
 							mp.play();
 							reset();

@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -59,6 +61,7 @@ public class B1hallway2 implements Initializable {
 	static boolean B1hallway1 = false;
 	static boolean storage = false;
 	static boolean prison = false;
+	public static boolean success = false;
 
 	public static int getX;
 	public static int getY;
@@ -119,18 +122,27 @@ public class B1hallway2 implements Initializable {
 			}
 		}
 		if ((y == 310) && (x >= 160) && (x <= 300)) {
-			getX = x;
-			getY = y;
-			dataroom = true;
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/B1room/dataroom.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
+			if(success) {
+				getX = x;
+				getY = y;
+				dataroom = true;
+				try {
+					Parent root;
+					root = FXMLLoader.load(getClass().getResource("/B1room/dataroom.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) imageView.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			} else {
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("잠김");
+				alert.setHeaderText("");
+				alert.setContentText("문이 잠겨있다");
+				alert.showAndWait();
 			}
+			
 		}
 		// 스페이스 바 이벤트
 		if ((y == 130) && (x >= 260) && (x <= 370)) {

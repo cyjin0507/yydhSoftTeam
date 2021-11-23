@@ -30,65 +30,76 @@ public class laboratory implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event, setStopPoint(), imageView);
 				event();
+				KeyCode keyCode = event.getCode();
+				if (keyCode.equals(KeyCode.SPACE)) {
+					int x = (int) imageView.getX();
+					int y = (int) imageView.getY();
+					if ((y == 490) && (x >= 330) && (x <= 800)) {
+						getX = x;
+						getY = y;
+						pot = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/potgame/layout.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+
+				}
 			}
 		});
 		move.stop(imageView);
+		if (pot) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			pot = false;
+		}
 
 	}
 
-		public String setStopPoint() {
-			CharacterMove move = new CharacterMove();
-			int x = (int) imageView.getX();
-			int y = (int) imageView.getY();
+	static boolean pot = false;
 
-			if ((y == 210) && (x >= 330) && (x <= 800)) {
-				return "down";
-			} else if ((x == 810) && (y >= 220) && (y <= 480)) {
-				return "left";
-			} else if ((x == 310) && (y >= 220) && (y <= 480)) {
-				return "right";
-			} else if ((y == 490) && (x >= 330) && (x <= 800)) {
-				return "up";
-			} else {
-				return move.frame(x, y);
+	public static int getX;
+	public static int getY;
+
+	public String setStopPoint() {
+		CharacterMove move = new CharacterMove();
+		int x = (int) imageView.getX();
+		int y = (int) imageView.getY();
+
+		if ((y == 210) && (x >= 330) && (x <= 800)) {
+			return "down";
+		} else if ((x == 810) && (y >= 220) && (y <= 480)) {
+			return "left";
+		} else if ((x == 310) && (y >= 220) && (y <= 480)) {
+			return "right";
+		} else if ((y == 490) && (x >= 330) && (x <= 800)) {
+			return "up";
+		} else {
+			return move.frame(x, y);
+		}
+	}
+
+	public void event() {
+
+		int x = (int) imageView.getX();
+		int y = (int) imageView.getY();
+		if ((y == 110) && (x >= 910) && (x <= 990)) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway1.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 
-		public void event() {
-
-			int x = (int) imageView.getX();
-			int y = (int) imageView.getY();
-			if((y == 110)&&(x >= 910)&&( x <=990)) {
-				try {
-					Parent root;
-					root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway1.fxml"));
-					Scene scene = new Scene(root);
-					Stage primaryStage = (Stage) imageView.getScene().getWindow();
-					primaryStage.setScene(scene);
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if ((y == 490) && (x >= 330) && (x <= 800)) {
-				imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-					@Override
-					public void handle(KeyEvent event) {
-						KeyCode keyCode = event.getCode();
-						if (keyCode.equals(KeyCode.SPACE)) {
-							try {
-								Parent root;
-								root = FXMLLoader.load(getClass().getResource("/potgame/layout.fxml"));
-								Scene scene = new Scene(root);
-								Stage primaryStage = (Stage) imageView.getScene().getWindow();
-								primaryStage.setScene(scene);
-							} catch (IOException e) {
-								e.printStackTrace();
-							}
-						}
-					}
-				});
-			}
-		}
+	}
 
 }

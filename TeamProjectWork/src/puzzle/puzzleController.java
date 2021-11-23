@@ -2,6 +2,7 @@ package puzzle;
 
 import java.io.IOException;
 
+import floor2room.study;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -260,14 +261,10 @@ public class puzzleController {
 	public void success() {
 		mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 		mp.play();
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("성공");
-		alert.setHeaderText("성공");
-		alert.setContentText("성공입니다");
-		alert.showAndWait();
+		new study().success = true;
 		try {
 			Parent root;
-			root = FXMLLoader.load(getClass().getResource("/gameStart/3floor-small2.fxml"));
+			root = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
 			Scene scene = new Scene(root);
 			Stage primaryStage = (Stage) b25.getScene().getWindow();
 			primaryStage.setScene(scene);
