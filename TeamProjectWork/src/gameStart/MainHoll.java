@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import B1room.B1hallway2;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,8 +33,29 @@ public class MainHoll implements Initializable {
 			}
 		});
 		move.stop(imageView);
-
+		if (library) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			library = false;
+		}
+		if (dinnerhall) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			dinnerhall = false;
+		}
+		if (stair) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			stair = false;
+		}
 	}
+
+	static boolean library = false;
+	static boolean dinnerhall = false;
+	static boolean stair = false;
+
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
@@ -49,6 +71,9 @@ public class MainHoll implements Initializable {
 		int y = (int) imageView.getY();
 
 		if ((y == 60) && (x >= 490) && (x <= 610)) {
+			getX = x;
+			getY = y;
+			stair = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
@@ -60,6 +85,9 @@ public class MainHoll implements Initializable {
 			}
 		}
 		if ((x == 30) && (y >= 90) && (y <= 140)) {
+			getX = x;
+			getY = y;
+			library = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor1room/library.fxml"));
@@ -71,6 +99,9 @@ public class MainHoll implements Initializable {
 			}
 		}
 		if ((x == 1070) && (y >= 90) && (y <= 140)) {
+			getX = x;
+			getY = y;
+			dinnerhall = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor1room/dinnerhall.fxml"));

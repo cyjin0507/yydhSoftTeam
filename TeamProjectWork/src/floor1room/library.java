@@ -16,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class library implements Initializable{
+public class library implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -33,8 +33,23 @@ public class library implements Initializable{
 			}
 		});
 		move.stop(imageView);
-
+		if (mainhall) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			mainhall = false;
+		}
+		if (B1hallway1) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			B1hallway1 = false;
+		}
 	}
+
+	static boolean mainhall = false;
+	static boolean B1hallway1 = false;
+
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
@@ -49,8 +64,11 @@ public class library implements Initializable{
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		
+
 		if ((y == 60) && (x >= 530) && (x <= 570)) {
+			getX = x;
+			getY = y;
+			mainhall = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
@@ -60,7 +78,11 @@ public class library implements Initializable{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}if(( y==420) && (x >= 1050) && ( x <=1110)) {
+		}
+		if ((y == 420) && (x >= 1050) && (x <= 1110)) {
+			getX = x;
+			getY = y;
+			B1hallway1 = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway1.fxml"));
@@ -71,8 +93,8 @@ public class library implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		
-		//스페이스 바 이벤트
+
+		// 스페이스 바 이벤트
 		if ((y == 130) && (x >= 260) && (x <= 370)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override

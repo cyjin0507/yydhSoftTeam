@@ -16,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class dinnerhall implements Initializable{
+public class dinnerhall implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -33,8 +33,23 @@ public class dinnerhall implements Initializable{
 			}
 		});
 		move.stop(imageView);
-
+		if (mainhall) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			mainhall = false;
+		}
+		if (kitchen) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			kitchen = false;
+		}
 	}
+
+	static boolean mainhall = false;
+	static boolean kitchen = false;
+
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
@@ -49,8 +64,11 @@ public class dinnerhall implements Initializable{
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		
+
 		if ((y == 60) && (x >= 20) && (x <= 60)) {
+			getX = x;
+			getY = y;
+			mainhall = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
@@ -62,6 +80,9 @@ public class dinnerhall implements Initializable{
 			}
 		}
 		if ((y == 60) && (x >= 1040) && (x <= 1080)) {
+			getX = x;
+			getY = y;
+			kitchen = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor1room/kitchen.fxml"));
@@ -72,7 +93,7 @@ public class dinnerhall implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		//스페이스 바 이벤트
+		// 스페이스 바 이벤트
 		if ((y == 130) && (x >= 260) && (x <= 370)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override

@@ -33,8 +33,35 @@ public class B1hallway2 implements Initializable {
 			}
 		});
 		move.stop(imageView);
-
+		if (dataroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			dataroom = false;
+		}
+		if (B1hallway1) {
+			imageView.setX(getX);
+			imageView.setY(new B1hallway1().getY);
+			B1hallway1 = false;
+		}
+		if (storage) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			storage = false;
+		}
+		if (prison) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			prison = false;
+		}
 	}
+
+	static boolean dataroom = false;
+	static boolean B1hallway1 = false;
+	static boolean storage = false;
+	static boolean prison = false;
+
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
@@ -42,7 +69,6 @@ public class B1hallway2 implements Initializable {
 		int y = (int) imageView.getY();
 
 		return move.nframe(x, y);
-
 	}
 
 	public void event() {
@@ -50,6 +76,9 @@ public class B1hallway2 implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 		if ((x == -10) && (y >= 60) && (y <= 320)) {
+			getX = x;
+			getY = y;
+			B1hallway1 = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway1.fxml"));
@@ -61,6 +90,9 @@ public class B1hallway2 implements Initializable {
 			}
 		}
 		if ((y == 60) && (x >= 840) && (x <= 910)) {
+			getX = x;
+			getY = y;
+			prison = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
@@ -73,6 +105,9 @@ public class B1hallway2 implements Initializable {
 		}
 
 		if ((y == 310) && (x >= 810) && (x <= 940)) {
+			getX = x;
+			getY = y;
+			storage = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/B1room/storage.fxml"));
@@ -84,6 +119,9 @@ public class B1hallway2 implements Initializable {
 			}
 		}
 		if ((y == 310) && (x >= 160) && (x <= 300)) {
+			getX = x;
+			getY = y;
+			dataroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/B1room/dataroom.fxml"));

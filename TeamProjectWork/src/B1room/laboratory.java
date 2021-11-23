@@ -40,7 +40,6 @@ public class laboratory implements Initializable {
 			CharacterMove move = new CharacterMove();
 			int x = (int) imageView.getX();
 			int y = (int) imageView.getY();
-			System.out.println(x +" , "+ y);
 
 			if ((y == 210) && (x >= 330) && (x <= 800)) {
 				return "down";

@@ -33,8 +33,24 @@ public class B1hallway1 implements Initializable {
 			}
 		});
 		move.stop(imageView);
+		if (laboratory) {
 
+			imageView.setX(getX);
+			imageView.setY(getY);
+			laboratory = false;
+		}
+		if (B1hallway2) {
+			imageView.setX(getX);
+			imageView.setY(new B1hallway2().getY);
+			B1hallway2 = false;
+		}
 	}
+
+	static boolean laboratory = false;
+	static boolean B1hallway2 = false;
+	
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
@@ -50,6 +66,9 @@ public class B1hallway1 implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 		if ((x == 1110) && (y >= 60) && (y <= 320)) {
+			getX = x;
+			getY = y;
+			B1hallway2 = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway2.fxml"));
@@ -72,7 +91,11 @@ public class B1hallway1 implements Initializable {
 			}
 		}
 		if ((y == 310) && (x >= 810) && (x <= 940)) {
+			getX = x;
+			getY = y;
+			laboratory = true;
 			try {
+
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/B1room/laboratory.fxml"));
 				Scene scene = new Scene(root);
@@ -82,7 +105,7 @@ public class B1hallway1 implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		//스페이스 바 이벤트
+		// 스페이스 바 이벤트
 		if ((y == 130) && (x >= 260) && (x <= 370)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override
