@@ -33,12 +33,7 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="858.0" layoutY="577.0" mnemonicParsing="false" onAction="#myInfo" prefHeight="49.0" prefWidth="259.0" style="-fx-opacity: 0.6; -fx-border-color: black;" text="내 정보">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Button>
-      <Button layoutX="858.0" layoutY="308.0" mnemonicParsing="false" onAction="#character" prefHeight="49.0" prefWidth="259.0" style="-fx-opacity: 0.6; -fx-border-color: black;" text="캐릭터 선택">
+      <Button layoutX="858.0" layoutY="309.0" mnemonicParsing="false" onAction="#myInfo" prefHeight="49.0" prefWidth="259.0" style="-fx-opacity: 0.6; -fx-border-color: black;" text="내 정보">
          <font>
             <Font size="26.0" />
          </font>
