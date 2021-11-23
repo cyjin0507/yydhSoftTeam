@@ -16,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class floor2hallway implements Initializable{
+public class floor2hallway implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -33,8 +33,23 @@ public class floor2hallway implements Initializable{
 			}
 		});
 		move.stop(imageView);
-
+		if (stair) {
+			imageView.setX(getX);
+			imageView.setY(new stair().getY);
+			stair = false;
+		}
+		if (drawingroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			drawingroom = false;
+		}
 	}
+
+	static boolean stair = false;
+	static boolean drawingroom = false;
+
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
@@ -48,7 +63,10 @@ public class floor2hallway implements Initializable{
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		if ((x ==-10) && (y >= 60) && (y <= 640)) {
+		if ((x == -10) && (y >= 60) && (y <= 640)) {
+			getX = x;
+			getY = y;
+			stair = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
@@ -59,7 +77,10 @@ public class floor2hallway implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		if((y == 640)&&(x >= 460)&&(x <= 620)) {
+		if ((y == 640) && (x >= 460) && (x <= 620)) {
+			getX = x;
+			getY = y;
+			drawingroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/drawingroom.fxml"));
@@ -70,7 +91,7 @@ public class floor2hallway implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		//스페이스 바 이벤트
+		// 스페이스 바 이벤트
 		if ((y == 130) && (x >= 260) && (x <= 370)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override

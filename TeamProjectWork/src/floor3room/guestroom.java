@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import floor2room.stair;
 import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,14 +34,27 @@ public class guestroom implements Initializable {
 			}
 		});
 		move.stop(imageView);
-
+		if (stair) {
+			imageView.setX(getX);
+			imageView.setY(new stair().getY);
+			stair = false;
+		}
+		if (powderroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			powderroom = false;
+		}
 	}
+	static boolean stair = false;
+	static boolean powderroom = false;
 
+	public static int getX;
+	public static int getY;
+	
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x + " , " + y);
 		return move.nframe(x, y);
 
 	}
@@ -51,6 +65,9 @@ public class guestroom implements Initializable {
 		int y = (int) imageView.getY();
 		
 		if ((y == 60) && (x >= 530) && (x <= 570)) {
+			getX = x;
+			getY = y;
+			stair = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));
@@ -62,6 +79,9 @@ public class guestroom implements Initializable {
 			}
 		}
 		if ((y == 60) && (x >= 200) && (x <= 240)) {
+			getX = x;
+			getY = y;
+			powderroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/powderroom.fxml"));

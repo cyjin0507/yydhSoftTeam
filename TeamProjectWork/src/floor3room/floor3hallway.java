@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import floor2room.stair;
 import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,9 +34,23 @@ public class floor3hallway implements Initializable{
 			}
 		});
 		move.stop(imageView);
-
+		if (stair) {
+			imageView.setX(getX);
+			imageView.setY(new floor3room.stair().getY);
+			stair = false;
+		}
+		if (livingroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			livingroom = false;
+		}
 	}
-
+	static boolean stair = false;
+	static boolean livingroom = false;
+	
+	public static int getX;
+	public static int getY;
+	
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
@@ -49,6 +64,9 @@ public class floor3hallway implements Initializable{
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 		if ((x ==-10) && (y >= 60) && (y <= 640)) {
+			getX = x;
+			getY = y;
+			stair = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));
@@ -60,6 +78,9 @@ public class floor3hallway implements Initializable{
 			}
 		}
 		if((y == 640)&&(x >= 460)&&(x <= 620)) {
+			getX = x;
+			getY = y;
+			livingroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/livingroom.fxml"));

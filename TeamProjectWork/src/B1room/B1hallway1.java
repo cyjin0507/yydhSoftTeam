@@ -34,7 +34,6 @@ public class B1hallway1 implements Initializable {
 		});
 		move.stop(imageView);
 		if (laboratory) {
-
 			imageView.setX(getX);
 			imageView.setY(getY);
 			laboratory = false;

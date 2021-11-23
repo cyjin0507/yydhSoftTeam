@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import B1room.B1hallway2;
 import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,7 +17,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class stair implements Initializable{
+public class stair implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -33,8 +34,42 @@ public class stair implements Initializable{
 			}
 		});
 		move.stop(imageView);
+		if (stair) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			stair = false;
+		}
+		if (mainhall) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			mainhall = false;
+		}
+		if (floor2hallway) {
+			imageView.setX(getX);
+			imageView.setY(new floor2hallway().getY);
+			floor2hallway = false;
+		}
+		if (bedroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			bedroom = false;
+		}
+		if (study) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			study = false;
+		}
 
 	}
+
+	static boolean stair = false;
+	static boolean mainhall = false;
+	static boolean floor2hallway = false;
+	static boolean bedroom = false;
+	static boolean study = false;
+
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
@@ -48,8 +83,11 @@ public class stair implements Initializable{
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		//아래 계단
-		if ((x == 260) && (y >=60) && (y <= 90)) {
+		// 아래 계단
+		if ((x == 260) && (y >= 60) && (y <= 90)) {
+			getX = x;
+			getY = y;
+			mainhall = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
@@ -60,7 +98,10 @@ public class stair implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		if ((x ==840) && (y >= 60) && (y <= 90)) {
+		if ((x == 840) && (y >= 60) && (y <= 90)) {
+			getX = x;
+			getY = y;
+			mainhall = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
@@ -71,8 +112,11 @@ public class stair implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		//위 계단
-		if ((x ==190) && (y >= 110) && (y <= 220)) {
+		// 위 계단
+		if ((x == 190) && (y >= 110) && (y <= 220)) {
+			getX = x;
+			getY = y;
+			stair = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));
@@ -83,7 +127,10 @@ public class stair implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		if ((x ==910) && (y >= 110) && (y <= 220)) {
+		if ((x == 910) && (y >= 110) && (y <= 220)) {
+			getX = x;
+			getY = y;
+			stair = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));
@@ -94,8 +141,11 @@ public class stair implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		//오른쪽 복도
-		if ((x ==1110) && (y >= 60) && (y <= 640)) {
+		// 오른쪽 복도
+		if ((x == 1110) && (y >= 60) && (y <= 640)) {
+			getX = x;
+			getY = y;
+			floor2hallway = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/floor2hallway.fxml"));
@@ -106,8 +156,11 @@ public class stair implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		//방들
-		if((y == 640) && (x >=120)&& (x <=290)) {
+		// 방들
+		if ((y == 640) && (x >= 120) && (x <= 290)) {
+			getX = x;
+			getY = y;
+			bedroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/bedroom.fxml"));
@@ -118,7 +171,10 @@ public class stair implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		if((y == 640) && (x >=810)&& (x <=970)) {
+		if ((y == 640) && (x >= 810) && (x <= 970)) {
+			getX = x;
+			getY = y;
+			study = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
@@ -129,8 +185,8 @@ public class stair implements Initializable{
 				e.printStackTrace();
 			}
 		}
-		
-		//스페이스 바 이벤트
+
+		// 스페이스 바 이벤트
 		if ((y == 130) && (x >= 260) && (x <= 370)) {
 			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 				@Override

@@ -33,8 +33,29 @@ public class powderroom implements Initializable {
 			}
 		});
 		move.stop(imageView);
-
+		if (bathroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			bathroom = false;
+		}
+		if (dressroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			dressroom = false;
+		}
+		if (bedroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			bedroom = false;
+		}
 	}
+
+	static boolean dressroom = false;
+	static boolean bathroom = false;
+	static boolean bedroom = false;
+
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
@@ -50,6 +71,9 @@ public class powderroom implements Initializable {
 		int y = (int) imageView.getY();
 
 		if ((y == 60) && (x >= 520) && (x <= 580)) {
+			getX = x;
+			getY = y;
+			dressroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/dressroom.fxml"));
@@ -61,6 +85,9 @@ public class powderroom implements Initializable {
 			}
 		}
 		if ((x == 250) && (y <= 380) && (y >= 210)) {
+			getX = x;
+			getY = y;
+			bathroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/bathroom.fxml"));
@@ -72,6 +99,9 @@ public class powderroom implements Initializable {
 			}
 		}
 		if ((x == 850) && (y <= 380) && (y >= 210)) {
+			getX = x;
+			getY = y;
+			bedroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/bedroom.fxml"));

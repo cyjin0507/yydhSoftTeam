@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import floor2room.floor2hallway;
 import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -33,9 +34,35 @@ public class stair implements Initializable{
 			}
 		});
 		move.stop(imageView);
-
+		if (stair) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			stair = false;
+		}
+		if (floor3hallway) {
+			imageView.setX(getX);
+			imageView.setY(new floor3hallway().getY);
+			floor3hallway = false;
+		}
+		if (guestroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			guestroom = false;
+		}
+		if (musicroom) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			musicroom = false;
+		}
 	}
-
+	static boolean stair = false;
+	static boolean floor3hallway = false;
+	static boolean guestroom = false;
+	static boolean musicroom = false;
+	
+	public static int getX;
+	public static int getY;
+	
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
@@ -50,6 +77,9 @@ public class stair implements Initializable{
 		int y = (int) imageView.getY();
 		//아래 계단
 		if ((x == 260) && (y >=60) && (y <= 90)) {
+			getX = x;
+			getY = y;
+			stair = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
@@ -61,6 +91,9 @@ public class stair implements Initializable{
 			}
 		}
 		if ((x ==840) && (y >= 60) && (y <= 90)) {
+			getX = x;
+			getY = y;
+			stair = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
@@ -74,6 +107,9 @@ public class stair implements Initializable{
 		
 		//오른쪽 복도
 		if ((x ==1110) && (y >= 60) && (y <= 640)) {
+			getX = x;
+			getY = y;
+			floor3hallway = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/floor3hallway.fxml"));
@@ -86,6 +122,9 @@ public class stair implements Initializable{
 		}
 		//방들
 		if((y == 640) && (x >=120)&& (x <=290)) {
+			getX = x;
+			getY = y;
+			guestroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/guestroom.fxml"));
@@ -97,6 +136,9 @@ public class stair implements Initializable{
 			}
 		}
 		if((y == 640) && (x >=810)&& (x <=970)) {
+			getX = x;
+			getY = y;
+			musicroom = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/musicroom.fxml"));
