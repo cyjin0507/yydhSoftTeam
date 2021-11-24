@@ -109,7 +109,7 @@ public class gameRequest implements Initializable {
 		return null;
 	}
 
-	public boolean player = false;
+	public static boolean player = false;
 
 	// 게임요청 보내기
 	public void send() {
