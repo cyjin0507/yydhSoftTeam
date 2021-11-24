@@ -40,6 +40,46 @@ public class drawingroom implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+//앞소파
+		if ((y == 120) && (x >= 310) && (x <= 790)) {
+			return "down";
+		}else if((x == 800)&&(y >= 130)&&(y <=200)) {
+			return "left";
+		} else if((y == 210)&&(x >= 310) && (x <= 790)) {
+			return "up";
+		}else if((x == 300)&&(y >= 130)&&(y <=200)) {
+			return "right";
+		}
+		//뒷소파
+		if ((y == 440) && (x >= 310) && (x <= 790)) {
+			return "down";
+		}else if((x == 800)&&(y >= 450)&&(y <=560)) {
+			return "left";
+		} else if((y == 570)&&(x >= 310) && (x <= 790)) {
+			return "up";
+		}else if((x == 300)&&(y >= 450)&&(y <=560)) {
+			return "right";
+		}
+		//테이블
+		if((y ==390)&&(x >=280)&&(x <=820)) {
+			return "up";
+		} else if((y ==260)&&(x >=280)&&(x <=820)) {
+			return "down";
+		} else if((x == 270)&&(y>= 270)&&(y <=380)) {
+			return "right";
+		} else if((x == 830)&&(y>= 270)&&(y <=380)) {
+			return "left";
+		}
+		if((y == 260)&&(x >= 840) &&(x <= 980)) {
+			return "down";
+		}else if((y == 380)&&(x >= 840) &&(x <= 980)) {
+			return "up";
+		}else if((x == 830)&&(y >= 270)&&(y <= 370)) {
+			return "right";
+		}else if((x == 990)&&(y >= 270)&&(y <= 370)) {
+			return "left";
+		}
+
 
 		return move.nframe(x, y);
 
@@ -60,25 +100,6 @@ public class drawingroom implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
-		}
+		
 	}
 }

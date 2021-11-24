@@ -61,6 +61,66 @@ public class MainHoll implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
+//		계단 손잡이
+		if ((x == 610) && (y >= 70) && (y <= 110)) {
+			return "right";
+		} else if ((x == 490) && (y >= 70) && (y <= 110)) {
+			return "left";
+		}
+		if ((y == 120) && (x <= 480) && (x >= 420)) {
+			return "up";
+		} else if ((y == 120) && (x >= 620) && (x <= 680)) {
+			return "up";
+		}
+		if ((x == 410) && (y >= 60) && (y <= 110)) {
+			if (y == 60) {
+				return "rightup";
+			}
+			return "right";
+		} else if ((x == 690) && (y >= 60) && (y <= 110)) {
+			if (y == 60) {
+				return "leftup";
+			}
+			return "left";
+		}
+//오른쪽 벽
+		if ((x == 1030) && (y <= 70)) {
+			if (y == 60) {
+				return "rightup";
+			}
+			return "right";
+		}
+
+		if ((x == 1080) && (y <= 290)) {
+			if (y == 60) {
+				return "rightup";
+			}
+			return "right";
+		} else if ((y == 300) && (x >= 1080) && (x <= 1110)) {
+			if (x == 1110) {
+				return "rightup";
+			}
+			return "up";
+		}
+		// 왼 벽
+		if ((x == 80) && (y <= 70)) {
+			if (y == 60) {
+				return "leftup";
+			}
+			return "left";
+		}
+		if ((x == 40) && (y <= 290)) {
+			if (y == 60) {
+				return "leftup";
+			}
+			return "left";
+		} else if ((y == 300) && (x <= 40) && (x >= -10)) {
+			if (x == -10) {
+				return "leftup";
+			}
+			return "up";
+		}
 		return move.nframe(x, y);
 
 	}
@@ -84,7 +144,7 @@ public class MainHoll implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		if ((x == 30) && (y >= 90) && (y <= 140)) {
+		if ((x == 40) && (y >= 80) && (y <= 140)) {
 			getX = x;
 			getY = y;
 			library = true;
@@ -98,7 +158,7 @@ public class MainHoll implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		if ((x == 1070) && (y >= 90) && (y <= 140)) {
+		if ((x == 1080) && (y >= 80) && (y <= 140)) {
 			getX = x;
 			getY = y;
 			dinnerhall = true;
@@ -114,13 +174,10 @@ public class MainHoll implements Initializable {
 		}
 
 	}
-	
-	
-	//게임 끝났을때 
+
+	// 게임 끝났을때
 	public void gameEnd() {
-		
+
 	}
-	
-	
-	
+
 }

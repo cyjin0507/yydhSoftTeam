@@ -87,6 +87,35 @@ public class B1hallway1 implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 
+		if((x == 290)&&(y <=640)&&(y >= 330)) {
+			if(y == 640) {
+				return "rightdown";
+			}
+			return "right";
+		}else if((y == 320)&&(x >= 290)&&(x <= 1100)) {
+			if(x == 750 ) {
+				return "rightdown";
+			}else if(x == 980) {
+				return "leftdown";
+			}
+			return "down";
+		}
+		if((y == 310) && (x >= 750) && (x <= 980)) {
+			if(x == 750 ) {
+				return "right";
+			}else if(x == 980) {
+				return "left";
+			}
+			return "down";
+		}else if((y == 640) && (x >= 20) && (x <= 240)) {
+			if(x == 20 ) {
+				return "rightdown";
+			}else if(x == 240) {
+				return "leftdown";
+			}
+			return "down";
+		}
+
 		return move.nframe(x, y);
 
 	}
@@ -109,7 +138,7 @@ public class B1hallway1 implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		if ((y == 640) && (x >= 70) && (x <= 200)) {
+		if ((y == 640) && (x >= 30) && (x <= 230)) {
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor1room/library.fxml"));
@@ -120,7 +149,7 @@ public class B1hallway1 implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		if ((y == 310) && (x >= 810) && (x <= 940)) {
+		if ((y == 310) && (x >= 760) && (x <= 970)) {
 			if(success) {
 				getX = x;
 				getY = y;

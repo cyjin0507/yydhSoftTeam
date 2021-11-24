@@ -55,15 +55,77 @@ public class library implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		System.out.println(x + "," + y);
+
+		// 위 의자와 책장
+		if ((y == 110) && (x >= -10) && (x <= 450)) {
+			if (x == -10) {
+				return "leftup";
+			}
+			return "up";
+		} else if ((x == 460) && (y <= 100) && (y >= 60)) {
+			if (y == 60) {
+				return "leftup";
+			}
+			return "left";
+		}
+//		위 오른쪽 책장
+		if ((x == 1030) && (y <= 100) && (y >= 60)) {
+			if (y == 60) {
+				return "leftup";
+			}
+			return "left";
+		} else if ((x == 620) && (y <= 100) && (y >= 60)) {
+			if (y == 60) {
+				return "rightup";
+			}
+			return "right";
+		} else if ((y == 110) && (x >= 630) && (x <= 1020)) {
+			return "up";
+		}
+//아래 왼쪽 책장
+		if ((y == 470) && (x >= -10) && (x <= 330)) {
+			if (x == -10) {
+				return "leftup";
+			}
+			return "up";
+		} else if ((y == 360) && (x >= -10) && (x <= 330)) {
+			if (x == -10) {
+				return "leftdown";
+			}
+			return "down";
+		} else if ((x == 340) && (y >= 370) && (y <= 460)) {
+			return "left";
+		}
+		// 아래 가운데 책장
+		if ((x == 470) && (y >= 370) && (y <= 460)) {
+			return "right";
+		} else if ((x == 770) && (y >= 370) && (y <= 460)) {
+			return "left";
+		} else if ((y == 360) && (x >= 480) && (x <= 760)) {
+			return "down";
+		} else if ((y == 470) && (x >= 480) && (x <= 760)) {
+			return "up";
+		}
+		// 아래 맨 끝쪽 바로 옆 책장
+		if ((x == 870) && (y >= 370) && (y <= 460)) {
+			return "right";
+		} else if ((x == 1050) && (y >= 370) && (y <= 460)) {
+			return "left";
+		} else if((y == 360)&&(x>= 880)&&(x<= 1040)) {
+			return "down";
+		} else if((y == 470)&&(x >= 880)&&( x<= 1040)) {
+			return "up";
+		}
 
 		return move.nframe(x, y);
 
 	}
 
 	public void event() {
-
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		System.out.println(x + "," + y);
 
 		if ((y == 60) && (x >= 530) && (x <= 570)) {
 			getX = x;
@@ -92,27 +154,6 @@ public class library implements Initializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
 		}
 	}
 }

@@ -70,6 +70,39 @@ public class B1hallway2 implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		
+		if((y == 320)&&(x >= 0)&&(x <= 1110)) {
+			if(x == 1100) {
+				return "rightdown";
+			}
+			if(x ==110) {
+				return "rightdown";
+			}else if(x ==350) {
+				return "leftdown";
+			}
+			if(x ==750) {
+				return "rightdown";
+			}else if(x ==990) {
+				return "leftdown";
+			}
+			return "down";
+		}
+		if((y == 310) && (x >= 110) && (x <= 350)) {
+			if(x ==110) {
+				return "right";
+			}else if(x ==350) {
+				return "left";
+			}
+			return "down";
+		}else if ((y == 310) && (x >= 750) && (x <= 990))  {
+			if(x ==750) {
+				return "right";
+			}else if(x ==990) {
+				return "left";
+			}
+			return "down";
+		}
+
 
 		return move.nframe(x, y);
 	}
@@ -107,7 +140,7 @@ public class B1hallway2 implements Initializable {
 			}
 		}
 
-		if ((y == 310) && (x >= 810) && (x <= 940)) {
+		if ((y == 310) && (x >= 760) && (x <= 980)) {
 			getX = x;
 			getY = y;
 			storage = true;
@@ -121,7 +154,7 @@ public class B1hallway2 implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		if ((y == 310) && (x >= 160) && (x <= 300)) {
+		if ((y == 310) && (x >= 120) && (x <= 340)) {
 			if(success) {
 				getX = x;
 				getY = y;

@@ -11,9 +11,29 @@
             <Image url="@../roomImage/drawingroom.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="160.0" fitWidth="535.0" layoutX="333.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../floor2room_item/table.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="198.0" fitWidth="483.0" layoutX="355.0" layoutY="504.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../floor2room_item/backsofa.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="221.0" fitWidth="167.0" layoutX="886.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../floor2room_item/chair.png" />
+         </image>
+      </ImageView>
       <ImageView fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="550.0" y="70.0">
          <image>
             <Image url="@../roomImage/캐릭터.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="203.0" fitWidth="483.0" layoutX="362.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../floor2room_item/sofa.png" />
          </image>
       </ImageView>
    </children>
