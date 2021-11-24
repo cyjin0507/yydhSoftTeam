@@ -55,9 +55,124 @@ public class dinnerhall implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		System.out.println(x + "," + y);
+		// 테이블
+		if ((y == 200) && (x >= 10) && (x <= 1080)) {
+			return "down";
+		} else if ((y == 410) && (x >= 10) && (x <= 1080)) {
+			return "up";
+		} else if ((x == 0) && (y >= 210) && (y <= 400)) {
+			return "right";
+		} else if ((x == 1090) && (y >= 210) && (y <= 400)) {
+			return "left";
+		}
+
+		if ((y == 180) && (x >= 880) && (x <= 1010)) {
+			return "down";
+		} else if ((x == 870) && (y >= 180) && (y <= 200)) {
+			if (y == 200) {
+				return "rightdown";
+			}
+			return "right";
+		} else if ((x == 1020) && (y >= 180) && (y <= 200)) {
+			if (y == 200) {
+				return "leftdown";
+			}
+			return "left";
+		}
+
+		if ((y == 490) && (x >= 880) && (x <= 1010)) {
+			return "up";
+		} else if ((y == 410) && (x >= 880) && (x <= 1010)) {
+			return "down";
+		} else if ((x == 870) && (y >= 420) && (y <= 480)) {
+			return "right";
+		} else if ((x == 1020) && (y >= 420) && (y <= 480)) {
+			return "left";
+		}
+
+		if ((x == 810) && (y >= 410) && (y <= 450)) {
+			if (y == 410) {
+				return "leftup";
+			}
+			return "left";
+		} else if ((x == 670) && (y >= 410) && (y <= 450)) {
+			if (y == 410) {
+				return "rightup";
+			}
+			return "right";
+		} else if ((y == 460) && (x >= 680) && (x <= 800)) {
+			return "up";
+		}
+
+		if ((x == 610) && (y >= 410) && (y <= 450)) {
+			if (y == 410) {
+				return "leftup";
+			}
+			return "left";
+		} else if ((x == 460) && (y >= 410) && (y <= 450)) {
+			if (y == 410) {
+				return "rightup";
+			}
+			return "right";
+		} else if ((y == 460) && (x >= 470) && (x <= 600)) {
+			return "up";
+		}
+
+		if ((y == 490) && (x >= 280) && (x <= 410)) {
+			return "up";
+		} else if ((y == 410) && (x >= 280) && (x <= 410)) {
+			return "down";
+		} else if ((x == 270) && (y >= 420) && (y <= 480)) {
+			return "right";
+		} else if ((x == 420) && (y >= 420) && (y <= 480)) {
+			return "left";
+		}
+
+		if ((y == 430) && (x >= 90) && (x <= 220)) {
+			return "up";
+		} else if ((x == 100) && (y >= 410) && (y <= 420)) {
+			if (y == 410) {
+				return "leftup";
+			}
+			return "left";
+		} else if ((x == 230) && (y >= 410) && (y <= 420)) {
+			if (y == 410) {
+				return "rightup";
+			}
+			return "right";
+		}
+
+		if ((y == 180) && (x >= 200) && (x <= 250)) {
+			return "down";
+		} else if ((x == 190) && (y >= 180) && (y <= 200)) {
+			if (y == 200) {
+				return "rightdown";
+			}
+			return "right";
+		} else if ((x == 260) && (y >= 180) && (y <= 200)) {
+			if (y == 200) {
+				return "leftdown";
+			}
+			return "left";
+		}
+
+		
+		if ((x == 270) && (y >= 180) && (y <= 200)) {
+			if (y == 200) {
+				return "rightdown";
+			}
+			return "right";
+		} else if ((x == 420) && (y >= 180) && (y <= 200)) {
+			if (y == 200) {
+				return "leftdown";
+			}
+			return "left";
+		}else if((y == 180)&&(x >= 410)&&(x <= 280)) {
+			return "down";
+		}
 
 		return move.nframe(x, y);
-
 	}
 
 	public void event() {
@@ -93,25 +208,6 @@ public class dinnerhall implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
-		}
+
 	}
 }
