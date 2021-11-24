@@ -329,7 +329,7 @@ public class gameReady extends gameRequest implements Initializable {
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
 
-					Parent par = FXMLLoader.load(getClass().getResource("/gameStart/3floor.fxml"));
+					Parent par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
 					Scene scene = new Scene(par);
 					Stage primaryStage = (Stage) startBtn.getScene().getWindow();
 					scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());

@@ -78,7 +78,7 @@ public class Main extends Application {
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
 		PreparedStatement pstmt = null;
-		
+
 		String sql = "UPDATE `users` SET `login`= 'offLine' WHERE login = '"+ip+"'";
 
 		try {
