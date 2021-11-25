@@ -51,26 +51,6 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Label layoutX="254.0" layoutY="649.0" text="유저 1 준비상태" textFill="#ebebeb">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <Label fx:id="ready1" layoutX="298.0" layoutY="699.0" text="wait" textFill="WHITE">
-         <font>
-            <Font size="55.0" />
-         </font>
-      </Label>
-      <Label layoutX="557.0" layoutY="649.0" text="유저 2 준비상태" textFill="WHITE">
-         <font>
-            <Font size="27.0" />
-         </font>
-      </Label>
-      <Label fx:id="ready2" layoutX="600.0" layoutY="699.0" text="wait" textFill="WHITE">
-         <font>
-            <Font size="55.0" />
-         </font>
-      </Label>
       <Button layoutX="1081.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black;" text="새로고침" />
       <ChoiceBox fx:id="user2" layoutX="677.0" layoutY="352.0" prefHeight="41.0" prefWidth="197.0" style="-fx-background-color: white;" visible="false" />
    </children>
