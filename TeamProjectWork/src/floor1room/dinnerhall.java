@@ -55,8 +55,8 @@ public class dinnerhall implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x + "," + y);
 
+//맨 오른쪽 위 의자
 		if ((y == 180) && (x >= 880) && (x <= 1010)) {
 			return "down";
 		} else if ((x == 870) && (y >= 180) && (y <= 200)) {
@@ -70,7 +70,7 @@ public class dinnerhall implements Initializable {
 			}
 			return "left";
 		}
-
+//오른쪽 아래 의자
 		if ((y == 490) && (x >= 880) && (x <= 1010)) {
 			return "up";
 		} else if ((y == 410) && (x >= 880) && (x <= 1010)) {
@@ -80,7 +80,7 @@ public class dinnerhall implements Initializable {
 		} else if ((x == 1020) && (y >= 420) && (y <= 480)) {
 			return "left";
 		}
-
+//오른쪽 에서 두번쨰
 		if ((x == 810) && (y >= 410) && (y <= 450)) {
 			if (y == 410) {
 				return "leftup";
@@ -94,7 +94,7 @@ public class dinnerhall implements Initializable {
 		} else if ((y == 460) && (x >= 680) && (x <= 800)) {
 			return "up";
 		}
-
+//오른쪽에서 세번쨰
 		if ((x == 610) && (y >= 410) && (y <= 450)) {
 			if (y == 410) {
 				return "leftup";
@@ -108,7 +108,7 @@ public class dinnerhall implements Initializable {
 		} else if ((y == 460) && (x >= 470) && (x <= 600)) {
 			return "up";
 		}
-
+//오른쪽에서 네번쨰
 		if ((y == 490) && (x >= 280) && (x <= 410)) {
 			return "up";
 		} else if ((y == 410) && (x >= 280) && (x <= 410)) {
@@ -118,35 +118,35 @@ public class dinnerhall implements Initializable {
 		} else if ((x == 420) && (y >= 420) && (y <= 480)) {
 			return "left";
 		}
-
+//오른쪽에서 다섯번쨰
 		if ((y == 430) && (x >= 90) && (x <= 220)) {
 			return "up";
 		} else if ((x == 100) && (y >= 410) && (y <= 420)) {
 			if (y == 410) {
-				return "leftup";
-			}
-			return "left";
-		} else if ((x == 230) && (y >= 410) && (y <= 420)) {
-			if (y == 410) {
 				return "rightup";
 			}
 			return "right";
+		} else if ((x == 230) && (y >= 410) && (y <= 420)) {
+			if (y == 410) {
+				return "leftup";
+			}
+			return "left";
 		}
-
-		if ((y == 180) && (x >= 200) && (x <= 250)) {
+//위에서 왼쪽에서 첫번쨰
+		if ((y == 180) && (x >= 120) && (x <= 230)) {
 			return "down";
-		} else if ((x == 190) && (y >= 180) && (y <= 200)) {
+		} else if ((x == 110) && (y >= 180) && (y <= 200)) {
 			if (y == 200) {
 				return "rightdown";
 			}
 			return "right";
-		} else if ((x == 260) && (y >= 180) && (y <= 200)) {
+		} else if ((x == 240) && (y >= 180) && (y <= 200)) {
 			if (y == 200) {
 				return "leftdown";
 			}
 			return "left";
 		}
-
+//두번쨰
 		if ((x == 270) && (y >= 180) && (y <= 200)) {
 			if (y == 200) {
 				return "rightdown";
@@ -157,7 +157,7 @@ public class dinnerhall implements Initializable {
 				return "leftdown";
 			}
 			return "left";
-		} else if ((y == 180) && (x >= 410) && (x <= 280)) {
+		} else if ((y == 170) && (x <= 410) && (x >= 280)) {
 			return "down";
 		}
 

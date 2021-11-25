@@ -89,22 +89,28 @@ public class stair implements Initializable {
 		int y = (int) imageView.getY();
 		System.out.println(x +","+ y);
 		
-		if((y == 120)&&( x>=380)&&(x <= 720)) {
+		if((y == 100)&&( x>=380)&&(x <= 720)) {
 			if(x == 380) {
 				return "leftup";
 			}else if(x == 720) {
 				return "rightup";
 			}
 			return "up";
-		}else if((x == 380)&&(y >= 120)&&(y <= 230)) {
+		}else if((x == 380)&&(y >= 100)&&(y <= 230)) {
 			return "left";
-		}else if((x == 720)&&(y >= 120)&&(y <= 230)) {
+		}else if((x == 720)&&(y >= 100)&&(y <= 230)) {
 			return "right";
 		}
 		if((y ==240)&&(x >=130)&&(x <=370)) {
 			return "up";
 		}else if((y ==240)&&(x >=730)&&(x <=980)) {
 			return "up";
+		}
+		
+		if((y == 100) &&(x >=140)&&(x <=250)) {
+			return"down";
+		}else if((y == 100) &&(x >=850)&&(x <=950)) {
+			return"down";
 		}
 		
 		
@@ -117,7 +123,7 @@ public class stair implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 		// 아래 계단
-		if ((x == 260) && (y >= 60) && (y <= 90)) {
+		if ((x == 260) && (y >= 60) && (y <= 100)) {
 			getX = x;
 			getY = y;
 			mainhall1 = true;
@@ -131,7 +137,7 @@ public class stair implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		if ((x == 840) && (y >= 60) && (y <= 90)) {
+		if ((x == 840) && (y >= 60) && (y <= 100)) {
 			getX = x;
 			getY = y;
 			mainhall2 = true;
