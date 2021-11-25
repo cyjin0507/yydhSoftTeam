@@ -34,17 +34,17 @@ public class powderroom implements Initializable {
 		});
 		move.stop(imageView);
 		if (bathroom) {
-			imageView.setX(getX);
+			imageView.setX(getX +10);
 			imageView.setY(getY);
 			bathroom = false;
 		}
 		if (dressroom) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY +10);
 			dressroom = false;
 		}
 		if (bedroom) {
-			imageView.setX(getX);
+			imageView.setX(getX -10);
 			imageView.setY(getY);
 			bedroom = false;
 		}
@@ -111,27 +111,6 @@ public class powderroom implements Initializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
 		}
 	}
 }

@@ -34,36 +34,48 @@ public class stair implements Initializable {
 			}
 		});
 		move.stop(imageView);
-		if (stair) {
-			imageView.setX(getX);
+		if (stair1) {
+			imageView.setX(getX -10);
 			imageView.setY(getY);
-			stair = false;
+			stair1 = false;
 		}
-		if (mainhall) {
-			imageView.setX(getX);
+		if (stair2) {
+			imageView.setX(getX +10);
 			imageView.setY(getY);
-			mainhall = false;
+			stair2 = false;
+		}
+		if (mainhall1) {
+			imageView.setX(getX -10);
+			imageView.setY(getY);
+			mainhall1 = false;
+		}
+		if (mainhall2) {
+			imageView.setX(getX +10);
+			imageView.setY(getY);
+			mainhall2 = false;
 		}
 		if (floor2hallway) {
-			imageView.setX(getX);
+			imageView.setX(getX -10);
 			imageView.setY(new floor2hallway().getY);
 			floor2hallway = false;
 		}
 		if (bedroom) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			bedroom = false;
 		}
 		if (study) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			study = false;
 		}
 
 	}
 
-	static boolean stair = false;
-	static boolean mainhall = false;
+	static boolean stair1 = false;
+	static boolean stair2 = false;
+	static boolean mainhall1 = false;
+	static boolean mainhall2 = false;
 	static boolean floor2hallway = false;
 	static boolean bedroom = false;
 	static boolean study = false;
@@ -108,7 +120,7 @@ public class stair implements Initializable {
 		if ((x == 260) && (y >= 60) && (y <= 90)) {
 			getX = x;
 			getY = y;
-			mainhall = true;
+			mainhall1 = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
@@ -122,7 +134,7 @@ public class stair implements Initializable {
 		if ((x == 840) && (y >= 60) && (y <= 90)) {
 			getX = x;
 			getY = y;
-			mainhall = true;
+			mainhall2 = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
@@ -137,7 +149,7 @@ public class stair implements Initializable {
 		if ((x == 190) && (y >= 110) && (y <= 220)) {
 			getX = x;
 			getY = y;
-			stair = true;
+			stair1 = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));
@@ -151,7 +163,7 @@ public class stair implements Initializable {
 		if ((x == 910) && (y >= 110) && (y <= 220)) {
 			getX = x;
 			getY = y;
-			stair = true;
+			stair2 = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));

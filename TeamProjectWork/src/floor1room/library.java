@@ -35,12 +35,12 @@ public class library implements Initializable {
 		move.stop(imageView);
 		if (mainhall) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY +10);
 			mainhall = false;
 		}
 		if (B1hallway1) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			B1hallway1 = false;
 		}
 		if (new B1room.B1hallway1().library) {

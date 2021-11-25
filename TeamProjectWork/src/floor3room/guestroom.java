@@ -36,12 +36,12 @@ public class guestroom implements Initializable {
 		move.stop(imageView);
 		if (stair) {
 			imageView.setX(getX);
-			imageView.setY(new stair().getY);
+			imageView.setY(getY +10);
 			stair = false;
 		}
 		if (powderroom) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY +10);
 			powderroom = false;
 		}
 	}

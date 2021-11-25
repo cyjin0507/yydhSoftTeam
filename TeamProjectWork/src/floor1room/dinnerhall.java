@@ -35,12 +35,12 @@ public class dinnerhall implements Initializable {
 		move.stop(imageView);
 		if (mainhall) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY + 10);
 			mainhall = false;
 		}
 		if (kitchen) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY +10);
 			kitchen = false;
 		}
 	}
@@ -56,16 +56,6 @@ public class dinnerhall implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 		System.out.println(x + "," + y);
-		// 테이블
-//		if ((y == 200) && (x >= 10) && (x <= 1080)) {
-//			return "down";
-//		} else if ((y == 410) && (x >= 10) && (x <= 1080)) {
-//			return "up";
-//		} else if ((x == 0) && (y >= 210) && (y <= 400)) {
-//			return "right";
-//		} else if ((x == 1090) && (y >= 210) && (y <= 400)) {
-//			return "left";
-//		}
 
 		if ((y == 180) && (x >= 880) && (x <= 1010)) {
 			return "down";
@@ -157,7 +147,6 @@ public class dinnerhall implements Initializable {
 			return "left";
 		}
 
-		
 		if ((x == 270) && (y >= 180) && (y <= 200)) {
 			if (y == 200) {
 				return "rightdown";
@@ -168,8 +157,19 @@ public class dinnerhall implements Initializable {
 				return "leftdown";
 			}
 			return "left";
-		}else if((y == 180)&&(x >= 410)&&(x <= 280)) {
+		} else if ((y == 180) && (x >= 410) && (x <= 280)) {
 			return "down";
+		}
+
+		// 테이블
+		if ((y == 200) && (x >= 10) && (x <= 1080)) {
+			return "down";
+		} else if ((y == 410) && (x >= 10) && (x <= 1080)) {
+			return "up";
+		} else if ((x == 0) && (y >= 210) && (y <= 400)) {
+			return "right";
+		} else if ((x == 1090) && (y >= 210) && (y <= 400)) {
+			return "left";
 		}
 
 		return move.nframe(x, y);

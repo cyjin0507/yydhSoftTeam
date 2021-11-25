@@ -34,22 +34,22 @@ public class MainHoll implements Initializable {
 		});
 		move.stop(imageView);
 		if (library) {
-			imageView.setX(getX);
+			imageView.setX(getX +10);
 			imageView.setY(getY);
 			library = false;
 		}
 		if (dinnerhall) {
-			imageView.setX(getX);
+			imageView.setX(getX -10);
 			imageView.setY(getY);
 			dinnerhall = false;
 		}
 		if (stair) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY +10);
 			stair = false;
 		}
 		if (new floor1room.library().mainhall) {
-			imageView.setX(40);
+			imageView.setX(50);
 			imageView.setY(120);
 			new floor1room.library().mainhall = false;
 		}

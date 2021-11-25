@@ -3,6 +3,7 @@
 /btngame/
 /findHiddenObject/
 /floor1room/
+/floor1room_item/
 /floor2room/
 /floor2room_item/
 /floor3room/
@@ -14,9 +15,8 @@
 /potgame/
 /puzzle/
 /roomImage/
+/test/
 /touchGame/
 /user/
 /userImage/
 /util/
-/floor1room_item/
-/test/

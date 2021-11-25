@@ -35,13 +35,13 @@ public class floor3hallway implements Initializable{
 		});
 		move.stop(imageView);
 		if (stair) {
-			imageView.setX(getX);
+			imageView.setX(getX +10);
 			imageView.setY(new floor3room.stair().getY);
 			stair = false;
 		}
 		if (livingroom) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			livingroom = false;
 		}
 	}

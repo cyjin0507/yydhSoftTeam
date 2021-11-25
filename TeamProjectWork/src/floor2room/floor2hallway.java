@@ -34,13 +34,13 @@ public class floor2hallway implements Initializable {
 		});
 		move.stop(imageView);
 		if (stair) {
-			imageView.setX(getX);
+			imageView.setX(getX +10);
 			imageView.setY(new stair().getY);
 			stair = false;
 		}
 		if (drawingroom) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			drawingroom = false;
 		}
 	}

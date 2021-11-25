@@ -34,28 +34,34 @@ public class stair implements Initializable{
 			}
 		});
 		move.stop(imageView);
-		if (stair) {
-			imageView.setX(getX);
+		if (stair1) {
+			imageView.setX(getX -10);
 			imageView.setY(getY);
-			stair = false;
+			stair1 = false;
+		}
+		if (stair2) {
+			imageView.setX(getX +10);
+			imageView.setY(getY);
+			stair2 = false;
 		}
 		if (floor3hallway) {
-			imageView.setX(getX);
+			imageView.setX(getX -10);
 			imageView.setY(new floor3hallway().getY);
 			floor3hallway = false;
 		}
 		if (guestroom) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			guestroom = false;
 		}
 		if (musicroom) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			musicroom = false;
 		}
 	}
-	static boolean stair = false;
+	static boolean stair1 = false;
+	static boolean stair2 = false;
 	static boolean floor3hallway = false;
 	static boolean guestroom = false;
 	static boolean musicroom = false;
@@ -79,7 +85,7 @@ public class stair implements Initializable{
 		if ((x == 260) && (y >=60) && (y <= 90)) {
 			getX = x;
 			getY = y;
-			stair = true;
+			stair1 = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
@@ -93,7 +99,7 @@ public class stair implements Initializable{
 		if ((x ==840) && (y >= 60) && (y <= 90)) {
 			getX = x;
 			getY = y;
-			stair = true;
+			stair2 = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
@@ -148,27 +154,6 @@ public class stair implements Initializable{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-		
-		//스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
 		}
 	}
 }

@@ -34,17 +34,17 @@ public class powderroom implements Initializable {
 		});
 		move.stop(imageView);
 		if (bathroom) {
-			imageView.setX(getX);
+			imageView.setX(getX +10);
 			imageView.setY(getY);
 			bathroom = false;
 		}
 		if (dressroom) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY +10);
 			dressroom = false;
 		}
 		if (guestroom) {
-			imageView.setX(getX);
+			imageView.setX(getX -10);
 			imageView.setY(getY);
 			guestroom = false;
 		}
