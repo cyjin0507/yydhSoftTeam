@@ -278,23 +278,21 @@ public class gameReady extends gameRequest implements Initializable {
 				String role2 = rs.getString("escape2");
 				System.out.println(role1 + "   " + role2);
 				if (choiceRole.equals("탈출자1")) {
-					System.out.println(role1);
-					if (!role1.equals(who())) {
+					if (role1.equals("")) {
 						return true;
 					}
 				} else if (choiceRole.equals("탈출자2")) {
 					System.out.println(role2);
-					if (!role2.equals(who())) {
+					if (role2.equals("")) {
 						return true;
 					}
 				}
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("오류난다 이ㅅㄲ야");
 		}
 
-		return true;
+		return false;
 
 	}
 
@@ -322,12 +320,20 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
-
-					Parent par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
-					Scene scene = new Scene(par);
-					Stage primaryStage = (Stage) startBtn.getScene().getWindow();
-					scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-					primaryStage.setScene(scene);
+					
+					if(ready1.equals(who())) {
+						Parent par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
+						Scene scene = new Scene(par);
+						Stage primaryStage = (Stage) startBtn.getScene().getWindow();
+						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+						primaryStage.setScene(scene);
+					} else if(ready2.equals(who())) {
+						Parent par = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
+						Scene scene = new Scene(par);
+						Stage primaryStage = (Stage) startBtn.getScene().getWindow();
+						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+						primaryStage.setScene(scene);
+					}
 
 				} else if (user1.equals(who()) && ready1.equals("accept") && ready2.equals("waitting")) {
 					Alert alert = new Alert(AlertType.WARNING);
