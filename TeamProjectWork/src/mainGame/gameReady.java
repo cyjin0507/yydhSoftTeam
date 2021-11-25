@@ -183,11 +183,6 @@ public class gameReady extends gameRequest implements Initializable {
 		return null;
 	}
 
-	@FXML
-	private Label ready1;
-	@FXML
-	private Label ready2;
-
 	// 유저1 준비버튼
 	public void ready1() throws UnknownHostException {
 		String role = user1.getSelectionModel().getSelectedItem();
@@ -207,7 +202,6 @@ public class gameReady extends gameRequest implements Initializable {
 				e.printStackTrace();
 			}
 
-			ready1.setText("준비완료");
 		} else if (user1.getSelectionModel().getSelectedItem().equals("탈출자2") && crushPre("탈출자2")) {
 			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready1` = 'accept' WHERE `user1` = '"
 					+ who() + "'";
@@ -218,7 +212,7 @@ public class gameReady extends gameRequest implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			ready1.setText("준비완료");
+
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("오류");
@@ -247,7 +241,7 @@ public class gameReady extends gameRequest implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			ready2.setText("준비완료");
+
 		} else if (user2.getSelectionModel().getSelectedItem().equals("탈출자2") && crushPre("탈출자1")) {
 			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready2` = 'accept' WHERE `user2` = '"
 					+ who() + "'";
@@ -258,7 +252,7 @@ public class gameReady extends gameRequest implements Initializable {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			ready2.setText("준비완료");
+
 		} else {
 			Alert alert = new Alert(AlertType.WARNING);
 			alert.setTitle("오류");

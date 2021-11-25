@@ -60,10 +60,8 @@ public class userController {
 			e.printStackTrace();
 			System.out.println("삽입 실패!");
 		}
-		
 
-		
-		if(whether == true) {
+		if (whether == true) {
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("성공");
 			alert.setHeaderText("아이디 사용 가능");
@@ -80,10 +78,10 @@ public class userController {
 		whether2 = true;
 
 	}
-	
-	//회원가입 칸이 비어있는지 확인
+
+	// 회원가입 칸이 비어있는지 확인
 	public boolean blank() {
-		if(joinId.equals("") || joinName.equals("") || joinNick.equals("") || joinPw.equals("")) {
+		if (joinId.equals("") || joinName.equals("") || joinNick.equals("") || joinPw.equals("")) {
 			return false;
 		} else {
 			return true;
@@ -155,14 +153,13 @@ public class userController {
 		}
 
 	}
-	
-	
-	///////////////////////로그인 부분
+
+	/////////////////////// 로그인 부분
 	@FXML
 	private TextField dataId;
 	@FXML
 	private TextField dataPw;
-	
+
 	public void loginOk() {
 		JDBCUtil db = new JDBCUtil();
 		java.sql.Connection con = db.getConnection();
@@ -179,18 +176,26 @@ public class userController {
 				String password = rs.getString("pw");
 
 				if(id.equals(dataId.getText()) && password.equals(dataPw.getText())) {
-					transOnline(dataId.getText());
-					
-					//로그인 성공시 화면 전환
-					try {
-						Parent par = FXMLLoader.load(getClass().getResource("/user/mainPage.fxml"));
-						Scene scene = new Scene(par);
-						Stage primaryStage = (Stage) Sing.getScene().getWindow();
-						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-						primaryStage.setScene(scene);
+					if(access()) {
+						transOnline(dataId.getText());
 						
-					} catch (Exception e) {
-						e.printStackTrace();
+						//로그인 성공시 화면 전환
+						try {
+							Parent par = FXMLLoader.load(getClass().getResource("/user/mainPage.fxml"));
+							Scene scene = new Scene(par);
+							Stage primaryStage = (Stage) Sing.getScene().getWindow();
+							scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+							primaryStage.setScene(scene);
+							
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					} else {
+						Alert alert = new Alert(AlertType.WARNING);
+						alert.setTitle("오류");
+						alert.setHeaderText("동시접속자 발생!!!");
+						alert.setContentText("한 기기에 두 게임을 실행할 수 업습니다.");
+						alert.showAndWait();
 					}
 					
 				}
@@ -203,20 +208,20 @@ public class userController {
 
 	}
 	
-	//온라인 상태로 전환
+
+	// 온라인 상태로 전환
 	public void transOnline(String id) throws UnknownHostException {
 		InetAddress local = InetAddress.getLocalHost();
 		String ip = local.getHostAddress();
 
-		
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
 		PreparedStatement pstmt = null;
-		
+
 		System.out.println(id);
-		
-		String sql = "UPDATE `users` SET `login`= '" + ip +"' WHERE id = '"+id+"'";
-		
+
+		String sql = "UPDATE `users` SET `login`= '" + ip + "' WHERE id = '" + id + "'";
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();
@@ -224,9 +229,41 @@ public class userController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
-	
+
+	// 게임 두개 접속 못하게
+	public Boolean access() {
+		InetAddress local = null;
+		try {
+			local = InetAddress.getLocalHost();
+		} catch (UnknownHostException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		String ip = local.getHostAddress();
+
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
+
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from users";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String login = rs.getString("login");
+				if (login.equals(ip)) {
+					return false;
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return true;
+	}
 
 	// 화면전환
 	@FXML
