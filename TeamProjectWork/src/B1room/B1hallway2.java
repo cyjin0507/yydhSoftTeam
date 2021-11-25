@@ -32,27 +32,28 @@ public class B1hallway2 implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event, setStopPoint(), imageView);
 				event();
+				
 			}
 		});
 		move.stop(imageView);
 		if (dataroom) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			dataroom = false;
 		}
 		if (B1hallway1) {
-			imageView.setX(getX);
+			imageView.setX(getX +10);
 			imageView.setY(new B1hallway1().getY);
 			B1hallway1 = false;
 		}
 		if (storage) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			storage = false;
 		}
 		if (prison) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY +10);
 			prison = false;
 		}
 	}
@@ -176,26 +177,6 @@ public class B1hallway2 implements Initializable {
 				alert.showAndWait();
 			}
 			
-		}
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
 		}
 	}
 }

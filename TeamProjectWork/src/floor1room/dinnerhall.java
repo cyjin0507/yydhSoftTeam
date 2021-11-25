@@ -30,6 +30,41 @@ public class dinnerhall implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event, setStopPoint(), imageView);
 				event();
+				
+				KeyCode keyCode = event.getCode();
+				if (keyCode.equals(KeyCode.SPACE)) {
+					int x = (int) imageView.getX();
+					int y = (int) imageView.getY();
+					if ((y == 200) && (x >= 580) && (x <= 700)) {
+						getX = x;
+						getY = y;
+						food = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test3.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else if ((y == 60) && (x >= 370) && (x <= 730)) {
+						getX = x;
+						getY = y;
+						picture = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test3.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+
+				}
 			}
 		});
 		move.stop(imageView);
@@ -43,10 +78,25 @@ public class dinnerhall implements Initializable {
 			imageView.setY(getY +10);
 			kitchen = false;
 		}
+		
+		//조사시
+		if (food) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			food = false;
+		}
+		if (picture) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			picture = false;
+		}
 	}
 
 	public static boolean mainhall = false;
 	static boolean kitchen = false;
+	
+	static boolean food = false;
+	static boolean picture = false;
 
 	public static int getX;
 	public static int getY;

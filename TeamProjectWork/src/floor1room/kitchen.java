@@ -30,10 +30,62 @@ public class kitchen implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event,setStopPoint(), imageView);
 				event();
+				
+				KeyCode keyCode = event.getCode();
+				if (keyCode.equals(KeyCode.SPACE)) {
+					int x = (int) imageView.getX();
+					int y = (int) imageView.getY();
+					if ((x == 155) && (y >= 440) && (y <= 490)) {
+						getX = x;
+						getY = y;
+						choppingBoard = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test2.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else if ((x == 665) && (y >= 430) && (y <= 480)) {
+						getX = x;
+						getY = y;
+						table = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test2.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+
+				}
 			}
 		});
 		move.stop(imageView);
+		
+		if (choppingBoard) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			choppingBoard = false;
+		}
+		if (table) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			table = false;
+		}
 	}
+	
+	static boolean choppingBoard = false;
+	static boolean table = false;
+
+	public static int getX;
+	public static int getY;
 
 	// 1층 멈추는거
 	public String setStopPoint() {

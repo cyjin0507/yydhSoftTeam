@@ -87,7 +87,6 @@ public class stair implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x +","+ y);
 		
 		if((y == 100)&&( x>=380)&&(x <= 720)) {
 			if(x == 380) {

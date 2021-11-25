@@ -58,11 +58,11 @@ public class B1hallway1 implements Initializable {
 		move.stop(imageView);
 		if (laboratory) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			laboratory = false;
 		}
 		if (B1hallway2) {
-			imageView.setX(getX);
+			imageView.setX(getX -10);
 			imageView.setY(new B1hallway2().getY);
 			B1hallway2 = false;
 		}
@@ -73,7 +73,7 @@ public class B1hallway1 implements Initializable {
 		}
 		if (library) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			library = false;
 		}
 	}
