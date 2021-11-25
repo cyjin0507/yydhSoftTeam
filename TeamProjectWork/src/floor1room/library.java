@@ -60,7 +60,7 @@ public class library implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x +","+ y);
+
 
 		// 위 의자와 책장
 		if ((y == 110) && (x >= -10) && (x <= 450)) {

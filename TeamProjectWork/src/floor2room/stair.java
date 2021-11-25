@@ -75,6 +75,27 @@ public class stair implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		System.out.println(x +","+ y);
+		
+		if((y == 120)&&( x>=380)&&(x <= 720)) {
+			if(x == 380) {
+				return "leftup";
+			}else if(x == 720) {
+				return "rightup";
+			}
+			return "up";
+		}else if((x == 380)&&(y >= 120)&&(y <= 230)) {
+			return "left";
+		}else if((x == 720)&&(y >= 120)&&(y <= 230)) {
+			return "right";
+		}
+		if((y ==240)&&(x >=130)&&(x <=370)) {
+			return "up";
+		}else if((y ==240)&&(x >=730)&&(x <=980)) {
+			return "up";
+		}
+		
+		
 		return move.nframe(x, y);
 
 	}
@@ -186,25 +207,5 @@ public class stair implements Initializable {
 			}
 		}
 
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
-		}
 	}
 }
