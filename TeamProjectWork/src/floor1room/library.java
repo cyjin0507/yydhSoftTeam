@@ -43,9 +43,14 @@ public class library implements Initializable {
 			imageView.setY(getY);
 			B1hallway1 = false;
 		}
+		if (new B1room.B1hallway1().library) {
+			imageView.setX(1090);
+			imageView.setY(420);
+			new B1room.B1hallway1().library = false;
+		}
 	}
 
-	static boolean mainhall = false;
+	public static boolean mainhall = false;
 	static boolean B1hallway1 = false;
 
 	public static int getX;
@@ -55,6 +60,7 @@ public class library implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		System.out.println(x +","+ y);
 
 		// 위 의자와 책장
 		if ((y == 110) && (x >= -10) && (x <= 450)) {
@@ -164,19 +170,19 @@ public class library implements Initializable {
 				e.printStackTrace();
 			}
 		}
-//		if ((y == 420) && (x >= 1050) && (x <= 1110)) {
-//			getX = x;
-//			getY = y;
-//			B1hallway1 = true;
-//			try {
-//				Parent root;
-//				root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway1.fxml"));
-//				Scene scene = new Scene(root);
-//				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//				primaryStage.setScene(scene);
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
-//		}
+		if ((y == 420) && (x >= 1050) && (x <= 1110)) {
+			getX = x;
+			getY = y;
+			B1hallway1 = true;
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/B1room/B1hallway1.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 }

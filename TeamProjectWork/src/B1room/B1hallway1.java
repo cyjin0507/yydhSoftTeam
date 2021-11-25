@@ -71,10 +71,16 @@ public class B1hallway1 implements Initializable {
 			imageView.setY(getY);
 			pipe = false;
 		}
+		if (library) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			library = false;
+		}
 	}
 
 	static boolean laboratory = false;
 	static boolean B1hallway2 = false;
+	public static boolean library = false;
 	static boolean pipe = false;
 	
 	public static boolean success = false;
@@ -139,6 +145,9 @@ public class B1hallway1 implements Initializable {
 			}
 		}
 		if ((y == 640) && (x >= 30) && (x <= 230)) {
+			getX = x;
+			getY = y;
+			library = true;
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor1room/library.fxml"));

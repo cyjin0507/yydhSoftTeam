@@ -45,7 +45,7 @@ public class dinnerhall implements Initializable {
 		}
 	}
 
-	static boolean mainhall = false;
+	public static boolean mainhall = false;
 	static boolean kitchen = false;
 
 	public static int getX;
@@ -57,15 +57,15 @@ public class dinnerhall implements Initializable {
 		int y = (int) imageView.getY();
 		System.out.println(x + "," + y);
 		// 테이블
-		if ((y == 200) && (x >= 10) && (x <= 1080)) {
-			return "down";
-		} else if ((y == 410) && (x >= 10) && (x <= 1080)) {
-			return "up";
-		} else if ((x == 0) && (y >= 210) && (y <= 400)) {
-			return "right";
-		} else if ((x == 1090) && (y >= 210) && (y <= 400)) {
-			return "left";
-		}
+//		if ((y == 200) && (x >= 10) && (x <= 1080)) {
+//			return "down";
+//		} else if ((y == 410) && (x >= 10) && (x <= 1080)) {
+//			return "up";
+//		} else if ((x == 0) && (y >= 210) && (y <= 400)) {
+//			return "right";
+//		} else if ((x == 1090) && (y >= 210) && (y <= 400)) {
+//			return "left";
+//		}
 
 		if ((y == 180) && (x >= 880) && (x <= 1010)) {
 			return "down";

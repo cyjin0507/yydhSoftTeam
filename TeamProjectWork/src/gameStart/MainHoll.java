@@ -48,6 +48,16 @@ public class MainHoll implements Initializable {
 			imageView.setY(getY);
 			stair = false;
 		}
+		if (new floor1room.library().mainhall) {
+			imageView.setX(40);
+			imageView.setY(120);
+			new floor1room.library().mainhall = false;
+		}
+		if (new floor1room.dinnerhall().mainhall) {
+			imageView.setX(1070);
+			imageView.setY(120);
+			new floor1room.dinnerhall().mainhall = false;
+		}
 	}
 
 	static boolean library = false;
@@ -61,6 +71,7 @@ public class MainHoll implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
 
 //		계단 손잡이
 		if ((x == 610) && (y >= 70) && (y <= 110)) {
