@@ -56,6 +56,11 @@ public class B1hallway2 implements Initializable {
 			imageView.setY(getY +10);
 			prison = false;
 		}
+		if (new prison().B1hallway2) {
+			imageView.setX(870);
+			imageView.setY(70);
+			new prison().B1hallway2 = false;
+		}
 	}
 
 	static boolean dataroom = false;

@@ -24,4 +24,15 @@ public class test {
 			e.printStackTrace();
 		}
 	}
+	public void action2() {
+		try {
+			Parent root;
+			root = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
+			Scene scene = new Scene(root);
+			Stage primaryStage = (Stage) btn.getScene().getWindow();
+			primaryStage.setScene(scene);
+			} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

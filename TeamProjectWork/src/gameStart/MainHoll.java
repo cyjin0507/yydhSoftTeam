@@ -60,7 +60,7 @@ public class MainHoll implements Initializable {
 		}
 	}
 
-	static boolean library = false;
+	public static boolean library = false;
 	static boolean dinnerhall = false;
 	static boolean stair = false;
 
@@ -71,7 +71,7 @@ public class MainHoll implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-
+		System.out.println(x + "," + y);
 
 //		계단 손잡이
 		if ((x == 610) && (y >= 70) && (y <= 110)) {

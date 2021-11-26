@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import gameStart.CharacterMove;
+import gameStart.MainHoll;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -182,7 +183,7 @@ public class library implements Initializable {
 			imageView.setY(420);
 			new B1room.B1hallway1().library = false;
 		}
-		
+
 		//아이템 조사시
 		if (bookcase1) {
 			imageView.setX(getX);
@@ -224,7 +225,7 @@ public class library implements Initializable {
 	}
 
 	public static boolean mainhall = false;
-	static boolean B1hallway1 = false;
+	public static boolean B1hallway1 = false;
 	
     static boolean bookcase1 = false;
 	static boolean bookcase2 = false;
@@ -244,7 +245,6 @@ public class library implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-
 
 		// 위 의자와 책장
 		if ((y == 110) && (x >= -10) && (x <= 450)) {
@@ -341,7 +341,6 @@ public class library implements Initializable {
 	public void event() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x + "," + y);
 
 		if ((y == 60) && (x >= 530) && (x <= 570)) {
 			getX = x;

@@ -30,16 +30,139 @@ public class dressroom implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event, setStopPoint(), imageView);
 				event();
+
+				KeyCode keyCode = event.getCode();
+				if (keyCode.equals(KeyCode.SPACE)) {
+					int x = (int) imageView.getX();
+					int y = (int) imageView.getY();
+					if ((y == 110) && (x <= 250) && (x >= 50)) {
+						getX = x;
+						getY = y;
+						closet1 = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/test3.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+					if ((y == 110) && (x <= 510) && (x >= 350)) {
+						getX = x;
+						getY = y;
+						closet2 = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/test3.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+					if ((y == 110) && (x <= 810) && (x >= 600)) {
+						getX = x;
+						getY = y;
+						closet3 = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/test3.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+					if ((y == 110) && (x <= 940) && (x >= 880)) {
+						getX = x;
+						getY = y;
+						closet4 = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/test3.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
 			}
 		});
 		move.stop(imageView);
+		if (closet1) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			closet1 = false;
+		}
+		if (closet2) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			closet2 = false;
+		}
+		if (closet3) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			closet3 = false;
+		}
+		if (closet4) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			closet4 = false;
+		}
 
 	}
+
+	static boolean closet1 = false;
+	static boolean closet2 = false;
+	static boolean closet3 = false;
+	static boolean closet4 = false;
+
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+		System.out.println(x + "," + y);
+
+//		위랑 아래 막기
+		if ((y == 110) && (x >= -10) && (x <= 1110)) {
+			if (x == -10) {
+				return "leftup";
+			} else if (x == 1110) {
+				return "rightup";
+			}
+			return "up";
+		} else if ((y == 450) && (x >= -10) && (x <= 1110)) {
+			if (x == -10) {
+				return "leftdown";
+			} else if (x == 1110) {
+				return "rightdown";
+			}
+			return "down";
+		}
+		// 거울
+		if ((x == 30) && (y >= 280) && (y <= 330)) {
+			return "left";
+		} else if ((y == 340) && (x >= -10) && (x <= 20)) {
+			if (x == -10) {
+				return "leftup";
+			}
+			return "up";
+		} else if ((y == 270) && (x >= -10) && (x <= 20)) {
+			if (x == -10) {
+				return "leftdown";
+			}
+			return "down";
+		}
+
 		return move.nframe(x, y);
 
 	}
@@ -61,25 +184,5 @@ public class dressroom implements Initializable {
 			}
 		}
 
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
-		}
 	}
 }

@@ -49,7 +49,7 @@ public class bedroom implements Initializable {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-					}
+					}					
 				}
 			}
 		});
@@ -158,6 +158,7 @@ public class bedroom implements Initializable {
 				alert.showAndWait();
 			}
 		}
+		
 	}
 
 }

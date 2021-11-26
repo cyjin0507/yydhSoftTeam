@@ -149,7 +149,7 @@ public class controller implements Initializable {
 		sum += num;
 		if (sum.equals("01")) {
 //			mp = new MediaPlayer(new Media(getClass().getResource("/resourses/success1.mp3").toString()));
-			mp = new MediaPlayer(new Media(getClass().getResource("/music/success2.mp3").toString()));
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 
 			mp.play();
 			new prison().success = true;

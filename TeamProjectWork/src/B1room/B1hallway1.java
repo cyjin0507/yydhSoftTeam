@@ -76,6 +76,11 @@ public class B1hallway1 implements Initializable {
 			imageView.setY(getY -10);
 			library = false;
 		}
+		if (new B1hallway2().B1hallway1) {
+			imageView.setX(1100);
+			imageView.setY(new B1hallway2().getY);
+			new B1hallway2().B1hallway1 = false;
+		}
 	}
 
 	static boolean laboratory = false;
@@ -92,7 +97,6 @@ public class B1hallway1 implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-
 		if((x == 290)&&(y <=640)&&(y >= 330)) {
 			if(y == 640) {
 				return "rightdown";
