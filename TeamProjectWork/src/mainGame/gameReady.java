@@ -233,6 +233,7 @@ public class gameReady extends gameRequest implements Initializable {
 				String user2 = rs.getString("user2");
 				String ready1 = rs.getString("ready1");
 				String ready2 = rs.getString("ready2");
+				System.out.println(ready1 + "   " + ready2);
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
