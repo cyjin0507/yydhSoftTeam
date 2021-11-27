@@ -87,6 +87,10 @@ public class userController {
 			return true;
 		}
 	}
+	
+	public void test() {
+		System.out.println("test");
+	}
 
 	@FXML
 	private TextField joinName;
