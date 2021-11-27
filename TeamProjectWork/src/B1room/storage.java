@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import B1room_item.passward;
 import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,7 +17,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class storage implements Initializable {
+public class storage extends passward implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -42,13 +43,15 @@ public class storage implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/B1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/B1room_item/passward.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
 							} catch (IOException e) {
 							e.printStackTrace();
 						}
+						
+						
 					}else if (((x == 530) && (y >= 130) && (y <= 150))||((y == 160) && (x >= 540) && (x <= 600))) {
 						getX = x;
 						getY = y;
@@ -62,6 +65,7 @@ public class storage implements Initializable {
 							} catch (IOException e) {
 							e.printStackTrace();
 						}
+						
 					}else if ((y == 120) && (x >= 250) && (x <= 370)) {
 						getX = x;
 						getY = y;
@@ -76,6 +80,7 @@ public class storage implements Initializable {
 							} catch (IOException e) {
 							e.printStackTrace();
 						}
+						
 					}
 
 				}

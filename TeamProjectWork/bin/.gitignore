@@ -1,4 +1,5 @@
 /B1room/
+/B1room_item/
 /application/
 /btngame/
 /findHiddenObject/
@@ -7,6 +8,7 @@
 /floor2room/
 /floor2room_item/
 /floor3room/
+/floor3room_item/
 /gameStart/
 /lib/
 /mainGame/
@@ -20,5 +22,3 @@
 /user/
 /userImage/
 /util/
-/B1room_item/
-/floor3room_item/
