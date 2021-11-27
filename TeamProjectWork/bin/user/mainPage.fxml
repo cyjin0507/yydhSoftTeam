@@ -23,7 +23,7 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="858.0" layoutY="194.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="259.0" style="-fx-opacity: 0.6; -fx-border-color: black;" text="게임 방법">
+      <Button layoutX="858.0" layoutY="194.0" mnemonicParsing="false" onAction="#explanation" prefHeight="49.0" prefWidth="259.0" style="-fx-opacity: 0.6; -fx-border-color: black;" text="게임 방법">
          <font>
             <Font size="26.0" />
          </font>

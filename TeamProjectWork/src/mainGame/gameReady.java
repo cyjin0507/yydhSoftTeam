@@ -236,9 +236,7 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
-					System.out.println("ㅅㄷㄴㅅ");
 					if (user1.equals(who())) {
-						System.out.println("ㅅㄷdfgdsㄴㅅ");
 						Parent par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
 						Scene scene = new Scene(par);
 						Stage primaryStage = (Stage) startBtn.getScene().getWindow();
