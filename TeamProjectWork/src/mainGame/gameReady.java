@@ -34,10 +34,7 @@ public class gameReady extends gameRequest implements Initializable {
 	private Button player1Btn;
 	@FXML
 	private Button player2Btn;
-	@FXML
-	private ChoiceBox<String> user1;
-	@FXML
-	private ChoiceBox<String> user2;
+
 	@FXML
 	private Label user1_name;
 	@FXML
@@ -49,7 +46,7 @@ public class gameReady extends gameRequest implements Initializable {
 		System.out.println(rq.player);
 		if (rq.player) {
 			player1Btn.setVisible(true);
-			user1.setVisible(true);
+
 			try {
 				user1_name.setText(who());
 			} catch (UnknownHostException e) {
@@ -59,7 +56,7 @@ public class gameReady extends gameRequest implements Initializable {
 			makeTable();
 		} else {
 			player2Btn.setVisible(true);
-			user2.setVisible(true);
+
 			try {
 				user1_name.setText(who());
 			} catch (UnknownHostException e) {
@@ -67,9 +64,6 @@ public class gameReady extends gameRequest implements Initializable {
 				System.out.println("유저이름 오류");
 			}
 		}
-
-		user1.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
-		user2.setItems(FXCollections.observableArrayList("탈출자1", "탈출자2"));
 
 		// 채팅창 띄우기
 		FXMLLoader loader = new FXMLLoader(getClass().getResource("/mainGame/chat.fxml"));
@@ -185,124 +179,45 @@ public class gameReady extends gameRequest implements Initializable {
 
 	// 유저1 준비버튼
 	public void ready1() throws UnknownHostException {
-		String role = user1.getSelectionModel().getSelectedItem();
 
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
 		PreparedStatement pstmt = null;
 
-		if (user1.getSelectionModel().getSelectedItem().equals("탈출자1") && crushPre("탈출자1")) {
-			String sql = "UPDATE `game_info` SET `escape1`=  '" + who() + "', `ready1` = 'accept' WHERE `user1` = '"
-					+ who() + "'";
-			try {
-				pstmt = con.prepareStatement(sql);
-				pstmt.executeUpdate();
+		String sql = "UPDATE `game_info` SET `ready1` = 'accept' WHERE `user1` = '" + who() + "'";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.executeUpdate();
 
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		} else if (user1.getSelectionModel().getSelectedItem().equals("탈출자2") && crushPre("탈출자2")) {
-			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready1` = 'accept' WHERE `user1` = '"
-					+ who() + "'";
-			try {
-				pstmt = con.prepareStatement(sql);
-				pstmt.executeUpdate();
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		} else {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("오류");
-			alert.setHeaderText("역할 선택 오류");
-			alert.setContentText("선택한 역할이 없거나 다른 유저가 그 역할을 이미 선택했습니다.");
-			alert.showAndWait();
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 
 	}
 
 	// 유저2 준비버튼
 	public void ready2() throws UnknownHostException {
-		String role = user2.getSelectionModel().getSelectedItem();
-
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
 		PreparedStatement pstmt = null;
 
-		if (user2.getSelectionModel().getSelectedItem().equals("탈출자1") && crushPre("탈출자1")) {
-			String sql = "UPDATE `game_info` SET `escape1`=  '" + who() + "', `ready2` = 'accept' WHERE `user2` = '"
-					+ who() + "'";
-			try {
-				pstmt = con.prepareStatement(sql);
-				pstmt.executeUpdate();
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		} else if (user2.getSelectionModel().getSelectedItem().equals("탈출자2") && crushPre("탈출자1")) {
-			String sql = "UPDATE `game_info` SET `escape2`=  '" + who() + "', `ready2` = 'accept' WHERE `user2` = '"
-					+ who() + "'";
-			try {
-				pstmt = con.prepareStatement(sql);
-				pstmt.executeUpdate();
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		} else {
-			Alert alert = new Alert(AlertType.WARNING);
-			alert.setTitle("오류");
-			alert.setHeaderText("역할 선택 오류");
-			alert.setContentText("선택한 역할이 없거나 다른 유저가 그 역할을 이미 선택했습니다.");
-			alert.showAndWait();
-		}
-	}
-
-	// 역할 충돌 방지 (미완성)
-	public Boolean crushPre(String choiceRole) throws UnknownHostException {
-		JDBCUtil db = new JDBCUtil();
-		java.sql.Connection con = db.getConnection();
-
-		java.sql.PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "select * from game_info WHERE `user1` = '" + who() + "' OR `user2` = '" + who() + "'";
+		String sql = "UPDATE `game_info` SET `ready1` = 'accept' WHERE `user1` = '" + who() + "'";
 		try {
 			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				String role1 = rs.getString("escape1");
-				String role2 = rs.getString("escape2");
-				System.out.println(role1 + "   " + role2);
-				if (choiceRole.equals("탈출자1")) {
-					if (role1.equals("")) {
-						return true;
-					}
-				} else if (choiceRole.equals("탈출자2")) {
-					System.out.println(role2);
-					if (role2.equals("")) {
-						return true;
-					}
-				}
-			}
+			pstmt.executeUpdate();
+
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
-
-		return false;
-
 	}
 
+	
 	@FXML
 	private Button startBtn;
 
 	// 시작 버튼 눌렀을때
 	public void gameStart() throws UnknownHostException {
 
-		
 		JDBCUtil db = new JDBCUtil();
 		java.sql.Connection con = db.getConnection();
 
@@ -321,18 +236,20 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
-					System.out.println("함수는 돈다");
-					if(ready1.equals(who())) {
+					System.out.println("ㅅㄷㄴㅅ");
+					if (ready1.equals(who())) {
 						Parent par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
 						Scene scene = new Scene(par);
 						Stage primaryStage = (Stage) startBtn.getScene().getWindow();
-						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+						scene.getStylesheets()
+								.add(getClass().getResource("/application/application.css").toExternalForm());
 						primaryStage.setScene(scene);
-					} else if(ready2.equals(who())) {
+					} else if (ready2.equals(who())) {
 						Parent par = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
 						Scene scene = new Scene(par);
 						Stage primaryStage = (Stage) startBtn.getScene().getWindow();
-						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+						scene.getStylesheets()
+								.add(getClass().getResource("/application/application.css").toExternalForm());
 						primaryStage.setScene(scene);
 					}
 
