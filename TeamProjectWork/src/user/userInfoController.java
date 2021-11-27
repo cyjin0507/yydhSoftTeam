@@ -71,6 +71,14 @@ public class userInfoController implements Initializable {
 			// TODO: handle exception
 		}
 	}
+	
+	public void withdrawal() throws IOException {
+		Parent par = FXMLLoader.load(getClass().getResource("/user/withdrawal.fxml"));
+		Scene scene = new Scene(par);
+		Stage primaryStage = (Stage) userId.getScene().getWindow();
+		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+		primaryStage.setScene(scene);
+	}
 
 	// 누가 로그인 중인지 확인 (아이디 배출)
 	public String who() throws UnknownHostException {

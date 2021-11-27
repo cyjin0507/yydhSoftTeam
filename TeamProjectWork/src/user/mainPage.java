@@ -79,6 +79,15 @@ public class mainPage implements Initializable {
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 		primaryStage.setScene(scene);
 	}
+	
+	public void explanation() throws IOException {
+		Parent par = FXMLLoader.load(getClass().getResource("/user/explanation.fxml"));
+		Scene scene = new Scene(par);
+		Stage primaryStage = (Stage) gameStart.getScene().getWindow();
+		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+		primaryStage.setScene(scene);
+	}
+	
 
 	// 오프라인으로 변경
 	public void transOffLine() throws UnknownHostException {

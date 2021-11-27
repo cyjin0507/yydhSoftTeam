@@ -64,7 +64,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button layoutX="1034.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black;" text="회원 탈퇴 버튼" textFill="RED">
+      <Button layoutX="1034.0" layoutY="27.0" mnemonicParsing="false" onAction="#withdrawal" style="-fx-background-color: white; -fx-border-color: black;" text="회원 탈퇴 버튼" textFill="RED">
          <font>
             <Font size="18.0" />
          </font>
