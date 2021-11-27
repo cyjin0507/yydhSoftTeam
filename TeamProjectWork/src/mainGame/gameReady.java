@@ -302,7 +302,7 @@ public class gameReady extends gameRequest implements Initializable {
 	// 시작 버튼 눌렀을때
 	public void gameStart() throws UnknownHostException {
 
-		System.out.println("함수는 돈다");
+		
 		JDBCUtil db = new JDBCUtil();
 		java.sql.Connection con = db.getConnection();
 
@@ -321,7 +321,7 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
-					
+					System.out.println("함수는 돈다");
 					if(ready1.equals(who())) {
 						Parent par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
 						Scene scene = new Scene(par);
