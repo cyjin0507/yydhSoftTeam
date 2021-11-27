@@ -201,7 +201,7 @@ public class gameReady extends gameRequest implements Initializable {
 		Connection con = db.getConnection();
 		PreparedStatement pstmt = null;
 
-		String sql = "UPDATE `game_info` SET `ready1` = 'accept' WHERE `user1` = '" + who() + "'";
+		String sql = "UPDATE `game_info` SET `ready2` = 'accept' WHERE `user2` = '" + who() + "'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.executeUpdate();
