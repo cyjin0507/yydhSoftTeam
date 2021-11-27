@@ -237,14 +237,15 @@ public class gameReady extends gameRequest implements Initializable {
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
 					System.out.println("ㅅㄷㄴㅅ");
-					if (ready1.equals(who())) {
+					if (user1.equals(who())) {
+						System.out.println("ㅅㄷdfgdsㄴㅅ");
 						Parent par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
 						Scene scene = new Scene(par);
 						Stage primaryStage = (Stage) startBtn.getScene().getWindow();
 						scene.getStylesheets()
 								.add(getClass().getResource("/application/application.css").toExternalForm());
 						primaryStage.setScene(scene);
-					} else if (ready2.equals(who())) {
+					} else if (user2.equals(who())) {
 						Parent par = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
 						Scene scene = new Scene(par);
 						Stage primaryStage = (Stage) startBtn.getScene().getWindow();
