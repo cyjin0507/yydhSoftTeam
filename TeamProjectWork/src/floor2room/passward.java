@@ -16,65 +16,75 @@ import javafx.stage.Stage;
 public class passward {
 
 	@FXML
-	private Label first; //1000
+	private Label first; // 1000
 	@FXML
-	private Label second; //0100
+	private Label second; // 0100
 	@FXML
 	private Label third; // 0010
 	@FXML
-	private Label fourth; //0001
-	
+	private Label fourth; // 0001
+
 	private static int current = 1;
 	public static int ans = 0;
-	
+
 	public void zero() {
 		countUp(0);
 	}
+
 	public void one() {
 		countUp(1);
 	}
+
 	public void two() {
 		countUp(2);
 	}
+
 	public void three() {
 		countUp(3);
 	}
+
 	public void four() {
 		countUp(4);
 	}
+
 	public void five() {
 		countUp(5);
 	}
+
 	public void six() {
 		countUp(6);
 	}
+
 	public void seven() {
 		countUp(7);
 	}
+
 	public void eight() {
 		countUp(8);
 	}
+
 	public void nine() {
 		countUp(9);
 	}
+
 	public void ten() {
 		countUp(10);
 	}
 
 	public void countUp(int num) {
-		if(current == 1) {
+		if (current == 1) {
 			fourth.setText(Integer.toString(num));
 			current++;
-		} else if(current == 2) {
+		} else if (current == 2) {
 			third.setText(fourth.getText());
 			fourth.setText(Integer.toString(num));
 			current++;
-		} else if(current == 3) {
+		} else if (current == 3) {
 			second.setText(third.getText());
 			third.setText(fourth.getText());
 			fourth.setText(Integer.toString(num));
 			current++;
-		} else if(current == 4) {
+		} else if (current == 4) {
 			first.setText(second.getText());
 			second.setText(third.getText());
 			third.setText(fourth.getText());
@@ -82,21 +92,21 @@ public class passward {
 			current++;
 		}
 	}
-	
-	public void countDown() {	
-		if(current == 2) {
+
+	public void countDown() {
+		if (current == 2) {
 			fourth.setText("0");
 			current--;
-		} else if(current == 3) {
+		} else if (current == 3) {
 			fourth.setText(third.getText());
 			third.setText("0");
 			current--;
-		} else if(current == 4) {
+		} else if (current == 4) {
 			fourth.setText(third.getText());
 			third.setText(second.getText());
 			second.setText("0");
 			current--;
-		} else if(current == 5) {
+		} else if (current == 5) {
 			fourth.setText(third.getText());
 			third.setText(second.getText());
 			second.setText(first.getText());
@@ -105,6 +115,7 @@ public class passward {
 		}
 
 	}
+
 	public void back() {
 		if(ans == 3479) {
 			try {
@@ -116,7 +127,7 @@ public class passward {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-<<<<<<< Updated upstream
+
 		}else if(ans == 4812) {
 			try {
 				Parent root;
@@ -139,16 +150,13 @@ public class passward {
 			}
 		}
 	}
-	
-=======
-		}
-	}
->>>>>>> Stashed changes
-	public void enter() {
-		int number = Integer.parseInt(first.getText()) * 1000 +Integer.parseInt(second.getText()) * 100 + Integer.parseInt(third.getText()) * 10 + Integer.parseInt(fourth.getText());
 
-		if(ans == number) {
-			if(ans == 3479) {
+	public void enter() {
+		int number = Integer.parseInt(first.getText()) * 1000 + Integer.parseInt(second.getText()) * 100
+				+ Integer.parseInt(third.getText()) * 10 + Integer.parseInt(fourth.getText());
+
+		if (ans == number) {
+			if (ans == 3479) {
 				try {
 					Parent root;
 					root = FXMLLoader.load(getClass().getResource("/floor2room/drawingroom.fxml"));
@@ -158,7 +166,7 @@ public class passward {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			}else if(ans == 4812) { 
+			} else if (ans == 4812) {
 				try {
 					Parent root;
 					root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));
@@ -168,7 +176,7 @@ public class passward {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			}else if(ans ==1261) {
+			} else if (ans == 1261) {
 				try {
 					Parent root;
 					root = FXMLLoader.load(getClass().getResource("/floor2room/dressroom.fxml"));
@@ -181,6 +189,5 @@ public class passward {
 			}
 		}
 	}
-	
-	
+
 }
