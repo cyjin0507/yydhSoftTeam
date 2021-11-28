@@ -68,6 +68,12 @@ public class Maincontroller {
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) iv15.getScene().getWindow();
 				primaryStage.setScene(scene);
+				
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("문이 열렸다");
+				alert.setHeaderText("");
+				alert.setContentText("어딘가 문이 열리는 소리가 났다");
+				alert.showAndWait();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

@@ -41,7 +41,7 @@ public class dressroom implements Initializable {
 						closet1 = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor3room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor3room_item/closet1.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -55,7 +55,7 @@ public class dressroom implements Initializable {
 						closet2 = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor3room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor3room_item/closet2.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -69,7 +69,7 @@ public class dressroom implements Initializable {
 						closet3 = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor3room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor3room_item/closet3.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -83,7 +83,7 @@ public class dressroom implements Initializable {
 						closet4 = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor3room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor3room_item/closet4.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);

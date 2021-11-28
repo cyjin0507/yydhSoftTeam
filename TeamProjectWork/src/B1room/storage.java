@@ -52,7 +52,7 @@ public class storage extends passward implements Initializable {
 						}
 						
 						
-					}else if (((x == 530) && (y >= 130) && (y <= 150))||((y == 160) && (x >= 540) && (x <= 600))) {
+					}else if (((x == 530) && (y >= 120) && (y <= 150))||((y == 160) && (x >= 540) && (x <= 600))) {
 						getX = x;
 						getY = y;
 						broom = true;

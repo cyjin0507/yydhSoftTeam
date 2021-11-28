@@ -18,7 +18,7 @@
       </ImageView>
       <ImageView fx:id="ironbar" fitHeight="800.0" fitWidth="1298.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../B1room_item/ironbar.png" />
+            <Image url="@../B1room_furniture/ironbar.png" />
          </image>
       </ImageView>
    </children>

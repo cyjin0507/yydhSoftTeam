@@ -12,8 +12,8 @@
             <Image url="@cosmeticright.png" />
          </image>
       </ImageView>
-      <Button fx:id="btn" layoutX="566.0" layoutY="744.0" mnemonicParsing="false" onAction="#powderroom" style="-fx-background-color: white; -fx-opacity: .5;" text="뒤로가기" textFill="GREY" />
       <ImageView fitHeight="386.0" fitWidth="149.0" layoutX="96.0" layoutY="45.0" onMouseClicked="#oil" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="277.0" fitWidth="200.0" layoutX="979.0" layoutY="239.0" onMouseClicked="#handkerchief" pickOnBounds="true" preserveRatio="true" rotate="9.5" />
+      <Button fx:id="btn" layoutX="566.0" layoutY="744.0" mnemonicParsing="false" onAction="#powderroom" style="-fx-background-color: white; -fx-opacity: .5;" text="뒤로가기" textFill="GREY" />
    </children>
 </AnchorPane>

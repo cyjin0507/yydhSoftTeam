@@ -45,7 +45,7 @@ public class livingroom implements Initializable {
 						stove = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor3room_item/test3.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor3room_item/stove.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -58,20 +58,7 @@ public class livingroom implements Initializable {
 						drawer = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor3room_item/test3.fxml"));
-							Scene scene = new Scene(root);
-							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-							primaryStage.setScene(scene);
-						} catch (IOException e) {
-							e.printStackTrace();
-						}
-					} else if ((y == 350) && (x >= 570) && (x <= 650)) {
-						getX = x;
-						getY = y;
-						table = true;
-						try {
-							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor3room_item/test3.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor3room_item/drawer.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);

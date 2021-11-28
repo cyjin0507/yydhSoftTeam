@@ -173,13 +173,13 @@ public class study implements Initializable {
 		CharacterMove move = new CharacterMove();
 
 //			책상 충돌 방지
-		if ((y == 270) && (x >= 360) && (x <= 750)) {
+		if ((y == 270) && (x >= 360) && (x <= 740)) {
 			return "down";
 		} else if ((y >= 270) && (y <= 520) && (x == 370)) {
 			return "right";
-		} else if ((y == 520) && (x >= 360) && (x <= 750)) {
+		} else if ((y == 520) && (x >= 360) && (x <= 740)) {
 			return "up";
-		} else if ((y >= 270) && (y <= 520) && (x == 760)) {
+		} else if ((y >= 270) && (y <= 520) && (x == 750)) {
 			return "left";
 		}
 		// 화분

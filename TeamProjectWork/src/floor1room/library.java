@@ -85,7 +85,7 @@ public class library implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase5.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase4.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -95,11 +95,11 @@ public class library implements Initializable {
 					}else if ((y == 60) && (x == 460)) {
 						getX = x;
 						getY = y;
-						book1 = true;
+						book3 = true;
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book1.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book3.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -123,11 +123,11 @@ public class library implements Initializable {
 					}else if ((y == 620) && (x >= 200) && (x <= 230)) {
 						getX = x;
 						getY = y;
-						book3= true;
+						book1= true;
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book3.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book1.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);

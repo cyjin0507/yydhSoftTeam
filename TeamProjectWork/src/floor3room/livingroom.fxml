@@ -13,15 +13,15 @@
       </ImageView>
       <ImageView fitHeight="212.0" fitWidth="481.0" layoutX="332.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../floor3room_item/sofa.png" />
+            <Image url="@../floor3room_furniture/sofa.png" />
          </image></ImageView>
       <ImageView fitHeight="167.0" fitWidth="542.0" layoutX="302.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../floor3room_item/table.png" />
+            <Image url="@../floor3room_furniture/table.png" />
          </image></ImageView>
       <ImageView fitHeight="193.0" fitWidth="481.0" layoutX="325.0" layoutY="562.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../floor3room_item/sofaback.png" />
+            <Image url="@../floor3room_furniture/sofaback.png" />
          </image></ImageView>
       <ImageView fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="550.0" y="70.0">
          <image>

@@ -16,9 +16,9 @@
             <Image url="@../roomImage/캐릭터.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="800.0" fitWidth="1182.0" layoutX="9.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../floor2room_item/dressingtable.png" />
+            <Image url="@../floor2room_furniture/dressingtable.png" />
          </image>
       </ImageView>
    </children>

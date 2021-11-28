@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,6 +33,10 @@ public class f1item {
 	private ImageView book2;
 	@FXML
 	private ImageView book3;
+	@FXML
+	private ImageView food;
+	public static boolean foodbool = false;
+	public static boolean picturebool = false;
 
 	public void library() {
 		try {
@@ -69,8 +75,21 @@ public class f1item {
 	}
 
 	public void picture(MouseEvent e) {
-		// 음식 가져왔을떄만 열리게
-		picture.setImage(new Image("/floor1room_item/pictureafter.png"));
+		if(foodbool) {
+			picture.setImage(new Image("/floor1room_item/pictureafter.png"));
+			picturebool = true;
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("문이 열렸다");
+			alert.setHeaderText("");
+			alert.setContentText("문이 열리는 소리가 났다");
+			alert.showAndWait();
+		}	
+	}
+	
+	public void food(MouseEvent e) {
+		foodbool= true;
+		food.setImage(new Image("/floor1room_item/foodafter.png"));		
 	}
 
 	public void bookcase1(MouseEvent e) {

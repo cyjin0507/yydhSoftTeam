@@ -89,8 +89,8 @@ public class prison implements Initializable {
 		});
 		move.stop(imageView);
 		if (success) {
-			back.setImage(new Image("/B1room_item/prisonopen.png"));
-			ironbar.setImage(new Image("/B1room_item/ironbaropen.png"));
+			back.setImage(new Image("/roomimage/prisonopen.png"));
+			ironbar.setImage(new Image("/B1room_furniture/ironbaropen.png"));
 		}
 
 		if (btngame) {

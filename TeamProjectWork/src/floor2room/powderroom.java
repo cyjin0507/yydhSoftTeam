@@ -35,7 +35,7 @@ public class powderroom implements Initializable {
 				if (keyCode.equals(KeyCode.SPACE)) {
 					int x = (int) imageView.getX();
 					int y = (int) imageView.getY();
-					if ((y == 580) && (x >= 680) && (x <= 780)) {
+					if   ((y == 580) && (x >= 470) && (x <= 630)) {
 						getX = x;
 						getY = y;
 						mirror = true;
@@ -48,7 +48,7 @@ public class powderroom implements Initializable {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-					} else if ((y == 580) && (x >= 470) && (x <= 630)) {
+					} else if((y == 580) && (x >= 680) && (x <= 780)){
 						getX = x;
 						getY = y;
 						leftcosmetic = true;

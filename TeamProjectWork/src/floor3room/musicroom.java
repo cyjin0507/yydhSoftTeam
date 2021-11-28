@@ -16,7 +16,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
-public class musicroom implements Initializable{
+public class musicroom implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -40,6 +40,40 @@ public class musicroom implements Initializable{
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
+
+		System.out.println(x + "," + y);
+		if ((y == 320) && (x >= 460) && (x <= 1000)) {
+			return "down";
+		} else if ((x == 1010) && (y >= 330) && (y <= 570)) {
+			return "left";
+		} else if ((x == 450) && (y >= 330) && (y <= 570)) {
+			return "right";
+		} else if ((y == 580) && (x >= 460) && (x <= 1000)) {
+			return "up";
+		}
+
+		if ((y == 460) && (x >= -10) && (x <= 140)) {
+			if (x == -10) {
+				return "leftdown";
+			}
+			return "down";
+		} else if ((x == 150) && (y >= 470) && (y <= 590)) {
+			return "left";
+		} else if ((y == 600) && (x >= -10) && (x <= 140)) {
+			if (x == -10) {
+				return "leftup";
+			}
+			return "up";
+		}
+		if ((x == 120) && (y >= 90) && (y <= 130)) {
+			return "left";
+		}else if ((y == 140) && (x >= -10) && (x <= 110)) {
+			if(x == -10) {
+				return "leftup";
+			}
+			return "up";
+		}
+
 		return move.nframe(x, y);
 
 	}
@@ -59,27 +93,6 @@ public class musicroom implements Initializable{
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
 		}
 	}
 }

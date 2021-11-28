@@ -13,5 +13,6 @@
          </image>
       </ImageView>
       <Button fx:id="btn" layoutX="566.0" layoutY="744.0" mnemonicParsing="false" onAction="#guestroom" style="-fx-background-color: white; -fx-opacity: .5;" text="뒤로가기" textFill="GREY" />
+      <ImageView fitHeight="495.0" fitWidth="1200.0" onMouseClicked="#bedbottom" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>
