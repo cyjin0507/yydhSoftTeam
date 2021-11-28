@@ -45,6 +45,7 @@ public class gameReady extends gameRequest implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		reset();
 		gameRequest rq = new gameRequest();
 		new mainPage().mp.stop();
 		System.out.println(rq.player);
@@ -358,9 +359,9 @@ public class gameReady extends gameRequest implements Initializable {
 				String user1 = rs.getString("user1");
 				String user2 = rs.getString("user2");
 				if(type.equals("user1")) {
-					user2_name.setText("user2");
+					user2_name.setText(user2);
 				} else if(type.equals("user2")) {
-					user1_name.setText("user1");
+					user1_name.setText(user1);
 				}
 			}
 		}catch (Exception e) {
