@@ -130,7 +130,7 @@ public class gameReady extends gameRequest implements Initializable {
 
 		java.sql.PreparedStatement pstmt = null;
 
-		String sql = "insert into game_info values(?,?,?,?,?,?,?,?,?,?)";
+		String sql = "insert into game_info values(?,?,?,?,?,?,?,?,?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -144,6 +144,7 @@ public class gameReady extends gameRequest implements Initializable {
 			pstmt.setString(8, "waitting");
 			pstmt.setString(9, "waitting");
 			pstmt.setString(10, code());
+			pstmt.setString(11, "no");
 
 			pstmt.executeUpdate();
 		} catch (Exception e) {
