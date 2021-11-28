@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import user.sort;
 
 public class last2 {
 	@FXML
@@ -36,6 +37,8 @@ public class last2 {
 			alert.show();
 		}
 	}
+	
+	
 	
 	public void back() throws IOException {
 		Parent root;
