@@ -86,6 +86,8 @@ public class stair implements Initializable {
 	public static int getX;
 	public static int getY;
 
+	
+	static boolean bathroom = false;
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
@@ -131,7 +133,7 @@ public class stair implements Initializable {
 			alert.setContentText("결계가 있어서 못내려간다");
 			alert.showAndWait();
 			//마지막에 열리기
-			if(false) {
+			if(true) {
 				getX = x;
 				getY = y;
 				mainhall1 = true;
@@ -153,7 +155,7 @@ public class stair implements Initializable {
 			alert.setContentText("결계가 있어서 못내려간다");
 			alert.showAndWait();
 			//마지막에 열리기
-			if(false) {
+			if(true) {
 				getX = x;
 				getY = y;
 				mainhall1 = true;

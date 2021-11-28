@@ -50,6 +50,7 @@ public class gameReady extends gameRequest implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+
 		reset();
 		gameRequest rq = new gameRequest();
 		System.out.println(rq.player);
@@ -252,18 +253,8 @@ public class gameReady extends gameRequest implements Initializable {
 					} else if (user2.equals(who())) {
 						user2media = true;
 					}
-					new userController().mp.stop();
+					new userController().mp1.stop();
 					mp = new MediaPlayer(new Media(getClass().getResource("/music/게임_준비.mp3").toString()));
-					Runnable onEnd = new Runnable() {
-						@Override
-						public void run() {
-							mp.dispose();
-							mp = new MediaPlayer(m);
-							mp.play();
-							mp.setOnEndOfMedia(this);
-						}
-					};
-					mp.setOnEndOfMedia(onEnd);
 					mp.play();
 					new mediaview().ending = "인트로";
 					Parent par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));

@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import util.JDBCUtil;
 
 public class userController {
-	public static MediaPlayer mp;
+	public static MediaPlayer mp1;
 	Media m = null;
 	// 사용자 일련번호 생성
 	public String serialNum() {
@@ -193,18 +193,8 @@ public class userController {
 							Stage primaryStage = (Stage) Sing.getScene().getWindow();
 							scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 							primaryStage.setScene(scene);
-							mp = new MediaPlayer(new Media(getClass().getResource("/music/메인화면.mp3").toString()));
-							Runnable onEnd = new Runnable() {
-								@Override
-								public void run() {
-									mp.dispose();
-									mp = new MediaPlayer(m);
-									mp.play();
-									mp.setOnEndOfMedia(this);
-								}
-							};
-							mp.setOnEndOfMedia(onEnd);
-							mp.play();
+							mp1 = new MediaPlayer(new Media(getClass().getResource("/music/메인화면.mp3").toString()));							
+							mp1.play();
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
