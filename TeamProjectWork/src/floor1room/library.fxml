@@ -11,50 +11,9 @@
             <Image url="@../roomImage/library.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="244.0" fitWidth="381.0" layoutX="117.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="247.0" fitWidth="132.0" layoutX="1067.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../floor1room_item/bookcase1.png" />
-         </image></ImageView>
-      <ImageView  fitHeight="251.0" fitWidth="381.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../floor1room_item/bookcase3.png" />
-         </image></ImageView>
-      <ImageView  fitHeight="249.0" fitWidth="381.0" layoutX="686.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../floor1room_item/bookcase2.png" />
-         </image></ImageView>
-      <ImageView fitHeight="242.0" fitWidth="253.0" layoutX="546.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../floor1room_item/bookcase4.png" />
-         </image></ImageView>
-      <ImageView  fitHeight="233.0" fitWidth="134.0" layoutX="1067.0" layoutY="433.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../floor1room_item/bookcase5.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="242.0" fitWidth="131.0" layoutX="948.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../floor1room_item/bookcase6.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="163.0" fitWidth="394.0" layoutX="91.0" layoutY="595.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../floor1room_item/table.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="151.0" fitWidth="74.0" layoutX="336.0" layoutY="617.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../floor1room_item/chair.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="68.0" layoutX="176.0" layoutY="539.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../floor1room_item/chairback.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="800.0" fitWidth="1200.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../floor1room_item/books.png" />
+            <Image url="@../floor1room_furniture/bookcase6.png" />
          </image>
       </ImageView>
       <ImageView fx:id="imageView" fitHeight="151.0" fitWidth="156.0" focusTraversable="true" pickOnBounds="true" preserveRatio="true" x="550.0" y="70.0">

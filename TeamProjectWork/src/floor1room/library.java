@@ -5,6 +5,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import gameStart.CharacterMove;
+import gameStart.MainHoll;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,9 +31,115 @@ public class library implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event, setStopPoint(), imageView);
 				event();
+				
+
+				KeyCode keyCode = event.getCode();
+				if (keyCode.equals(KeyCode.SPACE)) {
+					int x = (int) imageView.getX();
+					int y = (int) imageView.getY();
+					if ((y == 110) && (x >= 100) && (x <= 180)) {
+						getX = x;
+						getY = y;
+						bookcase1 = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase1.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else if ((y == 110) && (x >= 340) && (x <= 420)) {
+						getX = x;
+						getY = y;
+						bookcase2 = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase2.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else if ((y == 110) && (x >= 790) && (x <= 870)) {
+						getX = x;
+						getY = y;
+						bookcase3 = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase3.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else if ((y == 470) && (x >= 520) && (x <= 600)) {
+						getX = x;
+						getY = y;
+						bookcase4 = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase4.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else if ((y == 60) && (x == 460)) {
+						getX = x;
+						getY = y;
+						book3 = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book3.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else if ((x == 450) && (y >= 530) && (x <= 590)) {
+						getX = x;
+						getY = y;
+						book2= true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book2.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else if ((y == 620) && (x >= 200) && (x <= 230)) {
+						getX = x;
+						getY = y;
+						book1= true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book1.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
 			}
 		});
 		move.stop(imageView);
+		//문이동
 		if (mainhall) {
 			imageView.setX(getX);
 			imageView.setY(getY +10);
@@ -48,10 +155,52 @@ public class library implements Initializable {
 			imageView.setY(420);
 			new B1room.B1hallway1().library = false;
 		}
+
+		//아이템 조사시
+		if (bookcase1) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			bookcase1 = false;
+		}else if (bookcase2) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			bookcase2 = false;
+		}else if (bookcase3) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			bookcase3 = false;
+		}else if (bookcase4) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			bookcase4 = false;
+		}else if (book1) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			book1 = false;
+		}else if (book2) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			book2 = false;
+		}else if (book3) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			book3 = false;
+		}
 	}
 
 	public static boolean mainhall = false;
-	static boolean B1hallway1 = false;
+	public static boolean B1hallway1 = false;
+	
+    static boolean bookcase1 = false;
+	static boolean bookcase2 = false;
+	static boolean bookcase3 = false;
+	static boolean bookcase4 = false;
+	static boolean bookcase5 = false;
+	static boolean bookcase6 = false;
+	static boolean book1 = false;
+	static boolean book2 = false;
+	static boolean book3 = false;
+	
 
 	public static int getX;
 	public static int getY;
@@ -60,7 +209,6 @@ public class library implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-
 
 		// 위 의자와 책장
 		if ((y == 110) && (x >= -10) && (x <= 450)) {
@@ -120,6 +268,9 @@ public class library implements Initializable {
 		} else if((y == 360)&&(x>= 880)&&(x<= 1040)) {
 			return "down";
 		} else if((y == 470)&&(x >= 880)&&( x<= 1040)) {
+			if(x == 1000) {
+				return"rightup";
+			}
 			return "up";
 		}
 		//아래 맨 끝쪽 책장
@@ -133,7 +284,7 @@ public class library implements Initializable {
 				return "rightdown";
 			}
 			return "down";
-		}else if((x== 1000)&&(y >= 470)&&(y <= 530)) {
+		}else if((x== 1000)&&(y >= 460)&&(y <= 530)) {
 			return "right";
 		}
 		//책상과 의자
@@ -154,7 +305,6 @@ public class library implements Initializable {
 	public void event() {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x + "," + y);
 
 		if ((y == 60) && (x >= 530) && (x <= 570)) {
 			getX = x;

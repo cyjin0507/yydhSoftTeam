@@ -43,6 +43,31 @@ public class study implements Initializable {
 				KeyCode keyCode = event.getCode();
 				int x = (int) imageView.getX();
 				int y = (int) imageView.getY();
+				
+				if ((y == 110) && (x >= 920) && (x <= 980)) {
+					if (success) {
+						getX = x;
+						getY = y;
+						stair = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (Exception e2) {
+							e2.printStackTrace();
+						}
+					} else {
+						Alert alert = new Alert(AlertType.WARNING);
+						alert.setTitle("잠김");
+						alert.setHeaderText("");
+						alert.setContentText("문이 잠겨있다");
+						alert.showAndWait();
+					}
+
+				}
+
 				if (keyCode.equals(KeyCode.SPACE)) {
 					if ((y == 110) && (x >= 270) && (x <= 320)) {
 						getX = x;
@@ -76,7 +101,7 @@ public class study implements Initializable {
 						desk = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor2room_item/desk.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/studymail.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -90,7 +115,7 @@ public class study implements Initializable {
 						grass = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor2room_item/flowerpot.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/grass.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -98,31 +123,6 @@ public class study implements Initializable {
 							e.printStackTrace();
 						}
 					}
-
-					if ((y == 110) && (x >= 920) && (x <= 980)) {
-						if (success) {
-							getX = x;
-							getY = y;
-							stair = true;
-							try {
-								Parent root;
-								root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
-								Scene scene = new Scene(root);
-								Stage primaryStage = (Stage) imageView.getScene().getWindow();
-								primaryStage.setScene(scene);
-							} catch (Exception e2) {
-								e2.printStackTrace();
-							}
-						} else {
-							Alert alert = new Alert(AlertType.WARNING);
-							alert.setTitle("잠김");
-							alert.setHeaderText("");
-							alert.setContentText("문이 잠겨있다");
-							alert.showAndWait();
-						}
-
-					}
-
 				}
 			}
 		});
@@ -173,13 +173,13 @@ public class study implements Initializable {
 		CharacterMove move = new CharacterMove();
 
 //			책상 충돌 방지
-		if ((y == 270) && (x >= 360) && (x <= 750)) {
+		if ((y == 270) && (x >= 360) && (x <= 740)) {
 			return "down";
 		} else if ((y >= 270) && (y <= 520) && (x == 370)) {
 			return "right";
-		} else if ((y == 520) && (x >= 360) && (x <= 750)) {
+		} else if ((y == 520) && (x >= 360) && (x <= 740)) {
 			return "up";
-		} else if ((y >= 270) && (y <= 520) && (x == 760)) {
+		} else if ((y >= 270) && (y <= 520) && (x == 750)) {
 			return "left";
 		}
 		// 화분

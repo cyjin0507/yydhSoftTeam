@@ -58,11 +58,11 @@ public class B1hallway1 implements Initializable {
 		move.stop(imageView);
 		if (laboratory) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			laboratory = false;
 		}
 		if (B1hallway2) {
-			imageView.setX(getX);
+			imageView.setX(getX -10);
 			imageView.setY(new B1hallway2().getY);
 			B1hallway2 = false;
 		}
@@ -73,8 +73,13 @@ public class B1hallway1 implements Initializable {
 		}
 		if (library) {
 			imageView.setX(getX);
-			imageView.setY(getY);
+			imageView.setY(getY -10);
 			library = false;
+		}
+		if (new B1hallway2().B1hallway1) {
+			imageView.setX(1100);
+			imageView.setY(new B1hallway2().getY);
+			new B1hallway2().B1hallway1 = false;
 		}
 	}
 
@@ -92,7 +97,6 @@ public class B1hallway1 implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-
 		if((x == 290)&&(y <=640)&&(y >= 330)) {
 			if(y == 640) {
 				return "rightdown";

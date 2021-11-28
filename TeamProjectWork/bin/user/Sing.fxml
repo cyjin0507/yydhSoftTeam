@@ -24,7 +24,7 @@
       </Label>
       <TextField fx:id="joinName" layoutX="433.0" layoutY="212.0" prefHeight="37.0" prefWidth="352.0" />
       <TextField fx:id="joinNick" layoutX="433.0" layoutY="521.0" prefHeight="37.0" prefWidth="352.0" />
-      <TextField fx:id="joinId" layoutX="433.0" layoutY="311.0" prefHeight="37.0" prefWidth="352.0" />
+      <TextField fx:id="joinId" layoutX="433.0" layoutY="311.0" onTouchReleased="#test" prefHeight="37.0" prefWidth="352.0" />
       <Button fx:id="jojnOk" layoutX="557.0" layoutY="606.0" mnemonicParsing="false" onAction="#join" prefHeight="37.0" prefWidth="105.0" style="-fx-background-color: white; -fx-border-color: black;" text="OK">
          <font>
             <Font size="14.0" />

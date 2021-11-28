@@ -29,6 +29,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import util.JDBCUtil;
@@ -37,6 +39,12 @@ public class FrirendPlusController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		MediaPlayer mp;
+		Media m = null;
+		
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/메인화면.mp3").toString()));
+        mp.play();
+		
 		// TODO Auto-generated method stub
 		listAction();
 		listAction2();
@@ -52,6 +60,8 @@ public class FrirendPlusController implements Initializable {
 		listAction();
 		listAction2();
 	}
+	
+	
 
 	// 친구 추가/////////////////////////////////////////////
 

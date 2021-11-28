@@ -7,13 +7,13 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="btngame.controller">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1200.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@all.jpg" />
          </image>
       </ImageView>
       <Button id="onebtn" layoutX="170.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnAction1" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color: #433833; -fx-background-image: url(/btngame/1.jpg); -fx-background-position: center center;" />
-      <Button id="fourbtn" layoutX="170.0" layoutY="170.0" mnemonicParsing="false" onAction="#btnAction4" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color: #433833; -fx-background-image: url(/btngame/4.jpg); -fx-background-position: center center;"  />
+      <Button id="fourbtn" layoutX="170.0" layoutY="170.0" mnemonicParsing="false" onAction="#btnAction4" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color: #433833; -fx-background-image: url(/btngame/4.jpg); -fx-background-position: center center;" />
       <Button id="sixbtn" layoutX="287.0" layoutY="250.0" mnemonicParsing="false" onAction="#btnAction6" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color:  #433833; -fx-background-image: url(/btngame/6.jpg); -fx-background-position: center center;" />
       <Button id="ninebtn" layoutX="51.0" layoutY="410.0" mnemonicParsing="false" onAction="#btnAction9" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color:  #433833; -fx-background-image: url(/btngame/9.jpg); -fx-background-position: center center;" />
       <Button id="tenbtn" layoutX="285.0" layoutY="411.0" mnemonicParsing="false" onAction="#btnAction10" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color: #433833; -fx-background-image: url(/btngame/10.jpg); -fx-background-position: center center;" />
@@ -26,9 +26,9 @@
       <Button id="eightbtn" layoutX="632.0" layoutY="330.0" mnemonicParsing="false" onAction="#btnAction8" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color:  #433833; -fx-background-image: url(/btngame/8.jpg); -fx-background-position: center center;" />
       <Button id="elevenbtn" layoutX="747.0" layoutY="410.0" mnemonicParsing="false" onAction="#btnAction11" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color:  #433833; -fx-background-image: url(/btngame/11.jpg); -fx-background-position: center center;" />
       <Button id="fifteenbtn" layoutX="862.0" layoutY="650.0" mnemonicParsing="false" onAction="#btnAction15" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color: #433833; -fx-background-image: url(/btngame/15.jpg); -fx-background-position: center center;" />
-      <Button id="seventeenbtn" layoutX="747.0" layoutY="729.0" mnemonicParsing="false" onAction="#btnAction17" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color:  #433833; -fx-background-image: url(/btngame/17.jpg); -fx-background-position: center center;"/>
+      <Button id="seventeenbtn" layoutX="747.0" layoutY="729.0" mnemonicParsing="false" onAction="#btnAction17" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color:  #433833; -fx-background-image: url(/btngame/17.jpg); -fx-background-position: center center;" />
       <Button id="twobtn" layoutX="863.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnAction2" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color:  #433833; -fx-background-image: url(/btngame/2.jpg); -fx-background-position: center center;" />
       <Button id="sevenbtn" layoutX="979.0" layoutY="250.0" mnemonicParsing="false" onAction="#btnAction7" prefHeight="59.0" prefWidth="220.0" style="-fx-background-color:  #433833; -fx-background-image: url(/btngame/7.jpg); -fx-background-position: center center;" />
-      <Button fx:id="btn" layoutX="1074.0" layoutY="105.0" mnemonicParsing="false" onAction="#reset" text="리셋" />
+      <Button fx:id="btn" layoutX="1095.0" layoutY="10.0" mnemonicParsing="false" onAction="#reset" prefHeight="59.0" prefWidth="98.0" style="-fx-background-color: #ab8d8d;" text="리셋" textFill="#393939" />
    </children>
 </AnchorPane>

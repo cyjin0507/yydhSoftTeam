@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floor1room_item.f1item">
+   <children>
+      <ImageView fx:id="book3" fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@bookafter1.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn" layoutX="566.0" layoutY="744.0" mnemonicParsing="false" onAction="#library" style="-fx-background-color: white; -fx-opacity: .5;" text="뒤로가기" textFill="GREY" />
+      <ImageView fitHeight="633.0" fitWidth="463.0" layoutX="230.0" layoutY="81.0" onMouseClicked="#book3" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="448.0" fitWidth="381.0" layoutX="589.0" layoutY="200.0" onMouseClicked="#book3_1" pickOnBounds="true" preserveRatio="true" rotate="-12.5" />
+   </children>
+</AnchorPane>

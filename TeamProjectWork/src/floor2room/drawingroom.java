@@ -30,11 +30,61 @@ public class drawingroom implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event, setStopPoint(), imageView);
 				event();
+
+				KeyCode keyCode = event.getCode();
+				if (keyCode.equals(KeyCode.SPACE)) {
+					int x = (int) imageView.getX();
+					int y = (int) imageView.getY();
+					if ((y == 390) && (x >= 700) && (x <= 750)) {
+						getX = x;
+						getY = y;
+						table = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/table.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					} else if ((y == 60) && (x >= 180) && (x <= 330)) {
+						getX = x;
+						getY = y;
+						picture = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/picture.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+
+				}
 			}
 		});
 		move.stop(imageView);
-
+		if (table) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			table = false;
+		}
+		if (picture) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			picture = false;
+		}
 	}
+
+	static boolean table = false;
+	static boolean picture = false;
+
+	public static int getX;
+	public static int getY;
 
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
@@ -43,43 +93,42 @@ public class drawingroom implements Initializable {
 //앞소파
 		if ((y == 120) && (x >= 310) && (x <= 790)) {
 			return "down";
-		}else if((x == 800)&&(y >= 130)&&(y <=200)) {
+		} else if ((x == 800) && (y >= 130) && (y <= 200)) {
 			return "left";
-		} else if((y == 210)&&(x >= 310) && (x <= 790)) {
+		} else if ((y == 210) && (x >= 310) && (x <= 790)) {
 			return "up";
-		}else if((x == 300)&&(y >= 130)&&(y <=200)) {
+		} else if ((x == 300) && (y >= 130) && (y <= 200)) {
 			return "right";
 		}
-		//뒷소파
+		// 뒷소파
 		if ((y == 440) && (x >= 310) && (x <= 790)) {
 			return "down";
-		}else if((x == 800)&&(y >= 450)&&(y <=560)) {
+		} else if ((x == 800) && (y >= 450) && (y <= 560)) {
 			return "left";
-		} else if((y == 570)&&(x >= 310) && (x <= 790)) {
+		} else if ((y == 570) && (x >= 310) && (x <= 790)) {
 			return "up";
-		}else if((x == 300)&&(y >= 450)&&(y <=560)) {
+		} else if ((x == 300) && (y >= 450) && (y <= 560)) {
 			return "right";
 		}
-		//테이블
-		if((y ==390)&&(x >=280)&&(x <=820)) {
+		// 테이블
+		if ((y == 390) && (x >= 280) && (x <= 820)) {
 			return "up";
-		} else if((y ==260)&&(x >=280)&&(x <=820)) {
+		} else if ((y == 260) && (x >= 280) && (x <= 820)) {
 			return "down";
-		} else if((x == 270)&&(y>= 270)&&(y <=380)) {
+		} else if ((x == 270) && (y >= 270) && (y <= 380)) {
 			return "right";
-		} else if((x == 830)&&(y>= 270)&&(y <=380)) {
+		} else if ((x == 830) && (y >= 270) && (y <= 380)) {
 			return "left";
 		}
-		if((y == 260)&&(x >= 840) &&(x <= 980)) {
+		if ((y == 260) && (x >= 840) && (x <= 980)) {
 			return "down";
-		}else if((y == 380)&&(x >= 840) &&(x <= 980)) {
+		} else if ((y == 380) && (x >= 840) && (x <= 980)) {
 			return "up";
-		}else if((x == 830)&&(y >= 270)&&(y <= 370)) {
+		} else if ((x == 830) && (y >= 270) && (y <= 370)) {
 			return "right";
-		}else if((x == 990)&&(y >= 270)&&(y <= 370)) {
+		} else if ((x == 990) && (y >= 270) && (y <= 370)) {
 			return "left";
 		}
-
 
 		return move.nframe(x, y);
 
@@ -100,6 +149,6 @@ public class drawingroom implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		
+
 	}
 }

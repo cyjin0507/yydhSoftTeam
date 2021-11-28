@@ -147,9 +147,9 @@ public class controller implements Initializable {
 		i++;
 
 		sum += num;
-		if (sum.equals("01")) {
+		if (sum.equals("0131012144151711")) {
 //			mp = new MediaPlayer(new Media(getClass().getResource("/resourses/success1.mp3").toString()));
-			mp = new MediaPlayer(new Media(getClass().getResource("/music/success2.mp3").toString()));
+			mp = new MediaPlayer(new Media(getClass().getResource("/music/success1.mp3").toString()));
 
 			mp.play();
 			new prison().success = true;
@@ -163,7 +163,7 @@ public class controller implements Initializable {
 				e.printStackTrace();
 			}
 			reset();
-		} else if (i >= 1 && !sum.equals("01")) {
+		} else if (i >= 8 && !sum.equals("0131012144151711")) {
 			mp = new MediaPlayer(new Media(getClass().getResource("/music/BeepPing.mp3").toString()));
 
 			mp.play();
