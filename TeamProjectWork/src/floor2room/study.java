@@ -23,8 +23,9 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import user.sort;
 
-public class study implements Initializable {
+public class study extends sort implements Initializable {
 	MediaPlayer mp;
 	Media m = null;
 	public ImageView imageView;
@@ -32,6 +33,11 @@ public class study implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		CharacterMove move = new CharacterMove();
+		System.out.println(sort());
+		if(sort().equals("user1")) {
+			imageView.setImage(new Image("/roomImage/all2.png"));
+		}
+	
 		move.sprite(imageView);
 		imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
 
