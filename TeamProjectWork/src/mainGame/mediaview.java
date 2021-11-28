@@ -17,7 +17,7 @@ import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 import util.JDBCUtil;
 
-public class mediaview extends gameReady implements Initializable {
+public class mediaview  implements Initializable {
 	public static MediaPlayer mp;
 	Media m = null;
 	@FXML
@@ -35,8 +35,8 @@ public class mediaview extends gameReady implements Initializable {
 			mp.stop();
 			
 			
-			try {
-				if(sorting().equals("user1")) {
+		
+				if(new gameReady().user1media) {
 					Parent par = null;
 					try {
 						par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
@@ -49,7 +49,7 @@ public class mediaview extends gameReady implements Initializable {
 					scene.getStylesheets()
 							.add(getClass().getResource("/application/application.css").toExternalForm());
 					primaryStage.setScene(scene);
-				} else if(sorting().equals("user2")) {
+				} else if(new gameReady().user2media) {
 					Parent par = null;
 					try {
 						par = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
@@ -62,37 +62,8 @@ public class mediaview extends gameReady implements Initializable {
 					scene.getStylesheets()
 							.add(getClass().getResource("/application/application.css").toExternalForm());
 					primaryStage.setScene(scene);
-				}
-			} catch (UnknownHostException e) {
-			}
+				}		
 		});
-	}
-	
-	public String sorting() throws UnknownHostException {
-		JDBCUtil db = new JDBCUtil();
-		java.sql.Connection con = db.getConnection();
-
-		java.sql.PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "select * from game_info WHERE `user1` = '" + who() + "' OR `user2` = '" + who() + "'";
-
-		try {
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				String user1 = rs.getString("user1");
-				String user2 = rs.getString("user2");
-				if (user1.equals(who())) {
-					return "user1";
-				} else if (user2.equals(who())) {
-					return "user2";
-				}
-					
-			}
-		}catch (Exception e) {
-			// TODO: handle exception
-		}
-		return null;
 	}
 
 }

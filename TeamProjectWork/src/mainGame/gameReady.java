@@ -218,6 +218,8 @@ public class gameReady extends gameRequest implements Initializable {
 
 	@FXML
 	private Button startBtn;
+	public static boolean user1media = false;
+	public static boolean user2media = false;
 
 	// 시작 버튼 눌렀을때
 	public void gameStart() throws UnknownHostException {
@@ -240,6 +242,12 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
+					if(user1.equals(who())) {
+						user1media = true;
+					}else if(user1.equals(who()))  {
+						user2media = true;
+					}
+					
 					new mediaview().ending = "인트로";
 					Parent par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));
 					Scene scene = new Scene(par);
