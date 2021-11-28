@@ -244,7 +244,7 @@ public class gameReady extends gameRequest implements Initializable {
 				if (ready1.equals("accept") && ready2.equals("accept")) {
 					if(user1.equals(who())) {
 						user1media = true;
-					}else if(user1.equals(who()))  {
+					}else if(user2.equals(who()))  {
 						user2media = true;
 					}
 					
