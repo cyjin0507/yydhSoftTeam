@@ -116,7 +116,7 @@ public class passward {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-<<<<<<< Updated upstream
+
 		}else if(ans == 4812) {
 			try {
 				Parent root;
@@ -140,10 +140,9 @@ public class passward {
 		}
 	}
 	
-=======
-		}
-	}
->>>>>>> Stashed changes
+
+
+
 	public void enter() {
 		int number = Integer.parseInt(first.getText()) * 1000 +Integer.parseInt(second.getText()) * 100 + Integer.parseInt(third.getText()) * 10 + Integer.parseInt(fourth.getText());
 
