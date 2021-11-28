@@ -18,18 +18,24 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import mainGame.mediaview;
 import user.sort;
 import util.JDBCUtil;
 
 public class last2 extends sort implements Initializable {
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
 		if (check.equals("yes")) {
 			try {
 				if (check()) {
-					// 성공했으므로 엔딩
+					new mediaview().ending = "같이_탈출";
+					Parent par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));
+					Scene scene = new Scene(par);
+					Stage primaryStage = (Stage) ans.getScene().getWindow();
+					scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+					primaryStage.setScene(scene);
 				} else {
 					Alert alert = new Alert(AlertType.CONFIRMATION);
 					alert.setTitle("어?");
@@ -37,8 +43,12 @@ public class last2 extends sort implements Initializable {
 					alert.setContentText("혼자 탈출할 경우 동료는 영원히 탈출 못합니다.");
 					Optional<ButtonType> result = alert.showAndWait();
 					if (result.get() == ButtonType.OK) {
-						// 배신앤딩
-
+						new mediaview().ending = "배신";
+						Parent par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));
+						Scene scene = new Scene(par);
+						Stage primaryStage = (Stage) ans.getScene().getWindow();
+						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+						primaryStage.setScene(scene);
 					} else if (result.get() == ButtonType.CANCEL) {
 						Parent root;
 						root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
@@ -54,14 +64,14 @@ public class last2 extends sort implements Initializable {
 			}
 		}
 	}
-	
+
 	@FXML
 	private TextField ans;
-	
+
 	private static String check = "no";
-	
+
 	public void ans() throws IOException {
-		if(ans.getText().equals("25")) {
+		if (ans.getText().equals("25")) {
 			trans();
 			check = "yes";
 			Alert alert = new Alert(AlertType.INFORMATION);
@@ -80,7 +90,7 @@ public class last2 extends sort implements Initializable {
 			alert.show();
 		}
 	}
-	
+
 	public void trans() throws UnknownHostException {
 		JDBCUtil db = new JDBCUtil();
 		Connection con = db.getConnection();
@@ -95,9 +105,7 @@ public class last2 extends sort implements Initializable {
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
+
 	public void back() throws IOException {
 		Parent root;
 		root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));

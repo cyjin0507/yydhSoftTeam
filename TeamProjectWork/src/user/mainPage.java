@@ -20,16 +20,25 @@ import javafx.stage.Stage;
 import util.JDBCUtil;
 
 public class mainPage implements Initializable {
-	
+	public static MediaPlayer mp;
+	Media m = null;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		MediaPlayer mp;
-		Media m = null;
 		
 		mp = new MediaPlayer(new Media(getClass().getResource("/music/메인화면.mp3").toString()));
-        mp.play();
-    
+		Runnable onEnd = new Runnable() {
+			@Override
+			public void run() {
+				mp.dispose();
+				mp = new MediaPlayer(m);
+				mp.play();
+				mp.setOnEndOfMedia(this);
+			}
+		};
+		mp.setOnEndOfMedia(onEnd);
+		mp.play();
 	}
 
 	@FXML
@@ -41,6 +50,7 @@ public class mainPage implements Initializable {
 		Stage primaryStage = (Stage) gameStart.getScene().getWindow();
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 		primaryStage.setScene(scene);
+
 	}
 
 	public void friend() throws IOException {
@@ -58,6 +68,7 @@ public class mainPage implements Initializable {
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 		primaryStage.setScene(scene);
 	}
+
 	public void character() throws IOException {
 		Parent par = FXMLLoader.load(getClass().getResource("/user/character.fxml"));
 		Scene scene = new Scene(par);
@@ -72,14 +83,14 @@ public class mainPage implements Initializable {
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
-		
+
 		Parent par = FXMLLoader.load(getClass().getResource("/user/Login.fxml"));
 		Scene scene = new Scene(par);
 		Stage primaryStage = (Stage) gameStart.getScene().getWindow();
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 		primaryStage.setScene(scene);
 	}
-	
+
 	public void explanation() throws IOException {
 		Parent par = FXMLLoader.load(getClass().getResource("/user/explanation.fxml"));
 		Scene scene = new Scene(par);
@@ -87,7 +98,6 @@ public class mainPage implements Initializable {
 		scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 		primaryStage.setScene(scene);
 	}
-	
 
 	// 오프라인으로 변경
 	public void transOffLine() throws UnknownHostException {
@@ -108,7 +118,5 @@ public class mainPage implements Initializable {
 			e.printStackTrace();
 		}
 	}
-
-	
 
 }

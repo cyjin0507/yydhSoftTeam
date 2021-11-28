@@ -23,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import user.mainPage;
 import util.JDBCUtil;
 
 public class gameRequest implements Initializable {
@@ -32,6 +33,7 @@ public class gameRequest implements Initializable {
 		// TODO Auto-generated method stub
 		listUp();
 		listUp2();
+
 	}
 
 	// 친구 리스트 띄우기////////////////////////////////////
