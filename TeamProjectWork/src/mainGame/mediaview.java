@@ -24,46 +24,42 @@ public class mediaview extends gameReady implements Initializable {
 	private MediaView mediaView;
 
 	public static String ending = "";
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		mp = new MediaPlayer(new Media(getClass().getResource("/music/"+ending+".mp4").toString()));
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/" + ending + ".mp4").toString()));
 		mediaView.setMediaPlayer(mp);
 
 		mp.play();
 		mp.setOnEndOfMedia(() -> {
 
 			mp.stop();
-			
-			
-		
-				if(new gameReady().user1media) {
-					Parent par = null;
-					try {
-						par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-					Scene scene = new Scene(par);
-					Stage primaryStage = (Stage) mediaView.getScene().getWindow();
-					scene.getStylesheets()
-							.add(getClass().getResource("/application/application.css").toExternalForm());
-					primaryStage.setScene(scene);
-				} else if(new gameReady().user2media) {
-					Parent par = null;
-					try {
-						par = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					Scene scene = new Scene(par);
-					Stage primaryStage = (Stage) mediaView.getScene().getWindow();
-					scene.getStylesheets()
-							.add(getClass().getResource("/application/application.css").toExternalForm());
-					primaryStage.setScene(scene);
+
+			if (new gameReady().user1media) {
+				Parent par = null;
+				try {
+					par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
+				Scene scene = new Scene(par);
+				Stage primaryStage = (Stage) mediaView.getScene().getWindow();
+				scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+				primaryStage.setScene(scene);
+			} else if (new gameReady().user2media) {
+				Parent par = null;
+				try {
+					par = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				Scene scene = new Scene(par);
+				Stage primaryStage = (Stage) mediaView.getScene().getWindow();
+				scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+				primaryStage.setScene(scene);
+			}
 		});
 	}
-	
 
 }
