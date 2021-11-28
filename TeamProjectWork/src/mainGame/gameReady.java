@@ -24,13 +24,18 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import user.mainPage;
+import user.userController;
 import util.JDBCUtil;
 
 public class gameReady extends gameRequest implements Initializable {
+	public static MediaPlayer mp;
+	Media m = null;
 	@FXML
 	private Button player1Btn;
 	@FXML
@@ -40,14 +45,13 @@ public class gameReady extends gameRequest implements Initializable {
 	private Label user1_name;
 	@FXML
 	private Label user2_name;
-	
+
 	private static String type = null;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		reset();
 		gameRequest rq = new gameRequest();
-		new mainPage().mp.stop();
 		System.out.println(rq.player);
 		if (rq.player) {
 			player1Btn.setVisible(true);
@@ -243,18 +247,29 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
-					if(user1.equals(who())) {
+					if (user1.equals(who())) {
 						user1media = true;
-					}else if(user2.equals(who()))  {
+					} else if (user2.equals(who())) {
 						user2media = true;
 					}
-					
+					new userController().mp.stop();
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/게임_준비.mp3").toString()));
+					Runnable onEnd = new Runnable() {
+						@Override
+						public void run() {
+							mp.dispose();
+							mp = new MediaPlayer(m);
+							mp.play();
+							mp.setOnEndOfMedia(this);
+						}
+					};
+					mp.setOnEndOfMedia(onEnd);
+					mp.play();
 					new mediaview().ending = "인트로";
 					Parent par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));
 					Scene scene = new Scene(par);
 					Stage primaryStage = (Stage) startBtn.getScene().getWindow();
-					scene.getStylesheets()
-							.add(getClass().getResource("/application/application.css").toExternalForm());
+					scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 					primaryStage.setScene(scene);
 
 				} else if (user1.equals(who()) && ready1.equals("accept") && ready2.equals("waitting")) {
@@ -346,7 +361,7 @@ public class gameReady extends gameRequest implements Initializable {
 		ResultSet rs = null;
 		String sql = null;
 		try {
-			sql = "select * from game_info WHERE user1 = '"+ who() +"' OR user2 = '" + who() + "'";
+			sql = "select * from game_info WHERE user1 = '" + who() + "' OR user2 = '" + who() + "'";
 		} catch (UnknownHostException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -358,13 +373,13 @@ public class gameReady extends gameRequest implements Initializable {
 			while (rs.next()) {
 				String user1 = rs.getString("user1");
 				String user2 = rs.getString("user2");
-				if(type.equals("user1")) {
+				if (type.equals("user1")) {
 					user2_name.setText(user2);
-				} else if(type.equals("user2")) {
+				} else if (type.equals("user2")) {
 					user1_name.setText(user1);
 				}
 			}
-		}catch (Exception e) {
+		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}

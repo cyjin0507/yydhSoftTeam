@@ -20,27 +20,11 @@ import javafx.stage.Stage;
 import util.JDBCUtil;
 
 public class mainPage implements Initializable {
-	public static MediaPlayer mp;
-	Media m = null;
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
-		mp = new MediaPlayer(new Media(getClass().getResource("/music/메인화면.mp3").toString()));
-		Runnable onEnd = new Runnable() {
-			@Override
-			public void run() {
-				mp.dispose();
-				mp = new MediaPlayer(m);
-				mp.play();
-				mp.setOnEndOfMedia(this);
-			}
-		};
-		mp.setOnEndOfMedia(onEnd);
-		mp.play();
+	
 	}
-
 	@FXML
 	private Button gameStart;
 
