@@ -17,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import mainGame.gameReady;
 import test.passward;
 import user.sort;
 
@@ -183,9 +184,9 @@ public class MainHoll extends sort implements Initializable {
 			new floor1room.passward().ans = 33;
 			try {
 				Parent root = null;
-				if(sort().equals("user1")) {
+				if(new gameReady().user1media) {
 					root = FXMLLoader.load(getClass().getResource("/gameStart/last1.fxml"));					
-				} else if(sort().equals("user2")) {
+				} else if(new gameReady().user2media) {
 					root = FXMLLoader.load(getClass().getResource("/gameStart/last2.fxml"));					
 				}
 				Scene scene = new Scene(root);
