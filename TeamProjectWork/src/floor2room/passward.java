@@ -150,6 +150,12 @@ public class passward {
 			}
 		}
 	}
+<<<<<<< HEAD
+=======
+	
+
+
+>>>>>>> 67f06aa9ed7025388ddf9e383e2db7ba5a66bba0
 
 	public void enter() {
 		int number = Integer.parseInt(first.getText()) * 1000 + Integer.parseInt(second.getText()) * 100
