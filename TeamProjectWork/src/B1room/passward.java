@@ -1,20 +1,35 @@
-package B1room_item;
+package B1room;
 
 import java.awt.SecondaryLoop;
-import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
 
 public class passward {
-
+//
+//	@FXML
+//	private Button one;
+//	@FXML
+//	private Button two;
+//	@FXML
+//	private Button three;
+//	@FXML
+//	private Button four;
+//	@FXML
+//	private Button five;
+//	@FXML
+//	private Button six;
+//	@FXML
+//	private Button seven;
+//	@FXML
+//	private Button eight;
+//	@FXML
+//	private Button nine;
+//	@FXML
+//	private Button ten;
 	
 	@FXML
 	private Label first; //1000
@@ -26,7 +41,7 @@ public class passward {
 	private Label fourth; //0001
 	
 	private static int current = 1;
-	private static int ans = 8247;
+	private static int ans = 1307;
 	
 	public void zero() {
 		countUp(0);
@@ -116,22 +131,7 @@ public class passward {
 			alert.setHeaderText("성공");
 			alert.setContentText("성공");
 			alert.showAndWait();
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/B1room/storage.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) first.getScene().getWindow();
-				primaryStage.setScene(scene);
-				} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			System.out.println("test");
-		
 		}
-
-		
-		
 	}
 	
 	

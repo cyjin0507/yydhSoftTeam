@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import B1room_item.passward;
 import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -43,7 +42,7 @@ public class storage extends passward implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/B1room_item/passward.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/B1room/passward.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);

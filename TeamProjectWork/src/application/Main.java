@@ -29,8 +29,8 @@ public class Main extends Application {
 //			loader.setLocation(getClass().getResource("/user/Login.fxml"));
 
 //			loader.setLocation(getClass().getResource("/B1room/prison.fxml"));
-//			loader.setLocation(getClass().getResource("/B1room/dataroom.fxml"));
-			loader.setLocation(getClass().getResource("/gameStart/mainhall.fxml"));
+			loader.setLocation(getClass().getResource("/B1room/B1hallway2.fxml"));
+//			loader.setLocation(getClass().getResource("/gameStart/mainhall.fxml"));
 //			loader.setLocation(getClass().getResource("/floor1room/dinnerhall.fxml"));
 //			loader.setLocation(getClass().getResource("/floor2room/powderroom.fxml"));
 //			loader.setLocation(getClass().getResource("/floor3room/powderroom.fxml"));
