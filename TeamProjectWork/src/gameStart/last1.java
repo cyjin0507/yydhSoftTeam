@@ -18,9 +18,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
-import mainGame.gameReady;
 import mainGame.mediaview;
-import mainGame.server;
 import user.sort;
 import util.JDBCUtil;
 
@@ -38,8 +36,6 @@ public class last1 extends sort implements Initializable {
 					Stage primaryStage = (Stage) ans.getScene().getWindow();
 					scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 					primaryStage.setScene(scene);
-					new gameReady().mp.stop();
-					new server().stopServer();
 					gameDelete();
 				} else {
 					Alert alert = new Alert(AlertType.CONFIRMATION);
@@ -54,8 +50,6 @@ public class last1 extends sort implements Initializable {
 						Stage primaryStage = (Stage) ans.getScene().getWindow();
 						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 						primaryStage.setScene(scene);
-						new gameReady().mp.stop();
-						new server().stopServer();
 
 					} else if (result.get() == ButtonType.CANCEL) {
 						Parent root;

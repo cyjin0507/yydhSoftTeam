@@ -25,7 +25,7 @@ public class passward {
 	private Label fourth; //0001
 	
 	private static int current = 1;
-	public static int ans = 0;
+	public static int ans = 1234;
 	
 	public void zero() {
 		countUp(0);
@@ -105,44 +105,7 @@ public class passward {
 		}
 
 	}
-	public void back() {
-		if(ans == 3479) {
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor2room/floor2hallway.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) first.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}else if(ans == 4812) {
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) first.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}else if(ans ==1261) {
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor2room/powderroom.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) first.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-	}
 	
-
-
-
 	public void enter() {
 		int number = Integer.parseInt(first.getText()) * 1000 +Integer.parseInt(second.getText()) * 100 + Integer.parseInt(third.getText()) * 10 + Integer.parseInt(fourth.getText());
 

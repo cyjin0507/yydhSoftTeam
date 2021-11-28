@@ -14,12 +14,12 @@
             <Image url="@../userImage/readyback.png" />
          </image>
       </ImageView>
-      <Label fx:id="user1_name" layoutX="340.0" layoutY="237.0" text="미접속" textFill="#575757">
+      <Label fx:id="user1_name" layoutX="340.0" layoutY="237.0" text="Label" textFill="#575757">
          <font>
             <Font size="43.0" />
          </font>
       </Label>
-      <Label fx:id="user2_name" layoutX="340.0" layoutY="347.0" text="미접속" textFill="#575757">
+      <Label fx:id="user2_name" layoutX="340.0" layoutY="347.0" text="Label" textFill="#575757">
          <font>
             <Font size="43.0" />
          </font>
@@ -49,6 +49,6 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="1081.0" layoutY="32.0" mnemonicParsing="false" onAction="#reset" style="-fx-background-color: white; -fx-border-color: black;" text="새로고침" />
+      <Button layoutX="1081.0" layoutY="32.0" mnemonicParsing="false" style="-fx-background-color: white; -fx-border-color: black;" text="새로고침" />
    </children>
 </AnchorPane>
