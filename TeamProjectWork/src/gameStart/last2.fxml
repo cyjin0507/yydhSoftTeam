@@ -8,25 +8,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gameStart.last2">
    <children>
       <ImageView fitHeight="232.0" fitWidth="601.0" layoutX="66.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../roomImage/last2.png" />
          </image>
       </ImageView>
-      <TextField layoutX="274.0" layoutY="365.0" prefHeight="52.0" prefWidth="218.0" />
+      <TextField fx:id="ans" layoutX="274.0" layoutY="365.0" prefHeight="52.0" prefWidth="218.0" />
       <Label layoutX="163.0" layoutY="365.0" prefHeight="52.0" prefWidth="93.0" text="정답 : ">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Button layoutX="538.0" layoutY="365.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="85.0" style="-fx-background-color: blue;" text="확인" textFill="WHITE">
+      <Button layoutX="538.0" layoutY="365.0" mnemonicParsing="false" onAction="#ans" prefHeight="52.0" prefWidth="85.0" style="-fx-background-color: blue;" text="확인" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </Button>
-      <Button layoutX="736.0" layoutY="14.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: red;" text="X" textFill="WHITE">
+      <Button layoutX="736.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" prefHeight="50.0" prefWidth="50.0" style="-fx-background-color: red;" text="X" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
