@@ -22,6 +22,7 @@ public class bathroom implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		new floor2room.stair().bathroom = true;
 		CharacterMove move = new CharacterMove();
 		move.sprite(imageView);
 		imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {

@@ -33,9 +33,9 @@ public class Main extends Application {
 //			loader.setLocation(getClass().getResource("/B1room/B1hallway2.fxml"));
 //			loader.setLocation(getClass().getResource("/gameStart/mainhall.fxml"));
 //			loader.setLocation(getClass().getResource("/floor1room/library.fxml"));
-//			loader.setLocation(getClass().getResource("/floor2room/powderroom.fxml"));
+			loader.setLocation(getClass().getResource("/floor2room/stair.fxml"));
 //			loader.setLocation(getClass().getResource("/floor2room/bathroom.fxml"));
-			loader.setLocation(getClass().getResource("/test/mediaview.fxml"));
+//			loader.setLocation(getClass().getResource("/test/mediaview.fxml"));
 			AnchorPane root = (AnchorPane)loader.load();
 			Scene scene = new Scene(root,1200,800);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

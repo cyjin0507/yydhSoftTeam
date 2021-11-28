@@ -44,7 +44,6 @@ public class gameReady extends gameRequest implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		gameRequest rq = new gameRequest();
-		new mainPage().mp.stop();
 		System.out.println(rq.player);
 		if (rq.player) {
 			player1Btn.setVisible(true);

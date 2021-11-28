@@ -82,7 +82,7 @@ public class stair implements Initializable {
 	static boolean floor2hallway = false;
 	static boolean bedroom = false;
 	static boolean study = false;
-
+	public static boolean bathroom = false;
 	public static int getX;
 	public static int getY;
 
@@ -125,13 +125,8 @@ public class stair implements Initializable {
 		int y = (int) imageView.getY();
 		// 아래 계단
 		if ((x == 260) && (y >= 60) && (y <= 100)) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("결계");
-			alert.setHeaderText("결계");
-			alert.setContentText("결계가 있어서 못내려간다");
-			alert.showAndWait();
 			//마지막에 열리기
-			if(false) {
+			if(bathroom) {
 				getX = x;
 				getY = y;
 				mainhall1 = true;
@@ -144,16 +139,18 @@ public class stair implements Initializable {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+			}else {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("결계");
+				alert.setHeaderText("결계");
+				alert.setContentText("결계가 있어서 못내려간다");
+				alert.showAndWait();
 			}
 		}
 		if ((x == 840) && (y >= 60) && (y <= 100)) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("결계");
-			alert.setHeaderText("결계");
-			alert.setContentText("결계가 있어서 못내려간다");
-			alert.showAndWait();
+			
 			//마지막에 열리기
-			if(false) {
+			if(bathroom) {
 				getX = x;
 				getY = y;
 				mainhall1 = true;
@@ -166,6 +163,12 @@ public class stair implements Initializable {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+			}else {
+				Alert alert = new Alert(AlertType.INFORMATION);
+				alert.setTitle("결계");
+				alert.setHeaderText("결계");
+				alert.setContentText("결계가 있어서 못내려간다");
+				alert.showAndWait();
 			}
 		}
 		// 위 계단
@@ -177,7 +180,7 @@ public class stair implements Initializable {
 			stair1 = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor3room/passward.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor2room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
@@ -192,7 +195,7 @@ public class stair implements Initializable {
 			stair2 = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor3room/passward.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor2room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
