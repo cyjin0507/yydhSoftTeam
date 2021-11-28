@@ -126,6 +126,19 @@ public class passward {
 		}
 
 	}
+	public void back() {
+		if(ans == 3526) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor1room/library.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) first.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 	
 	public void enter() {
 		int number = Integer.parseInt(first.getText()) * 1000 +Integer.parseInt(second.getText()) * 100 + Integer.parseInt(third.getText()) * 10 + Integer.parseInt(fourth.getText());
