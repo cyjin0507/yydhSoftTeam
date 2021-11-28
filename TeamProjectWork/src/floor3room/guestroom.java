@@ -100,7 +100,7 @@ public class guestroom implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		
+
 		if ((x == 270) && (y >= 60) && (y <= 100)) {
 			if (y == 60) {
 				return "rightup";
@@ -146,12 +146,14 @@ public class guestroom implements Initializable {
 			}
 		}
 		if ((y == 60) && (x >= 20) && (x <= 60)) {
+			new floor3room.passward().ans = 6573;
+
 			getX = x;
 			getY = y;
 			powderroom = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor3room/powderroom.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor3room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);

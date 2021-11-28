@@ -78,12 +78,13 @@ public class floor2hallway implements Initializable {
 			}
 		}
 		if ((y == 640) && (x >= 460) && (x <= 620)) {
+			new floor2room.passward().ans = 3479;
 			getX = x;
 			getY = y;
 			drawingroom = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor2room/drawingroom.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor2room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
@@ -91,25 +92,6 @@ public class floor2hallway implements Initializable {
 				e.printStackTrace();
 			}
 		}
-		// 스페이스 바 이벤트
-		if ((y == 130) && (x >= 260) && (x <= 370)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/btngame/MainLayout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
-		}
+		
 	}
 }
