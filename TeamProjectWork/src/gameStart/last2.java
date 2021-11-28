@@ -25,12 +25,7 @@ public class last2 extends sort implements Initializable {
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		try {
-			System.out.println(check());
-		} catch (UnknownHostException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+
 		if (check.equals("yes")) {
 			try {
 				if (check()) {

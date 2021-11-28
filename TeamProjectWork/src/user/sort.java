@@ -103,7 +103,22 @@ public class sort {
 	
 	//game_info 데베 삭제
 	public void gameDelete() throws UnknownHostException {
-		
+		if(sort().equals("user1")) {
+			JDBCUtil db = new JDBCUtil();
+			Connection con = db.getConnection();
+
+			PreparedStatement pstmt = null;
+
+			String sql = "DELETE FROM game_ready WHERE user1 = '" + who() + "'";
+
+			try {
+				pstmt = con.prepareStatement(sql);
+
+				pstmt.executeUpdate();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+		}
 	}
 	
 	
