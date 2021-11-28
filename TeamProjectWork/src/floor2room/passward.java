@@ -25,7 +25,7 @@ public class passward {
 	private Label fourth; //0001
 	
 	private static int current = 1;
-	public static int ans = 1234;
+	public static int ans = 0;
 	
 	public void zero() {
 		countUp(0);
@@ -104,6 +104,39 @@ public class passward {
 			current--;
 		}
 
+	}
+	public void back() {
+		if(ans == 3479) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor2room/floor2hallway.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) first.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else if(ans == 4812) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) first.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}else if(ans ==1261) {
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor2room/powderroom.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) first.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	public void enter() {

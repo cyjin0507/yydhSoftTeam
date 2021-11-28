@@ -31,9 +31,10 @@ public class mediaview extends gameReady implements Initializable {
 
 		mp.play();
 		mp.setOnEndOfMedia(() -> {
+			System.out.println("testddddd");
 			mp.stop();
 			
-
+			
 			try {
 				if(sorting().equals("user1")) {
 					Parent par = null;

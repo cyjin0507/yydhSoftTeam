@@ -177,7 +177,7 @@ public class stair implements Initializable {
 			stair1 = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor3room/passward.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor2room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
@@ -192,7 +192,7 @@ public class stair implements Initializable {
 			stair2 = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor3room/passward.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor2room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
