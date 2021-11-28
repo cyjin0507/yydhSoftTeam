@@ -30,6 +30,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import user.mainPage;
+import user.userController;
 import util.JDBCUtil;
 
 public class gameReady extends gameRequest implements Initializable {
@@ -240,6 +241,7 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
+					new userController().mp.stop();
 					mp = new MediaPlayer(new Media(getClass().getResource("/music/게임_준비.mp3").toString()));
 					mp.play();
 					if (user1.equals(who())) {
