@@ -11,10 +11,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import test.passward;
 
 public class MainHoll implements Initializable {
 	@FXML
@@ -34,18 +37,18 @@ public class MainHoll implements Initializable {
 		});
 		move.stop(imageView);
 		if (library) {
-			imageView.setX(getX +10);
+			imageView.setX(getX + 10);
 			imageView.setY(getY);
 			library = false;
 		}
 		if (dinnerhall) {
-			imageView.setX(getX -10);
+			imageView.setX(getX - 10);
 			imageView.setY(getY);
 			dinnerhall = false;
 		}
 		if (stair) {
 			imageView.setX(getX);
-			imageView.setY(getY +10);
+			imageView.setY(getY + 10);
 			stair = false;
 		}
 		if (new floor1room.library().mainhall) {
@@ -142,18 +145,10 @@ public class MainHoll implements Initializable {
 		int y = (int) imageView.getY();
 
 		if ((y == 60) && (x >= 490) && (x <= 610)) {
-			getX = x;
-			getY = y;
-			stair = true;
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor2room/stair.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("닫힘");
+			alert.setContentText("결계가 쳐져있다");
+			alert.show();
 		}
 		if ((x == 40) && (y >= 80) && (y <= 140)) {
 			getX = x;
@@ -182,6 +177,19 @@ public class MainHoll implements Initializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+		}
+		if ((y == 640) && (x >= 450) && (y <= 650)) {
+			new floor1room.passward().ans = 33;
+			try {
+				Parent root;
+				root = FXMLLoader.load(getClass().getResource("/floor1room/passward.fxml"));
+				Scene scene = new Scene(root);
+				Stage primaryStage = (Stage) imageView.getScene().getWindow();
+				primaryStage.setScene(scene);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			// 마지막 넘어가는거
 		}
 
 	}

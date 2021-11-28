@@ -9,10 +9,10 @@
    <children>
       <ImageView fx:id="safe" fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@safebefore.png" />
+            <Image url="@safeafter.png" />
          </image>
       </ImageView>
       <Button fx:id="btn" layoutX="566.0" layoutY="744.0" mnemonicParsing="false" onAction="#storage" style="-fx-background-color: white; -fx-opacity: .5;" text="뒤로가기" textFill="GREY" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="687.0" layoutY="358.0" onMouseClicked="#safe" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="150.0" fitWidth="88.0" layoutX="747.0" layoutY="534.0" onMouseClicked="#safe" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

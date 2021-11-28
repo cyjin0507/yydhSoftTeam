@@ -1,41 +1,15 @@
-package B1room;
+package floor2room;
 
 import java.awt.SecondaryLoop;
-import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
-import javafx.stage.Stage;
 
 public class passward {
-//
-//	@FXML
-//	private Button one;
-//	@FXML
-//	private Button two;
-//	@FXML
-//	private Button three;
-//	@FXML
-//	private Button four;
-//	@FXML
-//	private Button five;
-//	@FXML
-//	private Button six;
-//	@FXML
-//	private Button seven;
-//	@FXML
-//	private Button eight;
-//	@FXML
-//	private Button nine;
-//	@FXML
-//	private Button ten;
-	
+
 	@FXML
 	private Label first; //1000
 	@FXML
@@ -46,7 +20,7 @@ public class passward {
 	private Label fourth; //0001
 	
 	private static int current = 1;
-	private static int ans = 1307;
+	private static int ans = 1234;
 	
 	public void zero() {
 		countUp(0);
@@ -131,15 +105,11 @@ public class passward {
 		int number = Integer.parseInt(first.getText()) * 1000 +Integer.parseInt(second.getText()) * 100 + Integer.parseInt(third.getText()) * 10 + Integer.parseInt(fourth.getText());
 
 		if(ans == number) {
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/B1room_item/safe.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) first.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("성공");
+			alert.setHeaderText("성공");
+			alert.setContentText("성공");
+			alert.showAndWait();
 		}
 	}
 	

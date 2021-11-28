@@ -1,4 +1,4 @@
-package B1room;
+package floor1room;
 
 import java.awt.SecondaryLoop;
 import java.io.IOException;
@@ -46,7 +46,7 @@ public class passward {
 	private Label fourth; //0001
 	
 	private static int current = 1;
-	private static int ans = 1307;
+	public static int ans = 1234;
 	
 	public void zero() {
 		countUp(0);
@@ -131,15 +131,20 @@ public class passward {
 		int number = Integer.parseInt(first.getText()) * 1000 +Integer.parseInt(second.getText()) * 100 + Integer.parseInt(third.getText()) * 10 + Integer.parseInt(fourth.getText());
 
 		if(ans == number) {
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/B1room_item/safe.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) first.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
+			if(ans == 33) {
+				//탈출
+			}else if(ans ==3526) {
+				try {
+					Parent root;
+					root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) first.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
+			
 		}
 	}
 	

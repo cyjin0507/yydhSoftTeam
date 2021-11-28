@@ -21,7 +21,7 @@ public class f3item {
 	@FXML
 	private ImageView stove;
 
-	static boolean paperbool = false;
+	public static boolean paperbool = false;
 
 	public void dressroom() {
 		try {

@@ -307,12 +307,13 @@ public class library implements Initializable {
 		int y = (int) imageView.getY();
 
 		if ((y == 60) && (x >= 530) && (x <= 570)) {
+			new floor1room.passward().ans = 3526;
 			getX = x;
 			getY = y;
 			mainhall = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor1room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);

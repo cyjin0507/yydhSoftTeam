@@ -19,6 +19,8 @@ public class B1item {
 	private ImageView safe;
 	@FXML
 	private ImageView book;
+
+	public static boolean safebool = false;
 	
 	public void storage() {
 		try {
@@ -31,6 +33,7 @@ public class B1item {
 			e.printStackTrace();
 		}
 	}
+
 	public void prison() {
 		try {
 			Parent root;
@@ -38,10 +41,11 @@ public class B1item {
 			Scene scene = new Scene(root);
 			Stage primaryStage = (Stage) btn.getScene().getWindow();
 			primaryStage.setScene(scene);
-			} catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	public void dataroom() {
 		try {
 			Parent root;
@@ -49,26 +53,29 @@ public class B1item {
 			Scene scene = new Scene(root);
 			Stage primaryStage = (Stage) btn.getScene().getWindow();
 			primaryStage.setScene(scene);
-			} catch (IOException e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+
 	public void safe(MouseEvent e) {
-//		비번추가
-		safe.setImage(new Image("/B1room_item/safeafter.png"));
+		safebool = true;
 	}
 
 	public void bookcase1(MouseEvent e) {
 		book.setImage(new Image("/B1room_item/bookcase1.png"));
 	}
+
 	public void bookcase2(MouseEvent e) {
 		book.setImage(new Image("/B1room_item/bookcase2.png"));
 	}
+
 	public void bookcase3(MouseEvent e) {
 		book.setImage(new Image("/B1room_item/bookcase3.png"));
 	}
+
 	public void bookcase4(MouseEvent e) {
 		book.setImage(new Image("/B1room_item/bookcase4.png"));
 	}
-	
+
 }
