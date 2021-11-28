@@ -102,8 +102,34 @@ public class sort {
 	}
 	
 	//game_info 데베 삭제
-	public void gameDelete() {
+	public void gameDelete() throws UnknownHostException {
 		
+	}
+	
+	
+	//게임 둘다 성공했는지 확인
+	public boolean check() throws UnknownHostException {
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
+
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from game_info WHERE user1 = '"+ who() +"' OR user2 = '" + who() + "'";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String escape1 = rs.getString("escape1");
+				String escape2 = rs.getString("escape2");
+				if(escape1.equals("") || escape2.equals("")) {
+					return false;
+				}
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return true;
 	}
 	
 	
