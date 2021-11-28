@@ -33,12 +33,7 @@ public class mediaview extends gameReady implements Initializable {
 		mp.setOnEndOfMedia(() -> {
 			mp.stop();
 			
-			try {
-				System.out.println(sorting());
-			} catch (UnknownHostException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+
 			try {
 				if(sorting().equals("user1")) {
 					Parent par = null;
