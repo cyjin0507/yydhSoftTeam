@@ -29,6 +29,10 @@ public class f2item {
 	private ImageView grass;
 
 	public static boolean key = false;
+	static boolean hat = false;
+	static boolean dust = false;
+	public static boolean oil = false;
+	public static boolean handkerchief = false;
 
 	public void drawingroom() {
 		try {
@@ -141,25 +145,28 @@ public class f2item {
 	public void grass(MouseEvent e) {
 		key = true;
 		grass.setImage(new Image("/floor2room_item/grassafter.png"));
-	
+
 		Alert alert = new Alert(AlertType.INFORMATION);
 		alert.setTitle("열쇠획득");
 		alert.setHeaderText("");
 		alert.setContentText("열쇠를 획득했다");
 		alert.showAndWait();
-	
+
 	}
 
 	public void oil(MouseEvent e) {
-		
+		oil = true;
 	}
 
 	public void handkerchief(MouseEvent e) {
-
+		handkerchief = true;
 	}
 
 	public void bathroomMirror(MouseEvent e) {
-		mirrorbath.setImage(new Image("/floor2room_item/mirrorafterBathroom.png"));
+		if (handkerchief) {
+			mirrorbath.setImage(new Image("/floor2room_item/mirrorafterBathroom.png"));
+		}
+
 	}
 
 	public void bear(MouseEvent e) {
@@ -191,20 +198,24 @@ public class f2item {
 	}
 
 	public void gun(MouseEvent e) {
-
+		hat = true;
 	}
 
 	public void mirrordress(MouseEvent e) {
-		// 총을 가져오면 되게
-		mirrordress.setImage(new Image("/floor2room_item/mirrorafterdress.png"));
+		if (hat) {
+			mirrordress.setImage(new Image("/floor2room_item/mirrorafterdress.png"));
+		}
+
 	}
 
 	public void table(MouseEvent e) {
-		// 먼지 가져오면 되게
-		table.setImage(new Image("/floor2room_item/tableafter.png"));
+		if (dust) {
+			table.setImage(new Image("/floor2room_item/tableafter.png"));
+		}
 	}
 
 	public void dust(MouseEvent e) {
-
+		dust = true;
 	}
+
 }

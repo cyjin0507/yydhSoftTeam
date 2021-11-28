@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import floor2room_item.f2item;
 import gameStart.CharacterMove;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -169,18 +170,20 @@ public class powderroom implements Initializable {
 			}
 		}
 		if ((x == 260) && (y <= 380) && (y >= 210)) {
-			getX = x;
-			getY = y;
-			bathroom = true;
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor2room/bathroom.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			if(new f2item().oil) {
+				getX = x;
+				getY = y;
+				bathroom = true;
+				try {
+					Parent root;
+					root = FXMLLoader.load(getClass().getResource("/floor2room/bathroom.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) imageView.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}		
 		}
 		if ((x == 840) && (y <= 380) && (y >= 210)) {
 			getX = x;

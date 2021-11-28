@@ -30,12 +30,36 @@ public class bathroom implements Initializable {
 			public void handle(KeyEvent event) {
 				move.pressed(event, setStopPoint(), imageView);
 				event();
+				KeyCode keyCode = event.getCode();
+				if (keyCode.equals(KeyCode.SPACE)) {
+					int x = (int) imageView.getX();
+					int y = (int) imageView.getY();
+					if ((y == 130) && (x >= 230) && (x <= 330)) {
+						getX = x;
+						getY = y;
+						mirror = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/mirrorbeforebath.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
+				}
 			}
 		});
+
 		move.stop(imageView);
 
 	}
+	static boolean mirror = false;
 
+	public static int getX;
+	public static int getY;
 	public String setStopPoint() {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
@@ -77,8 +101,8 @@ public class bathroom implements Initializable {
 
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		
-		if((y ==620)&&(x >= 470)&&(x <=620)) {
+
+		if ((y == 620) && (x >= 470) && (x <= 620)) {
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/powderroom.fxml"));
@@ -88,26 +112,6 @@ public class bathroom implements Initializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-
-		if ((y == 120) && (x <= 100) && (x >= 40)) {
-			imageView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-				@Override
-				public void handle(KeyEvent event) {
-					KeyCode keyCode = event.getCode();
-					if (keyCode.equals(KeyCode.SPACE)) {
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/pipegame/layout.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//						} catch (IOException e) {
-//							e.printStackTrace();
-//						}
-					}
-				}
-			});
 		}
 
 	}

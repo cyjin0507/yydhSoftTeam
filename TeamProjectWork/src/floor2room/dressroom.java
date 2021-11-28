@@ -91,6 +91,20 @@ public class dressroom implements Initializable {
 							e.printStackTrace();
 						}
 					}
+					if((x == 30) && (y >= 280) && (y <= 330)){
+						getX = x;
+						getY = y;
+						mirror = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/mirrorbeforedress.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}
 				}
 			}
 		});
@@ -115,13 +129,18 @@ public class dressroom implements Initializable {
 			imageView.setY(getY);
 			closet4 = false;
 		}
-
+		if (mirror) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			mirror = false;
+		}
 	}
 
 	static boolean closet1 = false;
 	static boolean closet2 = false;
 	static boolean closet3 = false;
 	static boolean closet4 = false;
+	static boolean mirror = false;
 
 	public static int getX;
 	public static int getY;
@@ -130,7 +149,6 @@ public class dressroom implements Initializable {
 		CharacterMove move = new CharacterMove();
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
-		System.out.println(x + "," + y);
 
 //		위랑 아래 막기
 		if ((y == 110) && (x >= -10) && (x <= 1110)) {
@@ -172,7 +190,7 @@ public class dressroom implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 
-		if ((y == 460) && (x >= 930) && (x <= 1060)) {
+		if ((y == 450) && (x >= 930) && (x <= 1060)) {
 			try {
 				Parent root;
 				root = FXMLLoader.load(getClass().getResource("/floor2room/powderroom.fxml"));

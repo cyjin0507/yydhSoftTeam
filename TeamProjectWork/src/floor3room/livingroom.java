@@ -115,6 +115,12 @@ public class livingroom implements Initializable {
 			}
 			return "up";
 		}
+		if((x ==250)&&(y >= 60)&&(y <= 90)) {
+			if(y ==60) {
+				return "leftup";
+			}
+			return "left";
+		}
 		//서랍
 		if((x == 850)&&(y >= 60)&&( y <=80)) {
 			if(y == 60) {

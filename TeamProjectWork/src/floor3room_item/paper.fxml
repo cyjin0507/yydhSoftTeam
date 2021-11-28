@@ -7,12 +7,12 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="floor3room_item.f3item">
    <children>
-      <ImageView fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="paper" fitHeight="800.0" fitWidth="1200.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@paper.png" />
          </image>
       </ImageView>
       <Button fx:id="btn" layoutX="566.0" layoutY="744.0" mnemonicParsing="false" onAction="#livingroom" style="-fx-background-color: white; -fx-opacity: .5;" text="뒤로가기" textFill="GREY" />
-      <ImageView fitHeight="99.0" fitWidth="157.0" layoutX="454.0" layoutY="406.0" pickOnBounds="true" preserveRatio="true" rotate="-159.2" />
+      <ImageView fitHeight="568.0" fitWidth="431.0" layoutX="380.0" layoutY="143.0" onMouseClicked="#paper" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

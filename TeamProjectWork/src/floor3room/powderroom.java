@@ -35,7 +35,7 @@ public class powderroom implements Initializable {
 				if (keyCode.equals(KeyCode.SPACE)) {
 					int x = (int) imageView.getX();
 					int y = (int) imageView.getY();
-					if ((y == 580) && (x >= 680) && (x <= 780)) {
+					if ((y == 580) && (x >= 470) && (x <= 630)) {
 						getX = x;
 						getY = y;
 						mirror = true;
@@ -48,7 +48,7 @@ public class powderroom implements Initializable {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
-					} else if ((y == 580) && (x >= 470) && (x <= 630)) {
+					} else if ((y == 580) && (x >= 680) && (x <= 780)) {
 						getX = x;
 						getY = y;
 						leftcosmetic = true;
@@ -68,6 +68,19 @@ public class powderroom implements Initializable {
 						try {
 							Parent root;
 							root = FXMLLoader.load(getClass().getResource("/floor3room_item/cosmeticright.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					} else if ((y == 60) && (x >= 710) && (x <= 730)) {
+						getX = x;
+						getY = y;
+						lantern = true;
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor3room_item/lantern.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -109,6 +122,11 @@ public class powderroom implements Initializable {
 			imageView.setY(getY);
 			rightcosmetic = false;
 		}
+		if (lantern) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			lantern = false;
+		}
 	}
 
 	static boolean dressroom = false;
@@ -117,6 +135,7 @@ public class powderroom implements Initializable {
 	static boolean mirror = false;
 	static boolean leftcosmetic = false;
 	static boolean rightcosmetic = false;
+	static boolean lantern = false;
 
 	public static int getX;
 	public static int getY;
