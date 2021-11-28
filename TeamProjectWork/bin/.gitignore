@@ -1,13 +1,17 @@
 /B1room/
+/B1room_furniture/
 /B1room_item/
 /application/
 /btngame/
 /findHiddenObject/
 /floor1room/
+/floor1room_furniture/
 /floor1room_item/
 /floor2room/
+/floor2room_furniture/
 /floor2room_item/
 /floor3room/
+/floor3room_furniture/
 /floor3room_item/
 /gameStart/
 /lib/
@@ -22,7 +26,3 @@
 /user/
 /userImage/
 /util/
-/floor1room_furniture/
-/floor2room_furniture/
-/floor3room_furniture/
-/B1room_furniture/
