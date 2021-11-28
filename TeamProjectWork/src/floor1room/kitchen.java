@@ -40,28 +40,28 @@ public class kitchen implements Initializable {
 						getY = y;
 						choppingBoard = true;
 
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test2.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//							} catch (IOException e) {
-//							e.printStackTrace();
-//						}
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/choppingBoard.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+							} catch (IOException e) {
+							e.printStackTrace();
+						}
 					}else if ((x == 665) && (y >= 430) && (y <= 480)) {
 						getX = x;
 						getY = y;
 						table = true;
-//						try {
-//							Parent root;
-//							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test2.fxml"));
-//							Scene scene = new Scene(root);
-//							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-//							primaryStage.setScene(scene);
-//							} catch (IOException e) {
-//							e.printStackTrace();
-//						}
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/table.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					}
 
 				}

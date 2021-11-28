@@ -82,6 +82,18 @@ public class f3item {
 			e.printStackTrace();
 		}
 	}
+	
+	public void bathroom() {
+		try {
+			Parent root;
+			root = FXMLLoader.load(getClass().getResource("/floor3room/bathroom.fxml"));
+			Scene scene = new Scene(root);
+			Stage primaryStage = (Stage) btn.getScene().getWindow();
+			primaryStage.setScene(scene);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public void bedbottom(MouseEvent e) {
 		try {

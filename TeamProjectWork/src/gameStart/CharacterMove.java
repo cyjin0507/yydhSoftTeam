@@ -219,24 +219,24 @@ public class CharacterMove implements Initializable {
 	public String smallframe(int x, int y) {
 //		전체 배경 안빠져나가게
 		if (y <= 120) {
-			if (x <= 0) {
+			if (x <= 260) {
 				return "leftup";
 			}
-			if (x >= 600) {
+			if (x >= 840) {
 				return "rightup";
 			}
 			return "up";
 		} else if (y >= 620) {
-			if (x <= 0) {
+			if (x <= 260) {
 				return "leftdown";
 			}
-			if (x >= 600) {
+			if (x >= 840) {
 				return "rightdown";
 			}
 			return "down";
-		} else if (x <= 0) {
+		} else if (x <= 260) {
 			return "left";
-		} else if (x >= 600) {
+		} else if (x >= 840) {
 			return "right";
 		}
 		return "";

@@ -34,7 +34,7 @@ public class bathroom implements Initializable {
 				if (keyCode.equals(KeyCode.SPACE)) {
 					int x = (int) imageView.getX();
 					int y = (int) imageView.getY();
-					if ((y == 130) && (x >= 230) && (x <= 330)) {
+					if((y == 160) && (x >= 480) && (x <= 580)) {
 						getX = x;
 						getY = y;
 						mirror = true;
@@ -48,15 +48,59 @@ public class bathroom implements Initializable {
 						} catch (IOException e) {
 							e.printStackTrace();
 						}
+					}else if ((x <= 830) && (y == 210) && (x >= 690)) {
+						getX = x;
+						getY = y;
+						toilet = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/toilet.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
+					}else if  ((x <= 340) && (y == 120) && (x >= 300)) {
+						getX = x;
+						getY = y;
+						shower = true;
+
+						try {
+							Parent root;
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/shower.fxml"));
+							Scene scene = new Scene(root);
+							Stage primaryStage = (Stage) imageView.getScene().getWindow();
+							primaryStage.setScene(scene);
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					}
 				}
 			}
 		});
 
 		move.stop(imageView);
-
+		if (mirror) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			mirror = false;
+		}
+		if (toilet) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			toilet = false;
+		}
+		if (shower) {
+			imageView.setX(getX);
+			imageView.setY(getY);
+			shower = false;
+		}
 	}
 	static boolean mirror = false;
+	static boolean toilet = false;
+	static boolean shower = false;
 
 	public static int getX;
 	public static int getY;
@@ -65,36 +109,37 @@ public class bathroom implements Initializable {
 		int x = (int) imageView.getX();
 		int y = (int) imageView.getY();
 
-		// 세면대
-		if ((x == 220) && (y >= 100) && (y <= 120)) {
+
+//		 세면대
+		if ((x == 470) && (y >= 100) && (y <= 150)) {
 			if (y >= 100) {
 				return "rightup";
 			}
 			return "right";
-		} else if ((y == 130) && (x >= 230) && (x <= 330)) {
+		} else if ((y == 160) && (x >= 480) && (x <= 580)) {
 			return "up";
-		} else if ((x == 340) && (y >= 100) && (y <= 120)) {
+		} else if ((x == 590) && (y >= 100) && (y <= 120)) {
 			if (y == 100) {
 				return "leftup";
 			}
 			return "left";
 		}
 		// 변기
-		if ((x == 600) && (y >= 100) && (y <= 160)) {
-			if (y == 100) {
+		if ((x == 840) && (y >= 120) && (y <= 200)) {
+			if (y == 120) {
 				return "leftup";
 			}
 			return "left";
-		} else if ((x <= 590) && (y == 170) && (x >= 440)) {
+		} else if ((x <= 830) && (y == 210) && (x >= 690)) {
 			return "up";
-		} else if ((x == 430) && (y >= 100) && (y <= 160)) {
-			if (y == 100) {
+		} else if ((x == 680) && (y >= 100) && (y <= 200)) {
+			if (y == 120) {
 				return "rightup";
 			}
 			return "right";
-		} else {
-			return move.smallframe(x, y);
 		}
+			return move.smallframe(x, y);
+
 	}
 
 	public void event() {
