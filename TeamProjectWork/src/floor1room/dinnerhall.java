@@ -42,7 +42,7 @@ public class dinnerhall implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test3.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/food.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -55,7 +55,7 @@ public class dinnerhall implements Initializable {
 						picture = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test3.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/picture.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);

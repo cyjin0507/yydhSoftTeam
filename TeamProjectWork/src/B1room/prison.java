@@ -61,7 +61,7 @@ public class prison implements Initializable {
 						toilet = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/B1room_item/test2.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/B1room_item/toilet.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -75,7 +75,7 @@ public class prison implements Initializable {
 						bed = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/B1room_item/test2.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/B1room_item/bed.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);

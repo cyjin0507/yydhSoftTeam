@@ -41,7 +41,7 @@ public class powderroom implements Initializable {
 						mirror = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor2room_item/test2.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/powdermirror.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -54,7 +54,7 @@ public class powderroom implements Initializable {
 						leftcosmetic = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor2room_item/test2.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/cosmeticleft.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -67,7 +67,7 @@ public class powderroom implements Initializable {
 						rightcosmetic = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor2room_item/test2.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/cosmeticright.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);

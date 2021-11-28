@@ -58,7 +58,7 @@ public class storage extends passward implements Initializable {
 						broom = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/B1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/B1room_item/broom.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -73,7 +73,7 @@ public class storage extends passward implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/B1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/B1room_item/frame.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);

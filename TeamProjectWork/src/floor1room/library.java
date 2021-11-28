@@ -44,7 +44,7 @@ public class library implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase1.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -57,7 +57,7 @@ public class library implements Initializable {
 						bookcase2 = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase2.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -71,21 +71,7 @@ public class library implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test.fxml"));
-							Scene scene = new Scene(root);
-							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-							primaryStage.setScene(scene);
-							} catch (IOException e) {
-							e.printStackTrace();
-						}
-					}else if ((y == 470) && (x >= 220) && (x <= 300)) {
-						getX = x;
-						getY = y;
-						bookcase4 = true;
-
-						try {
-							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase3.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -95,25 +81,11 @@ public class library implements Initializable {
 					}else if ((y == 470) && (x >= 520) && (x <= 600)) {
 						getX = x;
 						getY = y;
-						bookcase5 = true;
+						bookcase4 = true;
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test.fxml"));
-							Scene scene = new Scene(root);
-							Stage primaryStage = (Stage) imageView.getScene().getWindow();
-							primaryStage.setScene(scene);
-							} catch (IOException e) {
-							e.printStackTrace();
-						}
-					}else if ((y == 470) && (x >= 920) && (x <= 1000)) {
-						getX = x;
-						getY = y;
-						bookcase6 = true;
-
-						try {
-							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/bookcase5.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -127,7 +99,7 @@ public class library implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book1.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -141,7 +113,7 @@ public class library implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book2.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -155,7 +127,7 @@ public class library implements Initializable {
 
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor1room_item/test.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor1room_item/book3.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -201,14 +173,6 @@ public class library implements Initializable {
 			imageView.setX(getX);
 			imageView.setY(getY);
 			bookcase4 = false;
-		}else if (bookcase5) {
-			imageView.setX(getX);
-			imageView.setY(getY);
-			bookcase5 = false;
-		}else if (bookcase6) {
-			imageView.setX(getX);
-			imageView.setY(getY);
-			bookcase6 = false;
 		}else if (book1) {
 			imageView.setX(getX);
 			imageView.setY(getY);

@@ -101,7 +101,7 @@ public class study implements Initializable {
 						desk = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor2room_item/desk.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/studymail.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);
@@ -115,7 +115,7 @@ public class study implements Initializable {
 						grass = true;
 						try {
 							Parent root;
-							root = FXMLLoader.load(getClass().getResource("/floor2room_item/flowerpot.fxml"));
+							root = FXMLLoader.load(getClass().getResource("/floor2room_item/grass.fxml"));
 							Scene scene = new Scene(root);
 							Stage primaryStage = (Stage) imageView.getScene().getWindow();
 							primaryStage.setScene(scene);

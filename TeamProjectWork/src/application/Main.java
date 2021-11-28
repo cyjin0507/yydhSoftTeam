@@ -26,12 +26,12 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/user/Login.fxml"));
+//			loader.setLocation(getClass().getResource("/user/Login.fxml"));
 
-			loader.setLocation(getClass().getResource("/B1room/prison.fxml"));
+//			loader.setLocation(getClass().getResource("/B1room/prison.fxml"));
 //			loader.setLocation(getClass().getResource("/gameStart/mainhall.fxml"));
 //			loader.setLocation(getClass().getResource("/floor1room/library.fxml"));
-//			loader.setLocation(getClass().getResource("/floor2room/study.fxml"));
+			loader.setLocation(getClass().getResource("/floor2room/bedroom.fxml"));
 //			loader.setLocation(getClass().getResource("/floor3room/livingroom.fxml"));
 //			loader.setLocation(getClass().getResource("/test/passward.fxml"));
 			AnchorPane root = (AnchorPane)loader.load();
