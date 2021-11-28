@@ -188,12 +188,14 @@ public class powderroom implements Initializable {
 			}
 		}
 		if ((x == 260) && (y <= 380) && (y >= 210)) {
+			new floor3room.passward().ans = 1468;
+
 			getX = x;
 			getY = y;
 			bathroom = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor3room/bathroom.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor3room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);

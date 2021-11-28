@@ -125,41 +125,59 @@ public class stair implements Initializable {
 		int y = (int) imageView.getY();
 		// 아래 계단
 		if ((x == 260) && (y >= 60) && (y <= 100)) {
-			getX = x;
-			getY = y;
-			mainhall1 = true;
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("결계");
+			alert.setHeaderText("결계");
+			alert.setContentText("결계가 있어서 못내려간다");
+			alert.showAndWait();
+			//마지막에 열리기
+			if(false) {
+				getX = x;
+				getY = y;
+				mainhall1 = true;
+				try {
+					Parent root;
+					root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) imageView.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		if ((x == 840) && (y >= 60) && (y <= 100)) {
-			getX = x;
-			getY = y;
-			mainhall2 = true;
-			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
-				Scene scene = new Scene(root);
-				Stage primaryStage = (Stage) imageView.getScene().getWindow();
-				primaryStage.setScene(scene);
-			} catch (IOException e) {
-				e.printStackTrace();
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("결계");
+			alert.setHeaderText("결계");
+			alert.setContentText("결계가 있어서 못내려간다");
+			alert.showAndWait();
+			//마지막에 열리기
+			if(false) {
+				getX = x;
+				getY = y;
+				mainhall1 = true;
+				try {
+					Parent root;
+					root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
+					Scene scene = new Scene(root);
+					Stage primaryStage = (Stage) imageView.getScene().getWindow();
+					primaryStage.setScene(scene);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		// 위 계단
 		if ((x == 190) && (y >= 110) && (y <= 220)) {
+			new floor2room.passward().ans = 4812;
+
 			getX = x;
 			getY = y;
 			stair1 = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor3room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
@@ -168,12 +186,13 @@ public class stair implements Initializable {
 			}
 		}
 		if ((x == 910) && (y >= 110) && (y <= 220)) {
+			new floor2room.passward().ans = 4812;
 			getX = x;
 			getY = y;
 			stair2 = true;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor3room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);

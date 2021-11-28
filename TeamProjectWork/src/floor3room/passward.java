@@ -1,4 +1,4 @@
-package floor2room;
+package floor3room;
 
 import java.awt.SecondaryLoop;
 import java.io.IOException;
@@ -110,30 +110,30 @@ public class passward {
 		int number = Integer.parseInt(first.getText()) * 1000 +Integer.parseInt(second.getText()) * 100 + Integer.parseInt(third.getText()) * 10 + Integer.parseInt(fourth.getText());
 
 		if(ans == number) {
-			if(ans == 3479) {
+			if(ans == 9258) {
 				try {
 					Parent root;
-					root = FXMLLoader.load(getClass().getResource("/floor2room/drawingroom.fxml"));
+					root = FXMLLoader.load(getClass().getResource("/floor3room/guestroom.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) first.getScene().getWindow();
 					primaryStage.setScene(scene);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			}else if(ans == 4812) { 
+			}else if(ans == 6573) {
 				try {
 					Parent root;
-					root = FXMLLoader.load(getClass().getResource("/floor3room/stair.fxml"));
+					root = FXMLLoader.load(getClass().getResource("/floor3room/powderroom.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) first.getScene().getWindow();
 					primaryStage.setScene(scene);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-			}else if(ans ==1261) {
+			}else if(ans == 1468) {
 				try {
 					Parent root;
-					root = FXMLLoader.load(getClass().getResource("/floor2room/dressroom.fxml"));
+					root = FXMLLoader.load(getClass().getResource("/floor3room/bathroom.fxml"));
 					Scene scene = new Scene(root);
 					Stage primaryStage = (Stage) first.getScene().getWindow();
 					primaryStage.setScene(scene);

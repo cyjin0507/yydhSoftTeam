@@ -141,9 +141,10 @@ public class stair implements Initializable{
 			getX = x;
 			getY = y;
 			guestroom = true;
+			new floor3room.passward().ans = 9258;
 			try {
 				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor3room/guestroom.fxml"));
+				root = FXMLLoader.load(getClass().getResource("/floor3room/passward.fxml"));
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
