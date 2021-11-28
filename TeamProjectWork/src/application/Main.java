@@ -26,6 +26,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
+			//테스트 아
 //			loader.setLocation(getClass().getResource("/user/Login.fxml"));
 
 //			loader.setLocation(getClass().getResource("/B1room/prison.fxml"));
