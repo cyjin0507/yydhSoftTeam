@@ -32,7 +32,6 @@ public class mediaview extends gameReady implements Initializable {
 		mp.play();
 		mp.setOnEndOfMedia(() -> {
 			mp.stop();
-			System.out.println("dkldkd");
 			
 			try {
 				System.out.println(sorting());

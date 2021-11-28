@@ -40,6 +40,8 @@ public class gameReady extends gameRequest implements Initializable {
 	private Label user1_name;
 	@FXML
 	private Label user2_name;
+	
+	private static String type = null;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -48,7 +50,7 @@ public class gameReady extends gameRequest implements Initializable {
 		System.out.println(rq.player);
 		if (rq.player) {
 			player1Btn.setVisible(true);
-
+			type = "user1";
 			try {
 				user1_name.setText(who());
 			} catch (UnknownHostException e) {
@@ -58,7 +60,7 @@ public class gameReady extends gameRequest implements Initializable {
 			makeTable();
 		} else {
 			player2Btn.setVisible(true);
-
+			type = "user2";
 			try {
 				user1_name.setText(who());
 			} catch (UnknownHostException e) {
@@ -327,7 +329,34 @@ public class gameReady extends gameRequest implements Initializable {
 	}
 
 	public void reset() {
+		JDBCUtil db = new JDBCUtil();
+		java.sql.Connection con = db.getConnection();
 
+		java.sql.PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = null;
+		try {
+			sql = "select * from game_info WHERE user1 = '"+ who() +"' OR user2 = '" + who() + "'";
+		} catch (UnknownHostException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				String user1 = rs.getString("user1");
+				String user2 = rs.getString("user2");
+				if(type.equals("user1")) {
+					user2_name.setText("user2");
+				} else if(type.equals("user2")) {
+					user1_name.setText("user1");
+				}
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 }
