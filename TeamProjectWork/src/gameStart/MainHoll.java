@@ -18,8 +18,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import test.passward;
+import user.sort;
 
-public class MainHoll implements Initializable {
+public class MainHoll extends sort implements Initializable {
 	@FXML
 	private ImageView imageView;
 
@@ -181,8 +182,12 @@ public class MainHoll implements Initializable {
 		if ((y == 640) && (x >= 450) && (y <= 650)) {
 			new floor1room.passward().ans = 33;
 			try {
-				Parent root;
-				root = FXMLLoader.load(getClass().getResource("/floor1room/passward.fxml"));
+				Parent root = null;
+				if(sort().equals("user1")) {
+					root = FXMLLoader.load(getClass().getResource("/gameStart/last1.fxml"));					
+				} else if(sort().equals("user2")) {
+					root = FXMLLoader.load(getClass().getResource("/gameStart/last2.fxml"));					
+				}
 				Scene scene = new Scene(root);
 				Stage primaryStage = (Stage) imageView.getScene().getWindow();
 				primaryStage.setScene(scene);
