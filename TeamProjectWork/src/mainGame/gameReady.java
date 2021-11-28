@@ -25,6 +25,8 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import user.mainPage;
@@ -35,7 +37,8 @@ public class gameReady extends gameRequest implements Initializable {
 	private Button player1Btn;
 	@FXML
 	private Button player2Btn;
-
+	public static MediaPlayer mp;
+	Media m = null;
 	@FXML
 	private Label user1_name;
 	@FXML
@@ -237,6 +240,8 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
+					mp = new MediaPlayer(new Media(getClass().getResource("/music/게임_준비.mp3").toString()));
+					mp.play();
 					if (user1.equals(who())) {
 						Parent par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
 						Scene scene = new Scene(par);
