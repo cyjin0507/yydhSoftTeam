@@ -238,6 +238,7 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
+					new mediaview().ending = "인트로";
 					Parent par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));
 					Scene scene = new Scene(par);
 					Stage primaryStage = (Stage) startBtn.getScene().getWindow();
