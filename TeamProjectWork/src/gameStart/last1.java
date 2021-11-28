@@ -36,6 +36,7 @@ public class last1 extends sort implements Initializable {
 					Stage primaryStage = (Stage) ans.getScene().getWindow();
 					scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 					primaryStage.setScene(scene);
+
 					gameDelete();
 				} else {
 					Alert alert = new Alert(AlertType.CONFIRMATION);
