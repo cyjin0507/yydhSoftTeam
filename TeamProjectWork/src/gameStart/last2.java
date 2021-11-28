@@ -18,7 +18,9 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import mainGame.gameReady;
 import mainGame.mediaview;
+import mainGame.server;
 import user.sort;
 import util.JDBCUtil;
 
@@ -28,40 +30,27 @@ public class last2 extends sort implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 
 		if (check.equals("yes")) {
+			new mediaview().ending = "같이_탈출";
+			Parent par = null;
 			try {
-				if (check()) {
-					new mediaview().ending = "같이_탈출";
-					Parent par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));
-					Scene scene = new Scene(par);
-					Stage primaryStage = (Stage) ans.getScene().getWindow();
-					scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-					primaryStage.setScene(scene);
-				} else {
-					Alert alert = new Alert(AlertType.CONFIRMATION);
-					alert.setTitle("어?");
-					alert.setHeaderText("아직 동료가 문제를 풀지 못했습니다");
-					alert.setContentText("혼자 탈출할 경우 동료는 영원히 탈출 못합니다.");
-					Optional<ButtonType> result = alert.showAndWait();
-					if (result.get() == ButtonType.OK) {
-						new mediaview().ending = "배신";
-						Parent par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));
-						Scene scene = new Scene(par);
-						Stage primaryStage = (Stage) ans.getScene().getWindow();
-						scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
-						primaryStage.setScene(scene);
-					} else if (result.get() == ButtonType.CANCEL) {
-						Parent root;
-						root = FXMLLoader.load(getClass().getResource("/gameStart/mainhall.fxml"));
-						Scene scene = new Scene(root);
-						Stage primaryStage = (Stage) ans.getScene().getWindow();
-						primaryStage.setScene(scene);
-					}
-				}
-			} catch (UnknownHostException e) {
-
-			} catch (IOException e) {
-
+				par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
+			Scene scene = new Scene(par);
+			Stage primaryStage = (Stage) ans.getScene().getWindow();
+			scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			new gameReady().mp.stop();
+			new server().stopServer();
+			try {
+				gameDelete();
+			} catch (UnknownHostException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		}
 	}
 
