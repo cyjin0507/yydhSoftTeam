@@ -15,14 +15,10 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import util.JDBCUtil;
 
 public class userController {
-	public static MediaPlayer mp;
-	Media m = null;
 
 	// 사용자 일련번호 생성
 	public String serialNum() {
@@ -194,19 +190,6 @@ public class userController {
 							Stage primaryStage = (Stage) Sing.getScene().getWindow();
 							scene.getStylesheets().add(getClass().getResource("/application/application.css").toExternalForm());
 							primaryStage.setScene(scene);
-							mp = new MediaPlayer(new Media(getClass().getResource("/music/메인화면.mp3").toString()));
-							Runnable onEnd = new Runnable() {
-								@Override
-								public void run() {
-									mp.dispose();
-									mp = new MediaPlayer(m);
-									mp.play();
-									mp.setOnEndOfMedia(this);
-								}
-							};
-							mp.setOnEndOfMedia(onEnd);
-							mp.play();
-							
 							
 						} catch (Exception e) {
 							e.printStackTrace();

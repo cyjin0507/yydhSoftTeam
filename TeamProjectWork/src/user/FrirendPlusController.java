@@ -39,6 +39,11 @@ public class FrirendPlusController implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		MediaPlayer mp;
+		Media m = null;
+		
+		mp = new MediaPlayer(new Media(getClass().getResource("/music/메인화면.mp3").toString()));
+        mp.play();
 		
 		// TODO Auto-generated method stub
 		listAction();

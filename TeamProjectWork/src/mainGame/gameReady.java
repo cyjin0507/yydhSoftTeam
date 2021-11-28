@@ -25,19 +25,12 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import user.mainPage;
-import user.userController;
 import util.JDBCUtil;
 
 public class gameReady extends gameRequest implements Initializable {
-	
-	public static MediaPlayer mp;
-	Media m = null;
-
 	@FXML
 	private Button player1Btn;
 	@FXML
@@ -54,20 +47,7 @@ public class gameReady extends gameRequest implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		reset();
 		gameRequest rq = new gameRequest();
-		new userController().mp.stop();
-		mp = new MediaPlayer(new Media(getClass().getResource("/music/게임_준비.mp3").toString()));
-		Runnable onEnd = new Runnable() {
-			@Override
-			public void run() {
-				mp.dispose();
-				mp = new MediaPlayer(m);
-				mp.play();
-				mp.setOnEndOfMedia(this);
-			}
-		};
-		mp.setOnEndOfMedia(onEnd);
-		mp.play();
-		
+		new mainPage().mp.stop();
 		System.out.println(rq.player);
 		if (rq.player) {
 			player1Btn.setVisible(true);
