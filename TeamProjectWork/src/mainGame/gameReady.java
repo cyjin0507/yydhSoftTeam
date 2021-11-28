@@ -238,21 +238,12 @@ public class gameReady extends gameRequest implements Initializable {
 
 				// 모두가 준비가 된 상태
 				if (ready1.equals("accept") && ready2.equals("accept")) {
-					if (user1.equals(who())) {
-						Parent par = FXMLLoader.load(getClass().getResource("/floor2room/study.fxml"));
-						Scene scene = new Scene(par);
-						Stage primaryStage = (Stage) startBtn.getScene().getWindow();
-						scene.getStylesheets()
-								.add(getClass().getResource("/application/application.css").toExternalForm());
-						primaryStage.setScene(scene);
-					} else if (user2.equals(who())) {
-						Parent par = FXMLLoader.load(getClass().getResource("/B1room/prison.fxml"));
-						Scene scene = new Scene(par);
-						Stage primaryStage = (Stage) startBtn.getScene().getWindow();
-						scene.getStylesheets()
-								.add(getClass().getResource("/application/application.css").toExternalForm());
-						primaryStage.setScene(scene);
-					}
+					Parent par = FXMLLoader.load(getClass().getResource("/mainGame/mediaview.fxml"));
+					Scene scene = new Scene(par);
+					Stage primaryStage = (Stage) startBtn.getScene().getWindow();
+					scene.getStylesheets()
+							.add(getClass().getResource("/application/application.css").toExternalForm());
+					primaryStage.setScene(scene);
 
 				} else if (user1.equals(who()) && ready1.equals("accept") && ready2.equals("waitting")) {
 					Alert alert = new Alert(AlertType.WARNING);
